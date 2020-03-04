@@ -1,4 +1,4 @@
-package maciekmalik.pl.APO;
+package maciekmalik.APO;
 
 import static org.junit.Assert.assertTrue;
 

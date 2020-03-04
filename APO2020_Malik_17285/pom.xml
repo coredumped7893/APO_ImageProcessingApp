@@ -98,7 +98,7 @@
           </executions>
 
           <configuration>
-            <mainClass>maciekmalik.pl.APO.App</mainClass>
+            <mainClass>maciekmalik.APO.App</mainClass>
           </configuration>
         </plugin>
 

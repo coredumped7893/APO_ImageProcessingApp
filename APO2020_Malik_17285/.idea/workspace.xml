@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../LAB01/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LAB01/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LAB01/src/main/java/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../LAB01/src/main/java/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/01.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/src/main/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/src/main/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/target/classes/main/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01/target/classes/main/main.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/APO/ImageWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/APO/Resources/tmp_code" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/pl/APO/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/APO/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/maciekmalik/pl/APO/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/maciekmalik/APO/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/maciekmalik/pl/APO/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,11 +28,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/pl/APO/App.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="98" column="61" selection-start-line="98" selection-start-column="61" selection-end-line="98" selection-end-column="61" />
+            <state relative-caret-position="135">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/Resources/tmp_code">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="845">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,7 +58,31 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/ImageWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -56,6 +92,11 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/maciekmalik/pl/APO/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/maciekmalik/APO/Resources/tmp_code" />
+        <option value="$PROJECT_DIR$/src/main/java/maciekmalik/APO/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.form" />
+        <option value="$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/maciekmalik/APO/ImageWindow.java" />
       </list>
     </option>
   </component>
@@ -88,14 +129,14 @@
     <option name="width" value="1650" />
     <option name="height" value="990" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,27 +174,39 @@
               <item name="APO2020_Malik_17285" type="b2602c69:ProjectViewProjectNode" />
               <item name="APO2020_Malik_17285" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="APO2020_Malik_17285" type="b2602c69:ProjectViewProjectNode" />
-              <item name="APO2020_Malik_17285" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="APO2020_Malik_17285" type="b2602c69:ProjectViewProjectNode" />
-              <item name="APO2020_Malik_17285" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="APO" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="APO2020_Malik_17285" type="b2602c69:ProjectViewProjectNode" />
+              <item name="APO2020_Malik_17285" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="APO" type="462c0819:PsiDirectoryNode" />
+              <item name="MainGUI" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="APO2020_Malik_17285" type="b2602c69:ProjectViewProjectNode" />
+              <item name="APO2020_Malik_17285" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="APO2020_Malik_17285" type="b2602c69:ProjectViewProjectNode" />
+              <item name="APO2020_Malik_17285" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,9 +217,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -292,18 +346,29 @@
       <workItem from="1583290335244" duration="244000" />
       <workItem from="1583306264289" duration="2347000" />
       <workItem from="1583308964153" duration="2309000" />
-      <workItem from="1583311530254" duration="67000" />
+      <workItem from="1583311530254" duration="361000" />
+      <workItem from="1583322655422" duration="3202000" />
+      <workItem from="1583326471687" duration="7029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5256000" />
+    <option name="totallyTimeSpent" value="15781000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="992" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25702077" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2014652" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -312,7 +377,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.31555554" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -328,7 +393,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" auto_hide="true" id="Maven" order="3" weight="0.32967034" />
       <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Codota" order="5" />
+      <window_info anchor="right" id="Codota" order="5" weight="0.32967034" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -352,17 +417,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/maciekmalik/pl/APO/AppTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/maciekmalik/APO/AppTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/pl/APO/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/2e9.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/nn.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/nn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="98" column="61" selection-start-line="98" selection-start-column="61" selection-end-line="98" selection-end-column="61" />
+        <state relative-caret-position="60">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/Resources/tmp_code">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/MainGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/maciekmalik/APO/ImageWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -420,10 +523,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
+          <last-edited>APO_Malik</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -431,6 +536,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Maven: jfree:jcommon:1.0.16</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
