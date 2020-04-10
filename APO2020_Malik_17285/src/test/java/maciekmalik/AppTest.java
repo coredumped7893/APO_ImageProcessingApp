@@ -1,4 +1,4 @@
-package maciekmalik.APO;
+package maciekmalik;
 
 import static org.junit.Assert.assertTrue;
 
