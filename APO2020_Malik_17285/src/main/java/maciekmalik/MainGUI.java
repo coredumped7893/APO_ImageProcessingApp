@@ -5,6 +5,7 @@
 package maciekmalik;
 
 import maciekmalik.Image.Histogram;
+import maciekmalik.Image.Utils;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -12,12 +13,14 @@ import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
 
 public class MainGUI extends JFrame  {
 
-
+    private static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
 
 
     @SuppressWarnings("unchecked")
@@ -76,6 +79,11 @@ public class MainGUI extends JFrame  {
         jMFile.add(jSeparator4);
 
         jMDuplicate.setText("Duplicate");
+        jMDuplicate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMDuplicateActionPerformed(evt);
+            }
+        });
         jMFile.add(jMDuplicate);
         jMFile.add(jSeparator3);
 
@@ -177,6 +185,9 @@ public class MainGUI extends JFrame  {
     }// </editor-fold>
 
 
+    /**
+     *
+     */
     public MainGUI() {
 
         this.initComponents();
@@ -189,28 +200,28 @@ public class MainGUI extends JFrame  {
 
     }
 
+    /**
+     * @param evt
+     */
     private void jMOpenFileActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("Opening Image");
+        LOGGER.info("Opening Image");
         this._loadImage();
     }
 
+
+    /**
+     * Calculate & Display Histogram for focused frame
+     *
+     * @param evt ActionEvent
+     */
     private void jMHistogramActionPerformed(java.awt.event.ActionEvent evt) {
-        //Calculate & Display Histogram for focused frame
-        // @TODO disable button when nothing is/was focused
-
-        System.out.println(evt.getActionCommand());
-
-        System.out.println(ImageWindow.getLastFocused().toString());
-        System.out.println(ImageWindow.getLastFocused().getIcon().getDescription());
-        System.out.println("-----------------");
-
+        LOGGER.info(evt.getActionCommand());
+        LOGGER.info(ImageWindow.getLastFocused().toString());
+        LOGGER.info(ImageWindow.getLastFocused().getIcon().getDescription());
 
         Histogram.HistogramFrameFabric(
             "Histogram:["+ImageWindow.getLastFocused().getIcon().getDescription()+"]",
                 ImageWindow.getLastFocused().getIcon().getImage());
-
-
-
 
     }
 
@@ -226,24 +237,37 @@ public class MainGUI extends JFrame  {
     }
 
     private void jMSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("Save");
+        LOGGER.info("Save");
     }
 
     private void jMSaveAsActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("SaveAs");
+        LOGGER.info("SaveAs");
     }
 
     private void jMExitActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("Exit");
+        LOGGER.info("Exiting");
         System.exit(0);
+    }
 
+    /**
+     * Kopiuje obraz z obecnie zaznaczonej ramki i tworzy nową
+     *
+     * @param evt
+     */
+    private void jMDuplicateActionPerformed(java.awt.event.ActionEvent evt) {
+        LOGGER.info("Duplicating image");
+        String title = "CopyOf_" + ImageWindow.getLastFocused().getIcon().getDescription();
+        ImageWindow iw = new ImageWindow(
+                (Image) Utils.deepCopy(
+                        Utils.toBufferedImage(
+                                ImageWindow.getLastFocused().getIcon().getImage())));
+        iw.setDescription(title);
     }
 
 
     private void jMAboutMenuSelected(javax.swing.event.MenuEvent evt) {
-        System.out.println("About");
-        new About().setVisible(true);
-
+        LOGGER.info("About");
+        About.AboutFactory().setVisible(true);
     }
 
     private void _checkEnabled(){
@@ -261,6 +285,9 @@ public class MainGUI extends JFrame  {
         }
     }
 
+    /**
+     * Okno wyboru pliku i utworzenie okna z plikiem po jego otwarciu
+     */
     private void _loadImage(){
         JFileChooser chooser = new JFileChooser(Paths.get(".").toAbsolutePath().normalize().toString()+"/src/main/java/maciekmalik/Resources"){
             @Override
@@ -282,8 +309,9 @@ public class MainGUI extends JFrame  {
 
         if(t == JFileChooser.APPROVE_OPTION){
             //Create new window for selected image
-            // @TODO change to invoke later
-            (new ImageWindow(chooser.getSelectedFile().getAbsolutePath())).setDescription(chooser.getSelectedFile().getName());
+            SwingUtilities.invokeLater(() ->
+                    (new ImageWindow(chooser.getSelectedFile().getAbsolutePath())).setDescription(chooser.getSelectedFile().getName()) );
+
 
         }else{
             //Cancel - NOP

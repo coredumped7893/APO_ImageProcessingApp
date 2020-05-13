@@ -5,13 +5,19 @@
 package maciekmalik;
 
 import javax.swing.*;
+import java.awt.desktop.AboutHandler;
+
 
 public class About extends JFrame {
 
-
-    public About() {
+    private About() {
         initComponents();
         this.setAlwaysOnTop(true);
+    }
+
+    private static final About instance = new About();
+    public static About AboutFactory(){
+        return instance;
     }
 
     @SuppressWarnings("unchecked")

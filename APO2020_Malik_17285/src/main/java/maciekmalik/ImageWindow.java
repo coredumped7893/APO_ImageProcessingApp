@@ -21,11 +21,23 @@ public class ImageWindow extends JFrame implements FocusListener {
         return icon;
     }
 
+
+    /**
+     * @return last focused @ImageWindow
+     */
     public static ImageWindow getLastFocused() {
         return lastFocused;
     }
 
+
+    /**
+     * Last focused image window
+     */
     private static ImageWindow lastFocused = null;
+
+    /**
+     * Image to be displayed in frame
+     */
     private ImageIcon icon;
     private JLabel imgContainer = new JLabel(icon);
 
@@ -50,10 +62,6 @@ public class ImageWindow extends JFrame implements FocusListener {
         this._finishInit();
 
     }
-
-
-
-
 
     private void _initWindow(){
 
@@ -89,7 +97,6 @@ public class ImageWindow extends JFrame implements FocusListener {
 
     private void _finishInit(){
 
-
         this.setMinimumSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
         this.setAlwaysOnTop(true);
 
@@ -98,40 +105,11 @@ public class ImageWindow extends JFrame implements FocusListener {
 
         this._setBorder();
 
-
         this.add(imgContainer);
         this.pack();
         this.setVisible(true);
 
     }
-
-
-    /**
-     * Converts a given Image into a BufferedImage
-     *
-     * @param img The Image to be converted
-     * @return The converted BufferedImage
-     */
-    public static BufferedImage toBufferedImage(Image img)
-    {
-        if (img instanceof BufferedImage)
-        {
-            return (BufferedImage) img;
-        }
-
-        // Create a buffered image with transparency
-        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-
-        // Draw the image on to the buffered image
-        Graphics2D bGr = bimage.createGraphics();
-        bGr.drawImage(img, 0, 0, null);
-        bGr.dispose();
-
-        // Return the buffered image
-        return bimage;
-    }
-
-
 
     public void setDescription(String desc){
         this.icon.setDescription(desc);

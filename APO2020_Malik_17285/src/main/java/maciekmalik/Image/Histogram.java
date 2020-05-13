@@ -193,19 +193,12 @@ public class Histogram extends JFrame implements ChangeListener {
 
 
     /**
-     * Creates a new, initially invisible <code>Frame</code> with the
-     * specified title.
-     * <p>
-     * This constructor sets the component's locale property to the value
-     * returned by <code>JComponent.getDefaultLocale</code>.
      *
-     * @param title the title for the frame
-     * @throws HeadlessException if GraphicsEnvironment.isHeadless()
-     *                           returns true.
-     * @see GraphicsEnvironment#isHeadless
-     * @see Component#setSize
-     * @see Component#setVisible
-     * @see JComponent#getDefaultLocale
+     * @param title tytuł ramki/okna
+     * @param image obraz z którego będzie generowany histogram
+     * @throws HeadlessException if GraphicsEnvironment.isHeadless() returns true.
+     * @see Image
+     * @see ImageWindow#toBufferedImage(Image)
      */
     private Histogram(String title, Image image) throws HeadlessException {
         super(title);
@@ -214,6 +207,7 @@ public class Histogram extends JFrame implements ChangeListener {
         //this.chartDemos();
 
         this.initComponents();
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         if(image != null){
 
@@ -229,11 +223,15 @@ public class Histogram extends JFrame implements ChangeListener {
         java.awt.EventQueue.invokeLater(() -> new Histogram( title,  image).setVisible(true));
     }
 
-
+    @Deprecated
     public Histogram() {
     }
 
-
+    /**
+     * Ustawia statystyki w oknie
+     *
+     * @param map
+     */
     private void _updateStats(Map<String, Double> map){
 
         jLCount.setText("Count: " + map.get("count"));
@@ -245,15 +243,12 @@ public class Histogram extends JFrame implements ChangeListener {
 
     }
 
-
-
-
     private Map<String, Double> _calculateStats(Map<String, int[]> ch,String channelName){
 
 
         Map<String, Double> statsOUT = new HashMap<>();
 
-        BufferedImage buffImg = ImageWindow.toBufferedImage(this.image);
+        BufferedImage buffImg = Utils.toBufferedImage(this.image);
         int[] pixels = ((DataBufferInt) buffImg.getRaster().getDataBuffer()).getData();
 
         ArrayList sorted = new ArrayList<Double>();
@@ -299,7 +294,7 @@ public class Histogram extends JFrame implements ChangeListener {
 
         //ARGBARGBARGB
 
-        BufferedImage buffImg = ImageWindow.toBufferedImage(this.image);
+        BufferedImage buffImg = Utils.toBufferedImage(this.image);
 
         int[] dataR = new int[256];
         int[] dataG = new int[256];
@@ -447,13 +442,25 @@ public class Histogram extends JFrame implements ChangeListener {
 
 
         //Add charts to tabs
+        ChartPanel cpR,cpG,cpB;
+        cpR = new ChartPanel(chartTestR);
+        cpG = new ChartPanel(chartTestG);
+        cpB = new ChartPanel(chartTestB);
+
+        cpR.setDomainZoomable(false);
+        cpR.setRangeZoomable(false);
+        cpG.setDomainZoomable(false);
+        cpG.setRangeZoomable(false);
+        cpB.setDomainZoomable(false);
+        cpB.setRangeZoomable(false);
+
 
         jPTabRed.setLayout(new BorderLayout());
         jPTabGreen.setLayout(new BorderLayout());
         jPTabBlue.setLayout(new BorderLayout());
-        jPTabRed.add(new ChartPanel(chartTestR),BorderLayout.NORTH);
-        jPTabGreen.add(new ChartPanel(chartTestG),BorderLayout.NORTH);
-        jPTabBlue.add(new ChartPanel(chartTestB),BorderLayout.NORTH);
+        jPTabRed.add(cpR,BorderLayout.NORTH);
+        jPTabGreen.add(cpG,BorderLayout.NORTH);
+        jPTabBlue.add(cpB,BorderLayout.NORTH);
         jPTabRed.setVisible(true);
         jPTabGreen.setVisible(true);
         jPTabBlue.setVisible(true);
