@@ -7,7 +7,10 @@ package maciekmalik.Image;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
+import java.awt.image.DataBufferInt;
 import java.awt.image.WritableRaster;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Utils {
 
@@ -41,6 +44,41 @@ public class Utils {
         return bimage;
     }
 
+    public static int[] getPixelArray(Image image){
+        BufferedImage buffImg = Utils.toBufferedImage(image);
+        return ((DataBufferInt) buffImg.getRaster().getDataBuffer()).getData();
+    }
+
+
+    public static Map<String,Integer> pixelValue(int pixel){
+        Map<String,Integer> tmpM = new HashMap<>();
+
+        int r,g,b;
+
+        //Alpha channel can be ommited
+        r = ( (pixel) & 0x00ff0000 ) >> 16;
+        g = ( (pixel) & 0x0000ff00 ) >> 8;
+        b = ( (pixel) & 0x000000ff );
+
+        tmpM.put("Red",r);
+        tmpM.put("Green",g);
+        tmpM.put("Blue",b);
+
+        return tmpM;
+
+    }
+
+    public static int pixelToInt(Map<String,Integer> pixel){
+        return pixel.get("Blue") + ( pixel.get("Green") << 8 ) + ( pixel.get("Red") << 16 );
+    }
+
+    public static Image getImageFromArray(int[] pixels, int width, int height) {
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        image.setRGB(0,0,width,height,pixels,0,width);
+        //WritableRaster raster = (WritableRaster) image.getData();
+        //raster.setPixels(0,0,width,height,pixels);
+        return image;
+    }
 
 
 

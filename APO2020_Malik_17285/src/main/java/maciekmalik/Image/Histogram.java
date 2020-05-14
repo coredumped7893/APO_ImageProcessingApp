@@ -38,28 +38,23 @@ import java.lang.Double;
 
 public class Histogram extends JFrame implements ChangeListener {
 
-    /*
-    Graph lib:
-        jfreechart
-        gral
-        Xchart
-
-
-     */
-    private static final int SAMPLE_COUNT = 1000;
-    protected static final Color COLOR1 = new Color( 55, 170, 200);
-    /** Second corporate color used as signal color */
-    protected static final Color COLOR2 = new Color(200,  80,  75);
 
     private Image image;
-
     public boolean isColor() {
         return isColor;
     }
-
     private boolean isColor = true;
     private Map<String, int[]> tmoOUT = new HashMap<>();
-
+    private javax.swing.JLabel jLCount;
+    private javax.swing.JLabel jLMean;
+    private javax.swing.JLabel jLMedian;
+    private javax.swing.JLabel jLPercentile;
+    private javax.swing.JLabel jLPixels;
+    private javax.swing.JLabel jLStdDev;
+    private javax.swing.JPanel jPTabBlue;
+    private javax.swing.JPanel jPTabGreen;
+    private javax.swing.JPanel jPTabRed;
+    private javax.swing.JTabbedPane jTabCon;
 
     private void initComponents() {
 
@@ -177,20 +172,6 @@ public class Histogram extends JFrame implements ChangeListener {
         pack();
     }// </editor-fold>
 
-    private javax.swing.JLabel jLCount;
-    private javax.swing.JLabel jLMean;
-    private javax.swing.JLabel jLMedian;
-    private javax.swing.JLabel jLPercentile;
-    private javax.swing.JLabel jLPixels;
-    private javax.swing.JLabel jLStdDev;
-    private javax.swing.JPanel jPTabBlue;
-    private javax.swing.JPanel jPTabGreen;
-    private javax.swing.JPanel jPTabRed;
-    private javax.swing.JTabbedPane jTabCon;
-
-
-
-
 
     /**
      *
@@ -248,8 +229,7 @@ public class Histogram extends JFrame implements ChangeListener {
 
         Map<String, Double> statsOUT = new HashMap<>();
 
-        BufferedImage buffImg = Utils.toBufferedImage(this.image);
-        int[] pixels = ((DataBufferInt) buffImg.getRaster().getDataBuffer()).getData();
+        int[] pixels = Utils.getPixelArray(this.image);
 
         ArrayList sorted = new ArrayList<Double>();
 
@@ -266,12 +246,6 @@ public class Histogram extends JFrame implements ChangeListener {
 
         }
 
-//        for (int  i = 0; i < pixels.length ;i++ ){
-//
-//            stddev += Math.pow((double) (ch.get("Red")[i] - ((double)sum/(double) pixels.length) ),2);
-//
-//        }
-
         Collections.sort(sorted);
 
         statsOUT.put("count",(double)sum);
@@ -281,20 +255,23 @@ public class Histogram extends JFrame implements ChangeListener {
         statsOUT.put("mean",(double)sum/pixels.length);
         //statsOUT.put("std_dev",(double)Math.sqrt(stddev/pixels.length));
 
-
-
         return statsOUT;
     }
 
 
-
+    /**
+     * Liczy ilość wystąpień jasności każdego z kanałów
+     *
+     * @return Map<String, int[]>
+     * @see Utils#getPixelArray(Image) 
+     * @see Utils#pixelValue(int) 
+     * @see Histogram#_calculateStats(Map, String)
+     */
     private Map<String, int[]> _calculateHist(){
 
         //TYPE_INT_ARGB
 
         //ARGBARGBARGB
-
-        BufferedImage buffImg = Utils.toBufferedImage(this.image);
 
         int[] dataR = new int[256];
         int[] dataG = new int[256];
@@ -307,23 +284,18 @@ public class Histogram extends JFrame implements ChangeListener {
         //if each channel is the same -> greyscale
 
         //Get each pixel data as sum of 4 channels in turn (A + R + G + B)
-        int[] pixels = ((DataBufferInt) buffImg.getRaster().getDataBuffer()).getData();
+        int[] pixels = Utils.getPixelArray(this.image);
 
         int i,notColor=0;
         //Iterate over whole pixel array (each pixel has 4 bytes)
         for ( i=0; (i+0) < pixels.length ;i+=1 ){
-            int r,g,b;
+            Map<String,Integer> pixel = Utils.pixelValue(pixels[i]);
 
-            //A channel can be ommited
-            r = ( (pixels[i]) & 0x00ff0000 ) >> 16;
-            g = ( (pixels[i]) & 0x0000ff00 ) >> 8;
-            b = ( (pixels[i]) & 0x000000ff );
+            dataR[ pixel.get("Red") ]++;
+            dataG[ pixel.get("Green") ]++;
+            dataB[ pixel.get("Blue") ]++;
 
-            dataR[ r ]++;
-            dataG[ g ]++;
-            dataB[ b ]++;
-
-            if(((r == g) && (r == b)  )){
+            if(((pixel.get("Red") == pixel.get("Green")) && (pixel.get("Red") == pixel.get("Blue"))  )){
                 notColor++;
             }
         }
@@ -422,25 +394,6 @@ public class Histogram extends JFrame implements ChangeListener {
         r.setSeriesPaint(0,Color.BLUE);
         tmpPlotB.setBackgroundPaint(Color.WHITE);
 
-
-
-        /*
-        //Create new window to display it
-        ChartFrame frameR = new ChartFrame(title + " Red", chartTestR);
-        frameR.pack();
-        frameR.setVisible(true);
-
-        ChartFrame frameG = new ChartFrame(title + " Green", chartTestG);
-        frameG.pack();
-        frameG.setVisible(true);
-
-        ChartFrame frameB = new ChartFrame(title + " Blue", chartTestB);
-        frameB.pack();
-        frameB.setVisible(true);
-
-         */
-
-
         //Add charts to tabs
         ChartPanel cpR,cpG,cpB;
         cpR = new ChartPanel(chartTestR);
@@ -471,116 +424,6 @@ public class Histogram extends JFrame implements ChangeListener {
 
     }
 
-
-
-
-    public void chartDemos(){
-        setPreferredSize(new Dimension(300,300));
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-
-//GRAAL styled example
-
-
-// Create example data
-        Random random = new Random();
-        DataTable data2 = new DataTable(Double.class);
-        for (int i = 0; i < SAMPLE_COUNT; i++) {
-            data2.add(random.nextGaussian());
-        }
-
-// Create histogram from data
-
-
-        Histogram1D histogram = new Histogram1D(data2, Orientation.VERTICAL,
-                new Number[] {-4.0, -3.2, -2.4, -1.6, -0.8, 0.0, 0.8, 1.6, 2.4, 3.6, 4.0});
-// Create a second dimension (x axis) for plotting
-        DataSource histogram2d = new EnumeratedData(histogram, (-4.0 + -3.2)/2.0, 0.8);
-
-// Create new bar plot
-        BarPlot plot2 = new BarPlot(histogram2d);
-
-// Format plot
-        plot2.setInsets(new Insets2D.Double(20.0, 65.0, 50.0, 40.0));
-        plot2.getTitle().setText(
-                String.format("Distribution of %d random samples", data2.getRowCount()));
-        plot2.setBarWidth(0.78);
-
-// Format x axis
-        plot2.getAxisRenderer(BarPlot.AXIS_X).setTickAlignment(0.0);
-        plot2.getAxisRenderer(BarPlot.AXIS_X).setTickSpacing(0.8);
-        plot2.getAxisRenderer(BarPlot.AXIS_X).setMinorTicksVisible(false);
-// Format y axis
-        plot2.getAxis(BarPlot.AXIS_Y).setRange(0.0,
-                MathUtils.ceil(histogram.getStatistics().get(Statistics.MAX)*1.1, 25.0));
-        plot2.getAxisRenderer(BarPlot.AXIS_Y).setTickAlignment(0.0);
-        plot2.getAxisRenderer(BarPlot.AXIS_Y).setMinorTicksVisible(false);
-        plot2.getAxisRenderer(BarPlot.AXIS_Y).setIntersection(-4.4);
-
-// Format bars
-        PointRenderer barRenderer = plot2.getPointRenderers(histogram2d).get(0);
-        barRenderer.setColor(GraphicsUtils.deriveWithAlpha(COLOR1, 128));
-        barRenderer.setValueVisible(true);
-
-// Add plot to Swing component
-        InteractivePanel panel = new InteractivePanel(plot2);
-        panel.setPannable(false);
-        panel.setZoomable(false);
-        add(panel);
-        pack();
-
-        //----------------------------------------------
-        DefaultCategoryDataset dataset33 = new DefaultCategoryDataset();
-
-
-        double[] value33 = new double[256];
-        Random generator33 = new Random();
-
-        for (int yy=-100;yy<=100;yy++){
-            dataset33.setValue(Integer.valueOf(0),"1",String.valueOf(yy));
-        }
-
-
-        for (int i=1; i < 5000; i++) {
-            value33[generator33.nextInt(256)]++;
-            //dataset33.setValue(Integer.valueOf(1),"1",String.valueOf(generator33.nextInt(256)));
-            int tmp = (int) (generator33.nextGaussian()*100);
-            //System.out.println(tmp);
-            if(tmp>=-100 && tmp <= 100){
-                dataset33.incrementValue(1,"1",String.valueOf(tmp ));
-            }
-        }
-
-        JFreeChart chartTest33 = ChartFactory.createBarChart("Bar Chart Demo3333",
-
-                "Category",
-
-                "Value",
-
-                dataset33,
-
-                PlotOrientation.VERTICAL, // orientation
-                true,
-
-                true,
-                false
-
-        );
-
-        ChartFrame frame33 = new ChartFrame("HistTest3333", chartTest33);
-        frame33.pack();
-        frame33.setVisible(true);
-
-
-
-
-    }
-
-
-
-
-
-
     /**
      * Invoked when the target of the listener has changed its state.
      *
@@ -598,6 +441,15 @@ public class Histogram extends JFrame implements ChangeListener {
 
 
     }
+
+
+
+
+
+
+
+
+
 
 
 
