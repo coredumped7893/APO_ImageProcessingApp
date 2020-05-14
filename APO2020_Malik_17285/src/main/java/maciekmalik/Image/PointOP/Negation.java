@@ -7,7 +7,6 @@ package maciekmalik.Image.PointOP;
 import maciekmalik.Image.BaseAction;
 import maciekmalik.Image.ImageAction;
 import maciekmalik.Image.Utils;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
@@ -21,14 +20,14 @@ public class Negation  extends BaseAction {
     public Negation(Image imge,Map<Object, Object> options) {
         this.img  =imge;
         this.options = options;
-        this.run(imge,options);
+        this.run(imge);
     }
 
     public Image getImage(){
         return this.img;
     }
 
-    private void run(Image inputIMG, Map<Object, Object> options){
+    private void run(Image inputIMG){
 
         int[] pixels = Utils.getPixelArray(inputIMG);
 

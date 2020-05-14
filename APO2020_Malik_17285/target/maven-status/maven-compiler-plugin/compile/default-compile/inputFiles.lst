@@ -1,5 +1,15 @@
-/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/MainGUI.java
-/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/App.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/HistogramAction.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/BaseAction.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/ImageActionMaker.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/About.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/Histogram.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/ImageWindow.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Negation.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/MainGUI.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/App.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Thresholding.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/Utils.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Posterize.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/RangeStretch.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/ImageAction.java

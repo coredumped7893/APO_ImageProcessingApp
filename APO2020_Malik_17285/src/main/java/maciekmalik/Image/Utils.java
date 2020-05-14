@@ -63,6 +63,7 @@ public class Utils {
         tmpM.put("Red",r);
         tmpM.put("Green",g);
         tmpM.put("Blue",b);
+        tmpM.put("Luminance",Math.round((float)Utils.pixelToGray(r,g,b)));
 
         return tmpM;
 
@@ -80,6 +81,14 @@ public class Utils {
         return image;
     }
 
+    public static Image toGreyScale(Image image){
+        //y = 0.2989 * R + 0.5870 * G + 0.1140 * B
+        return image;
+    }
+
+    public static double pixelToGray(int r, int g, int b){
+        return 0.2989 * r + 0.5870 * g + 0.1140 * b;
+    }
 
 
 }

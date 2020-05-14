@@ -7,6 +7,7 @@ package maciekmalik;
 import maciekmalik.Image.Histogram;
 import maciekmalik.Image.ImageAction;
 import maciekmalik.Image.PointOP.Negation;
+import maciekmalik.Image.PointOP.Thresholding;
 import maciekmalik.Image.Utils;
 
 import javax.imageio.ImageIO;
@@ -368,7 +369,9 @@ public class MainGUI extends JFrame  {
     }
 
     private void jMThresholdingActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        Thresholding neg = (Thresholding) ImageAction.run("Thresholding", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+//        SwingUtilities.invokeLater(()->
+//                new ImageWindow(neg.getImage()));
     }
 
     private void jMPosterizeActionPerformed(java.awt.event.ActionEvent evt) {

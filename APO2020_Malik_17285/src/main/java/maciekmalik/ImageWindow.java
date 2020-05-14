@@ -90,6 +90,27 @@ public class ImageWindow extends JFrame implements FocusListener {
 
     }
 
+    /**
+     * Update window image currently displayed
+     *
+     * @param icon
+     */
+    private void setImgContainer(Icon icon) {
+        this.imgContainer.setIcon(icon);
+    }
+
+
+    /**
+     * Updates frame`s window
+     *
+     * @param icon ImageIcon
+     */
+    public void setIcon(ImageIcon icon) {
+        this.icon = icon;
+        this.setImgContainer(this.icon);
+    }
+
+
 
     private void _setBorder(){
         getRootPane().setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, new Color(41,231,103)));
@@ -150,6 +171,9 @@ public class ImageWindow extends JFrame implements FocusListener {
      */
     @Override
     public void focusLost(FocusEvent e) {
+
+        System.out.println("Focus lost");
+
     }
 
 

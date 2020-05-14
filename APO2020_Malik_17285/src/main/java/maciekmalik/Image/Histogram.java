@@ -4,21 +4,8 @@
 
 package maciekmalik.Image;
 
-import de.erichseifert.gral.data.DataSource;
-import de.erichseifert.gral.data.DataTable;
-import de.erichseifert.gral.data.EnumeratedData;
-import de.erichseifert.gral.data.statistics.Histogram1D;
-import de.erichseifert.gral.data.statistics.Statistics;
-import de.erichseifert.gral.graphics.Insets2D;
-import de.erichseifert.gral.graphics.Orientation;
-import de.erichseifert.gral.plots.BarPlot;
-import de.erichseifert.gral.plots.points.PointRenderer;
-import de.erichseifert.gral.ui.InteractivePanel;
-import de.erichseifert.gral.util.GraphicsUtils;
-import de.erichseifert.gral.util.MathUtils;
 import maciekmalik.ImageWindow;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
@@ -26,15 +13,16 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.ui.RectangleInsets;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
 import java.util.*;
 import java.lang.Double;
+import java.util.List;
+
 
 public class Histogram extends JFrame implements ChangeListener {
 
@@ -44,7 +32,10 @@ public class Histogram extends JFrame implements ChangeListener {
         return isColor;
     }
     private boolean isColor = true;
+    private boolean removeAxis = false;
     private Map<String, int[]> tmoOUT = new HashMap<>();
+
+    // Variables declaration - do not modify
     private javax.swing.JLabel jLCount;
     private javax.swing.JLabel jLMean;
     private javax.swing.JLabel jLMedian;
@@ -53,12 +44,20 @@ public class Histogram extends JFrame implements ChangeListener {
     private javax.swing.JLabel jLStdDev;
     private javax.swing.JPanel jPTabBlue;
     private javax.swing.JPanel jPTabGreen;
+    private javax.swing.JPanel jPTabLuminance;
     private javax.swing.JPanel jPTabRed;
     private javax.swing.JTabbedPane jTabCon;
+    // End of variables declaration
+
+
+    public JTabbedPane getjTabCon() {
+        return jTabCon;
+    }
 
     private void initComponents() {
 
         jTabCon = new javax.swing.JTabbedPane();
+        jPTabLuminance = new javax.swing.JPanel();
         jPTabRed = new javax.swing.JPanel();
         jPTabGreen = new javax.swing.JPanel();
         jPTabBlue = new javax.swing.JPanel();
@@ -70,6 +69,19 @@ public class Histogram extends JFrame implements ChangeListener {
         jLPixels = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPTabLuminanceLayout = new javax.swing.GroupLayout(jPTabLuminance);
+        jPTabLuminance.setLayout(jPTabLuminanceLayout);
+        jPTabLuminanceLayout.setHorizontalGroup(
+                jPTabLuminanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 546, Short.MAX_VALUE)
+        );
+        jPTabLuminanceLayout.setVerticalGroup(
+                jPTabLuminanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 346, Short.MAX_VALUE)
+        );
+
+        jTabCon.addTab("Luminance", jPTabLuminance);
 
         jPTabRed.setPreferredSize(new java.awt.Dimension(403, 313));
 
@@ -153,7 +165,7 @@ public class Histogram extends JFrame implements ChangeListener {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jTabCon, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                                .addComponent(jTabCon)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLMean)
@@ -172,27 +184,42 @@ public class Histogram extends JFrame implements ChangeListener {
         pack();
     }// </editor-fold>
 
-
     /**
      *
      * @param title tytuł ramki/okna
      * @param image obraz z którego będzie generowany histogram
+     * @param edit czy używany jest jako ustawienia dla edycji
      * @throws HeadlessException if GraphicsEnvironment.isHeadless() returns true.
      * @see Image
      * @see ImageWindow#toBufferedImage(Image)
      */
-    private Histogram(String title, Image image) throws HeadlessException {
+    public Histogram(String title, Image image) throws HeadlessException {
         super(title);
         this.image = image;
 
-        //this.chartDemos();
-
         this.initComponents();
+
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         if(image != null){
 
-            this._renderFrame(this._calculateHist(),title);
+            List<ChartPanel> cpL =  this._renderFrame(this._calculateHist(),title);
+            jPTabRed.setLayout(new BorderLayout());
+            jPTabGreen.setLayout(new BorderLayout());
+            jPTabBlue.setLayout(new BorderLayout());
+            jPTabLuminance.setLayout(new BorderLayout());
+            jPTabLuminance.add(cpL.get(3),BorderLayout.NORTH);
+            jPTabRed.add(cpL.get(0),BorderLayout.NORTH);
+            jPTabGreen.add(cpL.get(1),BorderLayout.NORTH);
+            jPTabBlue.add(cpL.get(2),BorderLayout.NORTH);
+            jPTabRed.setVisible(true);
+            jPTabGreen.setVisible(true);
+            jPTabBlue.setVisible(true);
+            jPTabLuminance.setVisible(true);
+            this.setMinimumSize((jPTabRed.getComponents()[0].getPreferredSize()));
+            this.setMinimumSize(new Dimension(getWidth(),this.getHeight()+100));
+            jTabCon.addChangeListener(this);
+            jTabCon.setSelectedIndex(0);
 
         }else{
             System.out.println("Image cannot be empty");
@@ -200,13 +227,29 @@ public class Histogram extends JFrame implements ChangeListener {
 
     }
 
+    /**
+     * Constructs a new frame that is initially invisible.
+     * <p>
+     * This constructor sets the component's locale property to the value
+     * returned by <code>JComponent.getDefaultLocale</code>.
+     *
+     * @throws HeadlessException if GraphicsEnvironment.isHeadless()
+     *                           returns true.
+     * @see GraphicsEnvironment#isHeadless
+     * @see Component#setSize
+     * @see Component#setVisible
+     * @see JComponent#getDefaultLocale
+     */
+    public Histogram(Image image) throws HeadlessException {
+        this.initComponents();
+        this.removeAxis = true;
+        this.image = image;
+    }
+
     public static void HistogramFrameFabric(String title, Image image){
         java.awt.EventQueue.invokeLater(() -> new Histogram( title,  image).setVisible(true));
     }
 
-    @Deprecated
-    public Histogram() {
-    }
 
     /**
      * Ustawia statystyki w oknie
@@ -242,7 +285,8 @@ public class Histogram extends JFrame implements ChangeListener {
             sum += ch.get(channelName)[i]*i;
             sum_std += ch.get(channelName)[i];
             sorted.add(new Double(ch.get(channelName)[i]));
-            //stddev += Math.pow((ch.get("Red")[i] - ((double)sum/(double) ch.get("Red").length) ),2) / ch.get("Red").length;
+            //@TODO fix stddev
+            stddev += Math.pow((ch.get("Red")[i] - ((double)sum/(double) ch.get("Red").length) ),2) / ch.get("Red").length;
 
         }
 
@@ -253,7 +297,7 @@ public class Histogram extends JFrame implements ChangeListener {
         statsOUT.put("percentile",(double)100);
         statsOUT.put("median", (Double) sorted.get(ch.get(channelName).length/2));
         statsOUT.put("mean",(double)sum/pixels.length);
-        //statsOUT.put("std_dev",(double)Math.sqrt(stddev/pixels.length));
+        statsOUT.put("std_dev",(double)Math.sqrt(stddev/pixels.length));
 
         return statsOUT;
     }
@@ -267,7 +311,7 @@ public class Histogram extends JFrame implements ChangeListener {
      * @see Utils#pixelValue(int) 
      * @see Histogram#_calculateStats(Map, String)
      */
-    private Map<String, int[]> _calculateHist(){
+    public Map<String, int[]> _calculateHist(){
 
         //TYPE_INT_ARGB
 
@@ -276,10 +320,12 @@ public class Histogram extends JFrame implements ChangeListener {
         int[] dataR = new int[256];
         int[] dataG = new int[256];
         int[] dataB = new int[256];
+        int[] dataL = new int[256];
 
         tmoOUT.put("Red",dataR);
         tmoOUT.put("Green",dataG);
         tmoOUT.put("Blue",dataB);
+        tmoOUT.put("Luminance",dataL);
 
         //if each channel is the same -> greyscale
 
@@ -294,6 +340,7 @@ public class Histogram extends JFrame implements ChangeListener {
             dataR[ pixel.get("Red") ]++;
             dataG[ pixel.get("Green") ]++;
             dataB[ pixel.get("Blue") ]++;
+            dataL[ pixel.get("Luminance") ]++;
 
             if(((pixel.get("Red") == pixel.get("Green")) && (pixel.get("Red") == pixel.get("Blue"))  )){
                 notColor++;
@@ -305,26 +352,28 @@ public class Histogram extends JFrame implements ChangeListener {
         }
 
 
-        this._updateStats(this._calculateStats(tmoOUT,"Red"));
+        this._updateStats(this._calculateStats(tmoOUT,"Luminance"));
 
 
         return tmoOUT;
     }
 
 
-    private void _renderFrame(Map<String, int[]> dataRGB, String title){
+    public List<ChartPanel> _renderFrame(Map<String, int[]> dataRGB, String title){
 
 
         //----------------------------------------------
         DefaultCategoryDataset datasetR = new DefaultCategoryDataset();
         DefaultCategoryDataset datasetG = new DefaultCategoryDataset();
         DefaultCategoryDataset datasetB = new DefaultCategoryDataset();
+        DefaultCategoryDataset datasetL = new DefaultCategoryDataset();
 
         //Set values for given pixel
         for (int yy=0;yy<256;yy++){
             datasetR.setValue(dataRGB.get("Red")[yy],"1",String.valueOf(yy));
             datasetG.setValue(dataRGB.get("Green")[yy],"1",String.valueOf(yy));
             datasetB.setValue(dataRGB.get("Blue")[yy],"1",String.valueOf(yy));
+            datasetL.setValue(dataRGB.get("Luminance")[yy],"1",String.valueOf(yy));
         }
 
         JFreeChart chartTestR = ChartFactory.createBarChart("",
@@ -394,11 +443,42 @@ public class Histogram extends JFrame implements ChangeListener {
         r.setSeriesPaint(0,Color.BLUE);
         tmpPlotB.setBackgroundPaint(Color.WHITE);
 
+
+
+
+        JFreeChart chartTestL = ChartFactory.createBarChart("",
+
+                "--",
+
+                "-",
+
+                datasetL,
+
+                PlotOrientation.VERTICAL, // orientation
+                false,
+
+                true,
+                false
+
+        );
+        //chartTestR.setBackgroundPaint(Color.RED);//
+        CategoryPlot tmpPlotL = (CategoryPlot) chartTestL.getPlot();
+        ((BarRenderer)tmpPlotL.getRenderer()).setBarPainter(new StandardBarPainter());
+        BarRenderer l = (BarRenderer) chartTestL.getCategoryPlot().getRenderer();
+        l.setSeriesPaint(0,Color.GRAY);
+
+
+
+
+
+
+
         //Add charts to tabs
-        ChartPanel cpR,cpG,cpB;
+        ChartPanel cpR,cpG,cpB,cpL;
         cpR = new ChartPanel(chartTestR);
         cpG = new ChartPanel(chartTestG);
         cpB = new ChartPanel(chartTestB);
+        cpL = new ChartPanel(chartTestL);
 
         cpR.setDomainZoomable(false);
         cpR.setRangeZoomable(false);
@@ -406,8 +486,47 @@ public class Histogram extends JFrame implements ChangeListener {
         cpG.setRangeZoomable(false);
         cpB.setDomainZoomable(false);
         cpB.setRangeZoomable(false);
+        cpL.setDomainZoomable(false);
+        cpL.setRangeZoomable(false);
 
 
+
+        if(this.removeAxis){
+            tmpPlotR.setOutlinePaint(null);
+            tmpPlotG.setOutlinePaint(null);
+            tmpPlotB.setOutlinePaint(null);
+            tmpPlotL.setOutlinePaint(null);
+            tmpPlotR.getRangeAxis().setVisible(false);
+            tmpPlotG.getRangeAxis().setVisible(false);
+            tmpPlotB.getRangeAxis().setVisible(false);
+            tmpPlotL.getRangeAxis().setVisible(false);
+            cpR.getChart().setPadding(new RectangleInsets(0,0,0,0));
+            cpG.getChart().setPadding(new RectangleInsets(0,0,0,0));
+            cpB.getChart().setPadding(new RectangleInsets(0,0,0,0));
+            cpL.getChart().setPadding(new RectangleInsets(0,0,0,0));
+            tmpPlotR.getDomainAxis().setLowerMargin(0.01);
+            tmpPlotR.getDomainAxis().setUpperMargin(0.01);
+            tmpPlotG.getDomainAxis().setLowerMargin(0.01);
+            tmpPlotG.getDomainAxis().setUpperMargin(0.01);
+            tmpPlotB.getDomainAxis().setLowerMargin(0.01);
+            tmpPlotB.getDomainAxis().setUpperMargin(0.01);
+            tmpPlotL.getDomainAxis().setLowerMargin(0.01);
+            tmpPlotL.getDomainAxis().setUpperMargin(0.01);
+        }
+
+
+
+
+
+        List<ChartPanel> listOut = new ArrayList<>();
+        listOut.add(cpR);
+        listOut.add(cpG);
+        listOut.add(cpB);
+        listOut.add(cpL);
+
+        return listOut;
+
+        /*
         jPTabRed.setLayout(new BorderLayout());
         jPTabGreen.setLayout(new BorderLayout());
         jPTabBlue.setLayout(new BorderLayout());
@@ -420,6 +539,8 @@ public class Histogram extends JFrame implements ChangeListener {
         this.setMinimumSize((jPTabRed.getComponents()[0].getPreferredSize()));
         this.setMinimumSize(new Dimension(getWidth(),this.getHeight()+100));
         jTabCon.addChangeListener(this);
+
+         */
 
 
     }
@@ -437,8 +558,6 @@ public class Histogram extends JFrame implements ChangeListener {
         System.out.println("Selected Index: " + tabbedPane.getTitleAt(tabbedPane.getSelectedIndex()));
 
         this._updateStats(this._calculateStats(tmoOUT,tabbedPane.getTitleAt(tabbedPane.getSelectedIndex())));
-
-
 
     }
 

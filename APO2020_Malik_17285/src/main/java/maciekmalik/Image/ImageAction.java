@@ -5,7 +5,7 @@
 package maciekmalik.Image;
 
 import maciekmalik.Image.PointOP.Negation;
-
+import maciekmalik.Image.PointOP.Thresholding;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +23,7 @@ public class ImageAction {
     private final static HashMap<String, ImageActionMaker> mapList = new HashMap<>(){
         {
             put("Negation",(image, options) -> new Negation(image, options));
+            put("Thresholding",(image, options) -> new Thresholding(image, options));
         }
     };
 
