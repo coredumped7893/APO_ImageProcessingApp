@@ -45,7 +45,7 @@ public class apo_main_window extends javax.swing.JFrame {
         jMExit = new javax.swing.JMenuItem();
         jMLAB1 = new javax.swing.JMenu();
         jMHistogram = new javax.swing.JMenuItem();
-        jMRozciaganie = new javax.swing.JMenu();
+        jMLAB2 = new javax.swing.JMenu();
         jMStreching = new javax.swing.JMenuItem();
         jMEqual = new javax.swing.JMenuItem();
         jMEqualization = new javax.swing.JMenuItem();
@@ -149,7 +149,16 @@ public class apo_main_window extends javax.swing.JFrame {
 
         jMenuBar1.add(jMLAB1);
 
-        jMRozciaganie.setText("LAB2");
+        jMLAB2.setText("LAB2");
+        jMLAB2.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMLAB2MenuSelected(evt);
+            }
+        });
 
         jMStreching.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         jMStreching.setText("Rozciąganie");
@@ -158,7 +167,7 @@ public class apo_main_window extends javax.swing.JFrame {
                 jMStrechingActionPerformed(evt);
             }
         });
-        jMRozciaganie.add(jMStreching);
+        jMLAB2.add(jMStreching);
 
         jMEqual.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         jMEqual.setText("Wyrównanie");
@@ -167,7 +176,7 @@ public class apo_main_window extends javax.swing.JFrame {
                 jMEqualActionPerformed(evt);
             }
         });
-        jMRozciaganie.add(jMEqual);
+        jMLAB2.add(jMEqual);
 
         jMEqualization.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         jMEqualization.setText("Wyrównanie przez equalizacje");
@@ -176,8 +185,8 @@ public class apo_main_window extends javax.swing.JFrame {
                 jMEqualizationActionPerformed(evt);
             }
         });
-        jMRozciaganie.add(jMEqualization);
-        jMRozciaganie.add(jSeparator5);
+        jMLAB2.add(jMEqualization);
+        jMLAB2.add(jSeparator5);
 
         jMNegation.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMNegation.setText("Negacja");
@@ -186,7 +195,7 @@ public class apo_main_window extends javax.swing.JFrame {
                 jMNegationActionPerformed(evt);
             }
         });
-        jMRozciaganie.add(jMNegation);
+        jMLAB2.add(jMNegation);
 
         jMThresholding.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMThresholding.setText("Progowanie");
@@ -195,7 +204,7 @@ public class apo_main_window extends javax.swing.JFrame {
                 jMThresholdingActionPerformed(evt);
             }
         });
-        jMRozciaganie.add(jMThresholding);
+        jMLAB2.add(jMThresholding);
 
         jMPosterize.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMPosterize.setText("Posteryzacja");
@@ -204,7 +213,7 @@ public class apo_main_window extends javax.swing.JFrame {
                 jMPosterizeActionPerformed(evt);
             }
         });
-        jMRozciaganie.add(jMPosterize);
+        jMLAB2.add(jMPosterize);
 
         jMRangeStretch.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMRangeStretch.setText("Rozciąganie zakresu");
@@ -213,9 +222,9 @@ public class apo_main_window extends javax.swing.JFrame {
                 jMRangeStretchActionPerformed(evt);
             }
         });
-        jMRozciaganie.add(jMRangeStretch);
+        jMLAB2.add(jMRangeStretch);
 
-        jMenuBar1.add(jMRozciaganie);
+        jMenuBar1.add(jMLAB2);
 
         jMLAB3.setText("LAB3");
         jMLAB3.setEnabled(false);
@@ -326,6 +335,10 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMRangeStretchActionPerformed
 
+    private void jMLAB2MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMLAB2MenuSelected
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMLAB2MenuSelected
+
     /**
      * @param args the command line arguments
      */
@@ -373,12 +386,12 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenu jMFile;
     private javax.swing.JMenuItem jMHistogram;
     private javax.swing.JMenu jMLAB1;
+    private javax.swing.JMenu jMLAB2;
     private javax.swing.JMenu jMLAB3;
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
     private javax.swing.JMenuItem jMRangeStretch;
-    private javax.swing.JMenu jMRozciaganie;
     private javax.swing.JMenuItem jMSave;
     private javax.swing.JMenuItem jMSaveAs;
     private javax.swing.JMenuItem jMStreching;

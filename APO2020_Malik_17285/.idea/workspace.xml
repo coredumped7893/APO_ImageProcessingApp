@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/oMOVI0221.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/w11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/z12.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Histogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Histogram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/tmp_code" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/apo_thresholding.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/apo_thresholding.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/apo_thresholding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/apo_thresholding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +201,7 @@
       <workItem from="1589181327037" duration="873000" />
       <workItem from="1589394570842" duration="43644000" />
       <workItem from="1589451695935" duration="5112000" />
-      <workItem from="1589484868564" duration="2584000" />
+      <workItem from="1589484868564" duration="11513000" />
     </task>
     <servers />
   </component>
@@ -252,42 +244,42 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2716" y="547" width="424" height="491" key="FileChooserDialogImpl/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589395362719" />
-    <state width="2069" height="201" key="GridCell.Tab.0.bottom" timestamp="1589486600434">
+    <state width="2069" height="201" key="GridCell.Tab.0.bottom" timestamp="1589501989310">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2069" height="201" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589486600434" />
-    <state width="2069" height="201" key="GridCell.Tab.0.center" timestamp="1589486600433">
+    <state width="2069" height="201" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589501989310" />
+    <state width="2069" height="201" key="GridCell.Tab.0.center" timestamp="1589501989310">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2069" height="201" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589486600433" />
-    <state width="2069" height="201" key="GridCell.Tab.0.left" timestamp="1589486600433">
+    <state width="2069" height="201" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589501989310" />
+    <state width="2069" height="201" key="GridCell.Tab.0.left" timestamp="1589501989310">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2069" height="201" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589486600433" />
-    <state width="2069" height="201" key="GridCell.Tab.0.right" timestamp="1589486600434">
+    <state width="2069" height="201" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589501989310" />
+    <state width="2069" height="201" key="GridCell.Tab.0.right" timestamp="1589501989310">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2069" height="201" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589486600434" />
-    <state width="2075" height="476" key="GridCell.Tab.1.bottom" timestamp="1589459016127">
+    <state width="2069" height="201" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589501989310" />
+    <state width="2069" height="476" key="GridCell.Tab.1.bottom" timestamp="1589500128107">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2075" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589459016127" />
-    <state width="2075" height="476" key="GridCell.Tab.1.center" timestamp="1589459016127">
+    <state width="2069" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589500128107" />
+    <state width="2069" height="476" key="GridCell.Tab.1.center" timestamp="1589500128107">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2075" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589459016127" />
-    <state width="2075" height="476" key="GridCell.Tab.1.left" timestamp="1589459016127">
+    <state width="2069" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589500128107" />
+    <state width="2069" height="476" key="GridCell.Tab.1.left" timestamp="1589500128107">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2075" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589459016127" />
-    <state width="2075" height="476" key="GridCell.Tab.1.right" timestamp="1589459016127">
+    <state width="2069" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589500128107" />
+    <state width="2069" height="476" key="GridCell.Tab.1.right" timestamp="1589500128107">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2075" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589459016127" />
+    <state width="2069" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589500128107" />
     <state x="2131" y="200" width="1576" height="963" key="SettingsEditor" timestamp="1583873424820">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
@@ -308,10 +300,10 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2939" y="482" width="558" height="510" key="refactoring.ChangeSignatureDialog/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589420747234" />
-    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup" timestamp="1589395959246">
+    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup" timestamp="1589498574464">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589395959246" />
+    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589498574464" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

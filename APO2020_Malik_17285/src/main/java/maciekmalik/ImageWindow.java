@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.net.URL;
 
 public class ImageWindow extends JFrame implements FocusListener {
 
@@ -84,8 +85,6 @@ public class ImageWindow extends JFrame implements FocusListener {
         ImageWindow.lastFocused = this; // Current window
         setMinimumSize(new Dimension(100,100));
         setResizable(true);
-        //setLayout(null);
-        //Closing window doesnt close whole program
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }
@@ -99,15 +98,21 @@ public class ImageWindow extends JFrame implements FocusListener {
         this.imgContainer.setIcon(icon);
     }
 
-
     /**
      * Updates frame`s window
      *
      * @param icon ImageIcon
      */
     public void setIcon(ImageIcon icon) {
-        this.icon = icon;
-        this.setImgContainer(this.icon);
+        this.setImgContainer(icon);
+    }
+
+    /**
+     * Zapisuje zamiany na obraz
+     *
+     */
+    public void saveIconChange(){
+        this.icon = (ImageIcon) this.imgContainer.getIcon();
     }
 
 

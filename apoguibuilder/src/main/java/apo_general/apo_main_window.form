@@ -112,10 +112,13 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMRozciaganie">
+        <Menu class="javax.swing.JMenu" name="jMLAB2">
           <Properties>
             <Property name="text" type="java.lang.String" value="LAB2"/>
           </Properties>
+          <Events>
+            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMLAB2MenuSelected"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMStreching">
               <Properties>

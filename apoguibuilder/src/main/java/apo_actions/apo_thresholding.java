@@ -42,6 +42,10 @@ public class apo_thresholding extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLSelectedValue = new javax.swing.JLabel();
         jBReset = new javax.swing.JButton();
+        jSValueSelect2 = new javax.swing.JSlider();
+        jCKeepGrey = new javax.swing.JCheckBox();
+        jLSelectedValue2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -129,7 +133,7 @@ public class apo_thresholding extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Wybrana wartość:");
+        jLabel1.setText("Wybrana wartość [Q1]:");
 
         jLSelectedValue.setText("50");
 
@@ -140,25 +144,60 @@ public class apo_thresholding extends javax.swing.JFrame {
             }
         });
 
+        jSValueSelect2.setMajorTickSpacing(1);
+        jSValueSelect2.setMaximum(255);
+        jSValueSelect2.setToolTipText("");
+        jSValueSelect2.setValue(255);
+        jSValueSelect2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSValueSelect2StateChanged(evt);
+            }
+        });
+        jSValueSelect2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jSValueSelect2MouseReleased(evt);
+            }
+        });
+
+        jCKeepGrey.setText("Z zachowaniem poziomów szarości");
+        jCKeepGrey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCKeepGreyActionPerformed(evt);
+            }
+        });
+
+        jLSelectedValue2.setText("255");
+
+        jLabel3.setText("Wybrana wartość [Q2]:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabCon)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSValueSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSValueSelect, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSValueSelect2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addComponent(jLSelectedValue)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBReset)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBCancel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBOK)))
+                        .addComponent(jBOK))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCKeepGrey)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLSelectedValue2)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -168,13 +207,21 @@ public class apo_thresholding extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSValueSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSValueSelect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCancel)
                     .addComponent(jBOK)
-                    .addComponent(jLabel1)
+                    .addComponent(jBCancel)
+                    .addComponent(jBReset)
                     .addComponent(jLSelectedValue)
-                    .addComponent(jBReset))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLSelectedValue2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCKeepGrey)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,6 +246,18 @@ public class apo_thresholding extends javax.swing.JFrame {
     private void jBResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBResetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBResetActionPerformed
+
+    private void jSValueSelect2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSValueSelect2StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSValueSelect2StateChanged
+
+    private void jSValueSelect2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSValueSelect2MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSValueSelect2MouseReleased
+
+    private void jCKeepGreyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCKeepGreyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCKeepGreyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,14 +299,18 @@ public class apo_thresholding extends javax.swing.JFrame {
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
     private javax.swing.JButton jBReset;
+    private javax.swing.JCheckBox jCKeepGrey;
     private javax.swing.JLabel jLSelectedValue;
+    private javax.swing.JLabel jLSelectedValue2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPTabBlue;
     private javax.swing.JPanel jPTabGreen;
     private javax.swing.JPanel jPTabLuminance;
     private javax.swing.JPanel jPTabRed;
     private javax.swing.JSlider jSValueSelect;
+    private javax.swing.JSlider jSValueSelect2;
     private javax.swing.JTabbedPane jTabCon;
     // End of variables declaration//GEN-END:variables
 }
