@@ -4,10 +4,15 @@
 
 package maciekmalik;
 
+import maciekmalik.Image.Utils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.net.URL;
+import java.util.Map;
+import java.util.logging.Logger;
 
 public class ImageWindow extends JFrame implements FocusListener {
 
@@ -21,13 +26,30 @@ public class ImageWindow extends JFrame implements FocusListener {
         return icon;
     }
 
+
+    /**
+     * @return last focused @ImageWindow
+     */
     public static ImageWindow getLastFocused() {
         return lastFocused;
     }
 
+
+    /**
+     * Last focused image window
+     */
     private static ImageWindow lastFocused = null;
-    private ImageIcon icon;
+
+    /**
+     * Image to be displayed in frame
+     */
+    private ImageIcon icon = null;
     private JLabel imgContainer = new JLabel(icon);
+    public boolean isColor() {
+        return isColor;
+    }
+    private boolean isColor = true;
+    private static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
 
 
     public ImageWindow(String fileName) throws HeadlessException {
@@ -36,7 +58,10 @@ public class ImageWindow extends JFrame implements FocusListener {
         super(fileName);
 
         this._initWindow();
+
         this.icon = new ImageIcon(fileName);
+        this.icon = new ImageIcon(Utils.toBufferedImage(this.icon.getImage()));
+        this._checkColor();
         this._finishInit();
 
     }
@@ -46,14 +71,12 @@ public class ImageWindow extends JFrame implements FocusListener {
         super(image.toString());
 
         this._initWindow();
-        this.icon = new ImageIcon(image);
+        this.icon = new ImageIcon(image,image.toString());
+        this.icon = new ImageIcon(Utils.toBufferedImage(this.icon.getImage()));
+        this._checkColor();
         this._finishInit();
 
     }
-
-
-
-
 
     private void _initWindow(){
 
@@ -76,11 +99,60 @@ public class ImageWindow extends JFrame implements FocusListener {
         ImageWindow.lastFocused = this; // Current window
         setMinimumSize(new Dimension(100,100));
         setResizable(true);
-        //setLayout(null);
-        //Closing window doesnt close whole program
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }
+
+
+    /**
+     * Sprawdzenie czy obraz jest kolorowy
+     *
+     */
+    private void _checkColor(){
+        int[] pixels = Utils.getPixelArray(this.icon.getImage());
+
+        int i,notColor=0;
+        //Iterate over whole pixel array (each pixel has 4 bytes)
+        for ( i=0; (i+0) < pixels.length ;i+=1 ){
+            Map<String,Integer> pixel = Utils.pixelValue(pixels[i]);
+            if(((pixel.get("Red").equals(pixel.get("Green"))) && (pixel.get("Green").equals(pixel.get("Blue")))  )){
+                notColor++;
+            }//27 - 231
+        }
+        if(notColor == pixels.length){
+            this.isColor = false;
+        }else{
+            this.isColor = true;
+        }
+        //LOGGER.info("NOT color: " + notColor + " Pixels: " + (pixels.length));
+    }
+
+    /**
+     * Update window image currently displayed
+     *
+     * @param icon
+     */
+    private void setImgContainer(Icon icon) {
+        this.imgContainer.setIcon(icon);
+    }
+
+    /**
+     * Updates frame`s window
+     *
+     * @param icon ImageIcon
+     */
+    public void setIcon(ImageIcon icon) {
+        this.setImgContainer(icon);
+    }
+
+    /**
+     * Zapisuje zamiany na obraz
+     *
+     */
+    public void saveIconChange(ImageIcon icon){
+        this.icon = icon;
+    }
+
 
 
     private void _setBorder(){
@@ -89,8 +161,8 @@ public class ImageWindow extends JFrame implements FocusListener {
 
     private void _finishInit(){
 
-
         this.setMinimumSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
+        LOGGER.info("Is Greyscale: " + !this.isColor);
         this.setAlwaysOnTop(true);
 
         imgContainer.setIcon(icon);
@@ -98,40 +170,11 @@ public class ImageWindow extends JFrame implements FocusListener {
 
         this._setBorder();
 
-
         this.add(imgContainer);
         this.pack();
         this.setVisible(true);
 
     }
-
-
-    /**
-     * Converts a given Image into a BufferedImage
-     *
-     * @param img The Image to be converted
-     * @return The converted BufferedImage
-     */
-    public static BufferedImage toBufferedImage(Image img)
-    {
-        if (img instanceof BufferedImage)
-        {
-            return (BufferedImage) img;
-        }
-
-        // Create a buffered image with transparency
-        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-
-        // Draw the image on to the buffered image
-        Graphics2D bGr = bimage.createGraphics();
-        bGr.drawImage(img, 0, 0, null);
-        bGr.dispose();
-
-        // Return the buffered image
-        return bimage;
-    }
-
-
 
     public void setDescription(String desc){
         this.icon.setDescription(desc);
@@ -159,8 +202,6 @@ public class ImageWindow extends JFrame implements FocusListener {
 
         System.out.println("focusGained on:" + this.icon.toString());
         ImageWindow.lastFocused = this;
-
-        // @TODO change frame style on focus gain
         this._setBorder();
 
     }
@@ -172,6 +213,10 @@ public class ImageWindow extends JFrame implements FocusListener {
      */
     @Override
     public void focusLost(FocusEvent e) {
+
+
+        System.out.println("Focus lost" );
+
     }
 
 
