@@ -5,8 +5,10 @@
 package maciekmalik;
 
 import maciekmalik.Image.Histogram;
+import maciekmalik.Image.HistogramOP.HistStretch;
 import maciekmalik.Image.ImageAction;
 import maciekmalik.Image.PointOP.Negation;
+import maciekmalik.Image.PointOP.Posterize;
 import maciekmalik.Image.PointOP.Thresholding;
 import maciekmalik.Image.Utils;
 import javax.imageio.ImageIO;
@@ -14,6 +16,8 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.logging.Logger;
@@ -48,7 +52,6 @@ public class MainGUI extends JFrame  {
         jMLAB2 = new javax.swing.JMenu();
         jMStreching = new javax.swing.JMenuItem();
         jMEqual = new javax.swing.JMenuItem();
-        jMEqualization = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
@@ -177,15 +180,6 @@ public class MainGUI extends JFrame  {
             }
         });
         jMLAB2.add(jMEqual);
-
-        jMEqualization.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMEqualization.setText("Wyrównanie przez equalizacje");
-        jMEqualization.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMEqualizationActionPerformed(evt);
-            }
-        });
-        jMLAB2.add(jMEqualization);
         jMLAB2.add(jSeparator5);
 
         jMNegation.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
@@ -347,11 +341,13 @@ public class MainGUI extends JFrame  {
     private void jMDuplicateActionPerformed(java.awt.event.ActionEvent evt) {
         LOGGER.info("Duplicating image");
         String title = "CopyOf_" + ImageWindow.getLastFocused().getIcon().getDescription();
-        ImageWindow iw = new ImageWindow(
-                (Image) Utils.deepCopy(
-                        Utils.toBufferedImage(
-                                ImageWindow.getLastFocused().getIcon().getImage())));
-        iw.setDescription(title);
+        ImageWindow iw ;
+//        java.awt.EventQueue.invokeLater(() -> new ImageWindow(
+//                (Image) Utils.deepCopy(
+//                        Utils.toBufferedImage(
+//                                ImageWindow.getLastFocused().getIcon().getImage()))));
+                java.awt.EventQueue.invokeLater(() -> new ImageWindow(ImageWindow.getLastFocused().getIcon().getImage()));
+
     }
 
 
@@ -367,16 +363,17 @@ public class MainGUI extends JFrame  {
     }
 
 
+    /**
+     * Rozciąganie histogramu
+     *
+     * @param evt
+     */
     private void jMStrechingActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ImageAction.run("Stretching", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     private void jMEqualActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
-    private void jMEqualizationActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
     }
 
     /**
@@ -387,9 +384,7 @@ public class MainGUI extends JFrame  {
      * @see Negation
      */
     private void jMNegationActionPerformed(java.awt.event.ActionEvent evt) {
-        Negation neg = (Negation) ImageAction.run("Negation", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
-        SwingUtilities.invokeLater(()->
-        new ImageWindow(neg.getImage()));
+       ImageAction.run("Negation", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     /**
@@ -401,11 +396,11 @@ public class MainGUI extends JFrame  {
      * @see Thresholding
      */
     private void jMThresholdingActionPerformed(java.awt.event.ActionEvent evt) {
-        Thresholding neg = (Thresholding) ImageAction.run("Thresholding", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+        ImageAction.run("Thresholding", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     private void jMPosterizeActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ImageAction.run("Posterizing", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     private void jMRangeStretchActionPerformed(java.awt.event.ActionEvent evt) {
@@ -426,7 +421,6 @@ public class MainGUI extends JFrame  {
             jMDuplicate.setEnabled(false);
             jMStreching.setEnabled(false);
             jMEqual.setEnabled(false);
-            jMEqualization.setEnabled(false);
             jMNegation.setEnabled(false);
             jMThresholding.setEnabled(false);
             jMPosterize.setEnabled(false);
@@ -438,7 +432,6 @@ public class MainGUI extends JFrame  {
             jMDuplicate.setEnabled(true);
             jMStreching.setEnabled(true);
             jMEqual.setEnabled(true);
-            jMEqualization.setEnabled(true);
             jMNegation.setEnabled(true);
             jMThresholding.setEnabled(true);
             jMPosterize.setEnabled(true);
@@ -469,8 +462,11 @@ public class MainGUI extends JFrame  {
 
         if(t == JFileChooser.APPROVE_OPTION){
             //Create new window for selected image
+
             SwingUtilities.invokeLater(() ->
-                    (new ImageWindow(chooser.getSelectedFile().getAbsolutePath())).setDescription(chooser.getSelectedFile().getName()) );
+                    (new ImageWindow(chooser.getSelectedFile().getAbsolutePath()))
+                            .setDescription(chooser.getSelectedFile().getName()) );
+
         }else{
             //Cancel - NOP
         }

@@ -48,7 +48,6 @@ public class apo_main_window extends javax.swing.JFrame {
         jMLAB2 = new javax.swing.JMenu();
         jMStreching = new javax.swing.JMenuItem();
         jMEqual = new javax.swing.JMenuItem();
-        jMEqualization = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
@@ -177,15 +176,6 @@ public class apo_main_window extends javax.swing.JFrame {
             }
         });
         jMLAB2.add(jMEqual);
-
-        jMEqualization.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMEqualization.setText("Wyrównanie przez equalizacje");
-        jMEqualization.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMEqualizationActionPerformed(evt);
-            }
-        });
-        jMLAB2.add(jMEqualization);
         jMLAB2.add(jSeparator5);
 
         jMNegation.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
@@ -315,10 +305,6 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMEqualActionPerformed
 
-    private void jMEqualizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMEqualizationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMEqualizationActionPerformed
-
     private void jMNegationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNegationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMNegationActionPerformed
@@ -381,7 +367,6 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenu jMAbout;
     private javax.swing.JMenuItem jMDuplicate;
     private javax.swing.JMenuItem jMEqual;
-    private javax.swing.JMenuItem jMEqualization;
     private javax.swing.JMenuItem jMExit;
     private javax.swing.JMenu jMFile;
     private javax.swing.JMenuItem jMHistogram;

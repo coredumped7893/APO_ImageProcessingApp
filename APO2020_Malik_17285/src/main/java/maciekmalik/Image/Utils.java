@@ -28,12 +28,8 @@ public class Utils {
      * @return The converted BufferedImage
      */
     public static BufferedImage toBufferedImage(Image img) {
-        if (img instanceof BufferedImage) {
-            return (BufferedImage) img;
-        }
-
         // Create a buffered image with transparency
-        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
 
         // Draw the image on to the buffered image
         Graphics2D bGr = bimage.createGraphics();
@@ -44,11 +40,43 @@ public class Utils {
         return bimage;
     }
 
+    /**
+     * Zwraca tablice pixeli jako int (RGB)
+     *
+     * @param image
+     * @return tablica pixeli jako int
+     */
     public static int[] getPixelArray(Image image){
         BufferedImage buffImg = Utils.toBufferedImage(image);
         return ((DataBufferInt) buffImg.getRaster().getDataBuffer()).getData();
     }
 
+    /**
+     * Maps s from set a1,a2 to set b1,b2
+     *
+     *
+     * @param a1
+     * @param a2
+     * @param b1
+     * @param b2
+     * @param s
+     * @return mapped value to b1,b2
+     */
+    public static double mapRange(double a1, double a2, double b1, double b2, double s){
+        //return s;
+        return b1 + ((s - a1)*(b2 - b1))/(a2 - a1);
+    }
+
+    public static int mapImage(double c){
+        int cI = (int) Math.round(c);
+        if(cI > 255){
+            return 255;
+        }else if(cI < 0){
+            return 0;
+        }else{
+            return cI;
+        }
+    }
 
     public static Map<String,Integer> pixelValue(int pixel){
         Map<String,Integer> tmpM = new HashMap<>();

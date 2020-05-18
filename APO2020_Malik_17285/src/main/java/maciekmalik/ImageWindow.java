@@ -4,11 +4,15 @@
 
 package maciekmalik;
 
+import maciekmalik.Image.Utils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.Map;
+import java.util.logging.Logger;
 
 public class ImageWindow extends JFrame implements FocusListener {
 
@@ -39,8 +43,13 @@ public class ImageWindow extends JFrame implements FocusListener {
     /**
      * Image to be displayed in frame
      */
-    private ImageIcon icon;
+    private ImageIcon icon = null;
     private JLabel imgContainer = new JLabel(icon);
+    public boolean isColor() {
+        return isColor;
+    }
+    private boolean isColor = true;
+    private static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
 
 
     public ImageWindow(String fileName) throws HeadlessException {
@@ -49,7 +58,10 @@ public class ImageWindow extends JFrame implements FocusListener {
         super(fileName);
 
         this._initWindow();
+
         this.icon = new ImageIcon(fileName);
+        this.icon = new ImageIcon(Utils.toBufferedImage(this.icon.getImage()));
+        this._checkColor();
         this._finishInit();
 
     }
@@ -59,7 +71,9 @@ public class ImageWindow extends JFrame implements FocusListener {
         super(image.toString());
 
         this._initWindow();
-        this.icon = new ImageIcon(image);
+        this.icon = new ImageIcon(image,image.toString());
+        this.icon = new ImageIcon(Utils.toBufferedImage(this.icon.getImage()));
+        this._checkColor();
         this._finishInit();
 
     }
@@ -89,6 +103,30 @@ public class ImageWindow extends JFrame implements FocusListener {
 
     }
 
+
+    /**
+     * Sprawdzenie czy obraz jest kolorowy
+     *
+     */
+    private void _checkColor(){
+        int[] pixels = Utils.getPixelArray(this.icon.getImage());
+
+        int i,notColor=0;
+        //Iterate over whole pixel array (each pixel has 4 bytes)
+        for ( i=0; (i+0) < pixels.length ;i+=1 ){
+            Map<String,Integer> pixel = Utils.pixelValue(pixels[i]);
+            if(((pixel.get("Red").equals(pixel.get("Green"))) && (pixel.get("Green").equals(pixel.get("Blue")))  )){
+                notColor++;
+            }//27 - 231
+        }
+        if(notColor == pixels.length){
+            this.isColor = false;
+        }else{
+            this.isColor = true;
+        }
+        //LOGGER.info("NOT color: " + notColor + " Pixels: " + (pixels.length));
+    }
+
     /**
      * Update window image currently displayed
      *
@@ -111,8 +149,8 @@ public class ImageWindow extends JFrame implements FocusListener {
      * Zapisuje zamiany na obraz
      *
      */
-    public void saveIconChange(){
-        this.icon = (ImageIcon) this.imgContainer.getIcon();
+    public void saveIconChange(ImageIcon icon){
+        this.icon = icon;
     }
 
 
@@ -124,6 +162,7 @@ public class ImageWindow extends JFrame implements FocusListener {
     private void _finishInit(){
 
         this.setMinimumSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
+        LOGGER.info("Is Greyscale: " + !this.isColor);
         this.setAlwaysOnTop(true);
 
         imgContainer.setIcon(icon);
@@ -163,8 +202,6 @@ public class ImageWindow extends JFrame implements FocusListener {
 
         System.out.println("focusGained on:" + this.icon.toString());
         ImageWindow.lastFocused = this;
-
-        // @TODO change frame style on focus gain
         this._setBorder();
 
     }
@@ -177,7 +214,8 @@ public class ImageWindow extends JFrame implements FocusListener {
     @Override
     public void focusLost(FocusEvent e) {
 
-        System.out.println("Focus lost");
+
+        System.out.println("Focus lost" );
 
     }
 

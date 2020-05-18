@@ -8,7 +8,6 @@ import maciekmalik.Image.BaseAction;
 import maciekmalik.Image.Histogram;
 import maciekmalik.Image.Utils;
 import maciekmalik.ImageWindow;
-import maciekmalik.MainGUI;
 import org.jfree.chart.ChartPanel;
 
 import javax.swing.*;
@@ -17,12 +16,10 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 
 public class Thresholding  extends BaseAction implements ChangeListener {
 
-    private static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
     private Image img;
     private Map<Object, Object> options;
     private JFrame frame;
@@ -235,11 +232,12 @@ public class Thresholding  extends BaseAction implements ChangeListener {
     public Thresholding(Image imge,Map<Object, Object> options) {
 
         imageEdited  = ImageWindow.getLastFocused();
+        //System.out.println("Last Focused:" + imageEdited.getDescription());
         imageEditedCopy = imageEdited;
         this.frame = new JFrame();
         this.initComponents();
         Histogram hist = new Histogram(imge);
-        List<ChartPanel> cpL =  hist._renderFrame(hist._calculateHist(),"Thresholding: " + ImageWindow.getLastFocused().getIcon().getDescription());
+        List<ChartPanel> cpL =  hist.renderFrame(hist.calculateHist(),"Thresholding: " + ImageWindow.getLastFocused().getIcon().getDescription());
 
         jPTabRed.setLayout(new BorderLayout());
         jPTabGreen.setLayout(new BorderLayout());
@@ -263,6 +261,7 @@ public class Thresholding  extends BaseAction implements ChangeListener {
         this.options = options;
         this.run(imge,options);
         this.frame.setVisible(true);
+        imageEdited.setIcon(new ImageIcon(this.img,imageEditedCopy.getDescription()));
 
     }
 
@@ -292,7 +291,7 @@ public class Thresholding  extends BaseAction implements ChangeListener {
 
 
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
-        imageEdited.saveIconChange();
+        imageEdited.saveIconChange(new ImageIcon(this.img));
         frame.dispose();
     }
 

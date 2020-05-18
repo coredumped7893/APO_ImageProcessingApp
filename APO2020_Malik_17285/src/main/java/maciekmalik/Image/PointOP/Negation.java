@@ -7,6 +7,8 @@ package maciekmalik.Image.PointOP;
 import maciekmalik.Image.BaseAction;
 import maciekmalik.Image.ImageAction;
 import maciekmalik.Image.Utils;
+import maciekmalik.ImageWindow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
@@ -16,9 +18,13 @@ public class Negation  extends BaseAction {
 
     private Image img;
     private Map<Object, Object> options;
+    private ImageWindow imageEdited;
+    private ImageWindow imageEditedCopy;
 
     public Negation(Image imge,Map<Object, Object> options) {
-        this.img  =imge;
+        imageEdited  = ImageWindow.getLastFocused();
+        imageEditedCopy = imageEdited;
+        this.img  = imge;
         this.options = options;
         this.run(imge);
     }
@@ -41,6 +47,8 @@ public class Negation  extends BaseAction {
 
         }
         this.img = Utils.getImageFromArray(pixels,inputIMG.getWidth(null),inputIMG.getHeight(null));
+        imageEdited.setIcon(new ImageIcon(this.img,imageEditedCopy.getDescription()));
+        imageEdited.saveIconChange(new ImageIcon(this.img));
     }
 
 

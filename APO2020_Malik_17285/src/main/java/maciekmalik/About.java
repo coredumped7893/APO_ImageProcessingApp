@@ -5,7 +5,6 @@
 package maciekmalik;
 
 import javax.swing.*;
-import java.awt.desktop.AboutHandler;
 
 
 public class About extends JFrame {

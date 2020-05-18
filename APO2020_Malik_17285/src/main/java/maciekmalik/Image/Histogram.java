@@ -5,6 +5,7 @@
 package maciekmalik.Image;
 
 import maciekmalik.ImageWindow;
+import maciekmalik.MainGUI;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -22,6 +23,7 @@ import java.awt.*;
 import java.util.*;
 import java.lang.Double;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 public class Histogram extends JFrame implements ChangeListener {
@@ -34,6 +36,7 @@ public class Histogram extends JFrame implements ChangeListener {
     private boolean isColor = true;
     private boolean removeAxis = false;
     private Map<String, int[]> tmoOUT = new HashMap<>();
+    private static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
 
     // Variables declaration - do not modify
     private javax.swing.JLabel jLCount;
@@ -188,22 +191,21 @@ public class Histogram extends JFrame implements ChangeListener {
      *
      * @param title tytuł ramki/okna
      * @param image obraz z którego będzie generowany histogram
-     * @param edit czy używany jest jako ustawienia dla edycji
      * @throws HeadlessException if GraphicsEnvironment.isHeadless() returns true.
      * @see Image
-     * @see ImageWindow#toBufferedImage(Image)
+     * @see Utils#toBufferedImage(Image)
      */
     public Histogram(String title, Image image) throws HeadlessException {
         super(title);
         this.image = image;
-
+        this.isColor = ImageWindow.getLastFocused().isColor();
         this.initComponents();
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         if(image != null){
 
-            List<ChartPanel> cpL =  this._renderFrame(this._calculateHist(),title);
+            List<ChartPanel> cpL =  this.renderFrame(this.calculateHist(),title);
             jPTabRed.setLayout(new BorderLayout());
             jPTabGreen.setLayout(new BorderLayout());
             jPTabBlue.setLayout(new BorderLayout());
@@ -254,7 +256,7 @@ public class Histogram extends JFrame implements ChangeListener {
     /**
      * Ustawia statystyki w oknie
      *
-     * @param map
+     * @param map Mapa statystyk o obrazie
      */
     private void _updateStats(Map<String, Double> map){
 
@@ -297,7 +299,7 @@ public class Histogram extends JFrame implements ChangeListener {
         statsOUT.put("percentile",(double)100);
         statsOUT.put("median", (Double) sorted.get(ch.get(channelName).length/2));
         statsOUT.put("mean",(double)sum/pixels.length);
-        statsOUT.put("std_dev",(double)Math.sqrt(stddev/pixels.length));
+        statsOUT.put("std_dev",Math.sqrt(stddev/pixels.length));
 
         return statsOUT;
     }
@@ -311,7 +313,7 @@ public class Histogram extends JFrame implements ChangeListener {
      * @see Utils#pixelValue(int) 
      * @see Histogram#_calculateStats(Map, String)
      */
-    public Map<String, int[]> _calculateHist(){
+    public Map<String, int[]> calculateHist(){
 
         //TYPE_INT_ARGB
 
@@ -332,7 +334,7 @@ public class Histogram extends JFrame implements ChangeListener {
         //Get each pixel data as sum of 4 channels in turn (A + R + G + B)
         int[] pixels = Utils.getPixelArray(this.image);
 
-        int i,notColor=0;
+        int i;
         //Iterate over whole pixel array (each pixel has 4 bytes)
         for ( i=0; (i+0) < pixels.length ;i+=1 ){
             Map<String,Integer> pixel = Utils.pixelValue(pixels[i]);
@@ -341,17 +343,9 @@ public class Histogram extends JFrame implements ChangeListener {
             dataG[ pixel.get("Green") ]++;
             dataB[ pixel.get("Blue") ]++;
             dataL[ pixel.get("Luminance") ]++;
-
-            if(((pixel.get("Red") == pixel.get("Green")) && (pixel.get("Red") == pixel.get("Blue"))  )){
-                notColor++;
-            }
         }
 
-        if(notColor == pixels.length){
-            this.isColor = false;
-        }
-
-
+        LOGGER.info("Is Color: " + this.isColor + " Pixels: " + (pixels.length));
         this._updateStats(this._calculateStats(tmoOUT,"Luminance"));
 
 
@@ -359,7 +353,7 @@ public class Histogram extends JFrame implements ChangeListener {
     }
 
 
-    public List<ChartPanel> _renderFrame(Map<String, int[]> dataRGB, String title){
+    public List<ChartPanel> renderFrame(Map<String, int[]> dataRGB, String title){
 
 
         //----------------------------------------------
