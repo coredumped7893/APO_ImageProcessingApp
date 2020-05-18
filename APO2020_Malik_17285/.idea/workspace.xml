@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/packgade_with_libs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/c4jt321.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/lena_gray.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/line_chart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/About.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/BaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/BaseAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Histogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Histogram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Posterize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Posterize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/RangeStretch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/RangeStretch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/lena_gray.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/w11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/z12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" afterDir="false" />
     </list>
@@ -248,7 +226,7 @@
       <workItem from="1589484868564" duration="34289000" />
       <workItem from="1589690863008" duration="1921000" />
       <workItem from="1589743131842" duration="22537000" />
-      <workItem from="1589777883425" duration="6987000" />
+      <workItem from="1589777883425" duration="10293000" />
     </task>
     <servers />
   </component>

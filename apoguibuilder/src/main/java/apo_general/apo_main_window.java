@@ -52,7 +52,6 @@ public class apo_main_window extends javax.swing.JFrame {
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
         jMPosterize = new javax.swing.JMenuItem();
-        jMRangeStretch = new javax.swing.JMenuItem();
         jMLAB3 = new javax.swing.JMenu();
         jMAbout = new javax.swing.JMenu();
 
@@ -205,15 +204,6 @@ public class apo_main_window extends javax.swing.JFrame {
         });
         jMLAB2.add(jMPosterize);
 
-        jMRangeStretch.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMRangeStretch.setText("Rozciąganie zakresu");
-        jMRangeStretch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMRangeStretchActionPerformed(evt);
-            }
-        });
-        jMLAB2.add(jMRangeStretch);
-
         jMenuBar1.add(jMLAB2);
 
         jMLAB3.setText("LAB3");
@@ -317,10 +307,6 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMPosterizeActionPerformed
 
-    private void jMRangeStretchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMRangeStretchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMRangeStretchActionPerformed
-
     private void jMLAB2MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMLAB2MenuSelected
         // TODO add your handling code here:
     }//GEN-LAST:event_jMLAB2MenuSelected
@@ -376,7 +362,6 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
-    private javax.swing.JMenuItem jMRangeStretch;
     private javax.swing.JMenuItem jMSave;
     private javax.swing.JMenuItem jMSaveAs;
     private javax.swing.JMenuItem jMStreching;
