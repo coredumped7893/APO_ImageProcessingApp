@@ -43,13 +43,23 @@ public class blur extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(322, 221));
 
         jBOK.setText("OK");
+        jBOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBOKActionPerformed(evt);
+            }
+        });
 
         jBCancel.setText("Anuluj");
+        jBCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelActionPerformed(evt);
+            }
+        });
 
         jLSize.setText("Size: 5 ");
 
         jSSize.setMajorTickSpacing(1);
-        jSSize.setMaximum(10);
+        jSSize.setMaximum(30);
         jSSize.setMinimum(2);
         jSSize.setToolTipText("");
         jSSize.setValue(5);
@@ -68,9 +78,9 @@ public class blur extends javax.swing.JFrame {
 
         jLabel1.setText("Piksele brzegowe:");
 
-        jLSigX.setText("Sigma X: 000");
+        jLSigX.setText("Sigma X: 1.50");
 
-        jLSigY.setText("Sigma Y: 000");
+        jLSigY.setText("Sigma Y: 1.50");
 
         jSSigX.setMajorTickSpacing(5);
         jSSigX.setMaximum(1000);
@@ -188,6 +198,14 @@ public class blur extends javax.swing.JFrame {
     private void jSSigYStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSSigYStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_jSSigYStateChanged
+
+    private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBOKActionPerformed
+
+    private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBCancelActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,8 @@
 
 package maciekmalik;
 
+import maciekmalik.Image.NeighbOP.Blur;
+import maciekmalik.Image.NeighbOP.BlurAction;
 import maciekmalik.Image.Utils;
 
 import javax.swing.*;
@@ -199,11 +201,12 @@ public class ImageWindow extends JFrame implements FocusListener {
      * Invoked when a component gains the keyboard focus.
      *
      * @param e the event to be processed
+     * @see ImageWindow
      */
     @Override
     public void focusGained(FocusEvent e) {
 
-        //Clear border for focus loosing frame
+        //Clear border for frame loosing focus
         if(ImageWindow.lastFocused != null){
             ImageWindow.lastFocused.getRootPane().setBorder(null);
         }

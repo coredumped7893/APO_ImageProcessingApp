@@ -14,9 +14,15 @@ import java.util.logging.Logger;
 
 public class BaseAction {
 
+
+
+    /**
+     * @deprecated
+     */
+    protected Map<Object, Object> options;
+
     public static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
     protected Image img;
-    protected Map<Object, Object> options;
     protected JFrame frame = new JFrame();
     protected ImageWindow imageEdited;
     protected ImageWindow imageEditedCopy;

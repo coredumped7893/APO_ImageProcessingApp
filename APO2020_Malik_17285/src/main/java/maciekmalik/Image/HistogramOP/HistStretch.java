@@ -198,6 +198,7 @@ public class HistStretch  extends HistogramAction {
      *
      * @param pixel
      * @return
+     * @see Map
      */
     private Map<String,Integer> _calculate(Map<String,Integer> pixel){
         Map<String,Integer> tmp = new HashMap<>();//kopia mapy
@@ -214,6 +215,7 @@ public class HistStretch  extends HistogramAction {
      *
      * @param inputIMG
      * @param options
+     * @see Image
      */
     private void run(Image inputIMG, Map<Object, Object> options) {
 
@@ -244,11 +246,21 @@ public class HistStretch  extends HistogramAction {
     }
 
 
+    /**
+     * Zatwierdź edycje
+     *
+     * @param evt
+     */
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
-        imageEdited.saveIconChange(new ImageIcon(this.img));
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();
     }
 
+    /**
+     * Przywróć początkowy obraz i zamknij okno
+     *
+     * @param evt
+     */
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.setIcon(imageEditedCopy.getIcon());
         frame.dispose();
@@ -275,6 +287,14 @@ public class HistStretch  extends HistogramAction {
     private void jSL1StateChanged(javax.swing.event.ChangeEvent evt) {
     }
 
+    /**
+     * Aktualizuje na bieząco widok histogramu,
+     * jeżeli zaznaczymy odpowiedni CheckBox
+     *
+     * @param img
+     * @see this#jCHistUpdate
+     * @see JCheckBox
+     */
     private void _updateHistView(Image img){
         if(jCHistUpdate.isSelected()){
             hist = new Histogram(img);

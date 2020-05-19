@@ -5,6 +5,7 @@
 package maciekmalik.Image;
 
 import maciekmalik.Image.HistogramOP.HistStretch;
+import maciekmalik.Image.NeighbOP.Blur;
 import maciekmalik.Image.PointOP.Negation;
 import maciekmalik.Image.PointOP.Posterize;
 import maciekmalik.Image.PointOP.Thresholding;
@@ -33,6 +34,7 @@ public class ImageAction {
             put("Thresholding",(image, options) -> new Thresholding(image, options));
             put("Stretching",(image, options) -> new HistStretch(image, options));
             put("Posterizing",(image, options) -> new Posterize(image, options));
+            put("Blur",(image, options) -> new Blur(image));
         }
     };
 

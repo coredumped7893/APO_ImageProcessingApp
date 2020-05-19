@@ -4,12 +4,40 @@
 
 package maciekmalik.Image.NeighbOP;
 
+import maciekmalik.Image.CVAction;
+import maciekmalik.Image.Utils;
+import maciekmalik.ImageWindow;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Size;
+import org.opencv.imgproc.Imgproc;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.Map;
+
 /**
  * Klasa bazowa dla wygładzania
  * Definiuje okno dla parametrów
  *
+ * @see CVAction
+ * @see org.opencv.imgproc.Imgproc#blur(Mat, Mat, Size, Point, int)
+ * @see org.opencv.imgproc.Imgproc#GaussianBlur(Mat, Mat, Size, double, double, int)
  */
-public class BlurAction {
+public abstract class BlurAction extends CVAction {
+
+    /**
+     * Rozmiar kernela (domyślny)
+     *
+     * @see Mat
+     */
+    protected Size size = new Size(5,5);
+    protected Mat imageEditedMat = new Mat();
+    protected Mat imageEditedMatCopy = new Mat();
+
+
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
@@ -25,18 +53,28 @@ public class BlurAction {
         jSSigX = new javax.swing.JSlider();
         jSSigY = new javax.swing.JSlider();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Blur");
-        setMinimumSize(new java.awt.Dimension(322, 221));
+        frame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setTitle("Blur");
+        frame.setMinimumSize(new java.awt.Dimension(322, 221));
 
         jBOK.setText("OK");
+        jBOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBOKActionPerformed(evt);
+            }
+        });
 
         jBCancel.setText("Anuluj");
+        jBCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelActionPerformed(evt);
+            }
+        });
 
         jLSize.setText("Size: 5 ");
 
         jSSize.setMajorTickSpacing(1);
-        jSSize.setMaximum(10);
+        jSSize.setMaximum(30);
         jSSize.setMinimum(2);
         jSSize.setToolTipText("");
         jSSize.setValue(5);
@@ -55,9 +93,9 @@ public class BlurAction {
 
         jLabel1.setText("Piksele brzegowe:");
 
-        jLSigX.setText("Sigma X: 000");
+        jLSigX.setText("Sigma X: 1.50");
 
-        jLSigY.setText("Sigma Y: 000");
+        jLSigY.setText("Sigma Y: 1.50");
 
         jSSigX.setMajorTickSpacing(5);
         jSSigX.setMaximum(1000);
@@ -87,8 +125,8 @@ public class BlurAction {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(frame.getContentPane());
+        frame.getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -149,33 +187,81 @@ public class BlurAction {
                                 .addContainerGap())
         );
 
-        pack();
+        frame.pack();
     }// </editor-fold>
 
-    private void jSSizeMouseReleased(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
+
+
+
+    public BlurAction(Image imge) {
+        initComponents();
+
+        //Ten blur tego nie używa
+        jSSigX.setEnabled(false);
+        jSSigX.setVisible(false);
+        jSSigY.setEnabled(false);
+        jSSigY.setVisible(false);
+        jLSigX.setVisible(false);
+        jLSigY.setVisible(false);
+        //-----------------------
+
+        imageEdited = ImageWindow.getLastFocused();
+        imageEditedCopy = imageEdited;
+        imageEditedMat  = CVAction.bufferedImg2Mat(Utils.toBufferedImage(imageEdited.getIcon().getImage()));
+        imageEditedMat.copyTo(imageEditedMatCopy);
+        this.img  = imge;
+        this.run(imge);
+        frame.setVisible(true);
     }
 
+    /**
+     * @param imge
+     */
+    abstract void run(Image imge);
+
+    /**
+     * Wybrany został nowy rozmiar,
+     * przelicz i ustaw nowy podgląd
+     *
+     * @param evt
+     */
+    private void jSSizeMouseReleased(java.awt.event.MouseEvent evt) {
+        size = new Size(jSSize.getValue(),jSSize.getValue());
+        this.run(this.img);
+    }
+
+    /**
+     * Aktualizuj wartość tekstową
+     *
+     * @param evt
+     */
     private void jSSizeStateChanged(javax.swing.event.ChangeEvent evt) {
-        // TODO add your handling code here:
+        jLSize.setText("Size: " + jSSize.getValue() );
     }
 
     private void jSSigXMouseReleased(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
+        //recalculate
     }
 
     private void jSSigXStateChanged(javax.swing.event.ChangeEvent evt) {
-        // TODO add your handling code here:
+        jLSigX.setText("Sigma X: " + String.format("%03.1f",(jSSigX.getValue()/10.0)) );
     }
 
     private void jSSigYMouseReleased(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
     }
 
     private void jSSigYStateChanged(javax.swing.event.ChangeEvent evt) {
-        // TODO add your handling code here:
+        jLSigY.setText("Sigma X: " + String.format("%03.1f",(jSSigY.getValue()/10.0)) );
+    }
+    private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
+        frame.dispose();
     }
 
+    private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
+        imageEdited.setIcon(imageEditedCopy.getIcon());
+        frame.dispose();
+    }
 
 
     // Variables declaration - do not modify

@@ -12,11 +12,14 @@ import maciekmalik.Image.PointOP.Negation;
 import maciekmalik.Image.PointOP.Posterize;
 import maciekmalik.Image.PointOP.Thresholding;
 import maciekmalik.Image.Utils;
+import org.apache.commons.io.FilenameUtils;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -376,6 +379,14 @@ public class MainGUI extends JFrame  {
 
     private void jMSaveActionPerformed(java.awt.event.ActionEvent evt) {
         LOGGER.info("Save");
+        try {
+            String fN = FilenameUtils.removeExtension(ImageWindow.getLastFocused().getDescription());
+            File outputfile = new File("file_"+ fN +".png");
+            ImageIO.write((RenderedImage) ImageWindow.getLastFocused().getIcon().getImage(), "png", outputfile);
+            JOptionPane.showMessageDialog(this, "Plik zapisany  ٩( ๑╹ ꇴ╹)۶", "InfoBox: ", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Błąd przy zapisywaniu (︶︹︶)", "InfoBox: ", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     private void jMSaveAsActionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,13 +407,9 @@ public class MainGUI extends JFrame  {
     private void jMDuplicateActionPerformed(java.awt.event.ActionEvent evt) {
         LOGGER.info("Duplicating image");
         String title = "CopyOf_" + ImageWindow.getLastFocused().getIcon().getDescription();
-        ImageWindow iw ;
-//        java.awt.EventQueue.invokeLater(() -> new ImageWindow(
-//                (Image) Utils.deepCopy(
-//                        Utils.toBufferedImage(
-//                                ImageWindow.getLastFocused().getIcon().getImage()))));
-                java.awt.EventQueue.invokeLater(() -> new ImageWindow(ImageWindow.getLastFocused().getIcon().getImage()));
-
+        java.awt.EventQueue.invokeLater(() ->
+                new ImageWindow(ImageWindow.getLastFocused().getIcon().getImage()).setDescription(title));
+        ImageWindow.getLastFocused().getRootPane().setBorder(null);
     }
 
 
@@ -459,7 +466,7 @@ public class MainGUI extends JFrame  {
     }
 
     private void jMBlurNormActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ImageAction.run("Blur", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     private void jMBlurGaussianActionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,6 +507,12 @@ public class MainGUI extends JFrame  {
             jMNegation.setEnabled(false);
             jMThresholding.setEnabled(false);
             jMPosterize.setEnabled(false);
+            jMSave.setEnabled(false);
+            jMBlurNorm.setEnabled(false);
+            jMBlurGaussian.setEnabled(false);
+            jMEDCanny.setEnabled(false);
+            jMEDLaplace.setEnabled(false);
+            jMEDSobel.setEnabled(false);
         }else{
             jMHistogram.setEnabled(true);
             jMSave.setEnabled(true);
@@ -510,6 +523,12 @@ public class MainGUI extends JFrame  {
             jMNegation.setEnabled(true);
             jMThresholding.setEnabled(true);
             jMPosterize.setEnabled(true);
+            jMSave.setEnabled(true);
+            jMBlurNorm.setEnabled(true);
+            jMBlurGaussian.setEnabled(true);
+            jMEDCanny.setEnabled(true);
+            jMEDLaplace.setEnabled(true);
+            jMEDSobel.setEnabled(true);
         }
     }
 

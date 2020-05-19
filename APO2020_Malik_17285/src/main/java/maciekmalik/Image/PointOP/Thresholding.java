@@ -290,7 +290,7 @@ public class Thresholding  extends BaseAction implements ChangeListener {
 
 
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
-        imageEdited.saveIconChange(new ImageIcon(this.img));
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();
     }
 

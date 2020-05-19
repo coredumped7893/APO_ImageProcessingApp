@@ -109,11 +109,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBOKActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBCancel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Anuluj"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCancelActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLSize">
       <Properties>
@@ -123,7 +129,7 @@
     <Component class="javax.swing.JSlider" name="jSSize">
       <Properties>
         <Property name="majorTickSpacing" type="int" value="1"/>
-        <Property name="maximum" type="int" value="10"/>
+        <Property name="maximum" type="int" value="30"/>
         <Property name="minimum" type="int" value="2"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="value" type="int" value="5"/>
@@ -154,12 +160,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLSigX">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sigma X: 000"/>
+        <Property name="text" type="java.lang.String" value="Sigma X: 1.50"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLSigY">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sigma Y: 000"/>
+        <Property name="text" type="java.lang.String" value="Sigma Y: 1.50"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="jSSigX">

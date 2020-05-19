@@ -49,7 +49,7 @@ public class Negation  extends BaseAction {
         }
         this.img = Utils.getImageFromArray(pixels,inputIMG.getWidth(null),inputIMG.getHeight(null));
         imageEdited.setIcon(new ImageIcon(this.img,imageEditedCopy.getDescription()));
-        imageEdited.saveIconChange(new ImageIcon(this.img));
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
     }
 
 
