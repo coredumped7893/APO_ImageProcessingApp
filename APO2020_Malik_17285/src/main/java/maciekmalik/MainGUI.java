@@ -4,6 +4,7 @@
 
 package maciekmalik;
 
+import maciekmalik.Image.CVAction;
 import maciekmalik.Image.Histogram;
 import maciekmalik.Image.HistogramOP.HistStretch;
 import maciekmalik.Image.ImageAction;
@@ -56,8 +57,14 @@ public class MainGUI extends JFrame  {
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
         jMPosterize = new javax.swing.JMenuItem();
-        jMRangeStretch = new javax.swing.JMenuItem();
         jMLAB3 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMBlurNorm = new javax.swing.JMenuItem();
+        jMBlurGaussian = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMEDSobel = new javax.swing.JMenuItem();
+        jMEDLaplace = new javax.swing.JMenuItem();
+        jMEDCanny = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -129,7 +136,7 @@ public class MainGUI extends JFrame  {
 
         jMenuBar1.add(jMFile);
 
-        jMLAB1.setText("LAB1");
+        jMLAB1.setText("Info");
         jMLAB1.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
@@ -152,7 +159,7 @@ public class MainGUI extends JFrame  {
 
         jMenuBar1.add(jMLAB1);
 
-        jMLAB2.setText("LAB2");
+        jMLAB2.setText("Colors");
         jMLAB2.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
@@ -209,19 +216,67 @@ public class MainGUI extends JFrame  {
         });
         jMLAB2.add(jMPosterize);
 
-        jMRangeStretch.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMRangeStretch.setText("Rozciąganie zakresu");
-        jMRangeStretch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMRangeStretchActionPerformed(evt);
-            }
-        });
-        jMLAB2.add(jMRangeStretch);
-
         jMenuBar1.add(jMLAB2);
 
-        jMLAB3.setText("LAB3");
-        jMLAB3.setEnabled(false);
+        jMLAB3.setText("Filters");
+        jMLAB3.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMLAB3MenuSelected(evt);
+            }
+        });
+
+        jMenu1.setText("Rozmywanie");
+
+        jMBlurNorm.setText("Blur");
+        jMBlurNorm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMBlurNormActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMBlurNorm);
+
+        jMBlurGaussian.setText("Gaussian");
+        jMBlurGaussian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMBlurGaussianActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMBlurGaussian);
+
+        jMLAB3.add(jMenu1);
+
+        jMenu2.setText("Wyk. Krawędzi");
+
+        jMEDSobel.setText("Sobel");
+        jMEDSobel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMEDSobelActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMEDSobel);
+
+        jMEDLaplace.setText("Laplace");
+        jMEDLaplace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMEDLaplaceActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMEDLaplace);
+
+        jMEDCanny.setText("Canny");
+        jMEDCanny.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMEDCannyActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMEDCanny);
+
+        jMLAB3.add(jMenu2);
+
         jMenuBar1.add(jMLAB3);
 
         jMAbout.setText("O Programie");
@@ -403,9 +458,30 @@ public class MainGUI extends JFrame  {
         ImageAction.run("Posterizing", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
-    private void jMRangeStretchActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jMBlurNormActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
+
+    private void jMBlurGaussianActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jMEDSobelActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jMEDLaplaceActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jMEDCannyActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void jMLAB3MenuSelected(javax.swing.event.MenuEvent evt) {
+        // TODO add your handling code here:
+    }
+
 
 
     /**
@@ -424,7 +500,6 @@ public class MainGUI extends JFrame  {
             jMNegation.setEnabled(false);
             jMThresholding.setEnabled(false);
             jMPosterize.setEnabled(false);
-            jMRangeStretch.setEnabled(false);
         }else{
             jMHistogram.setEnabled(true);
             jMSave.setEnabled(true);
@@ -435,7 +510,6 @@ public class MainGUI extends JFrame  {
             jMNegation.setEnabled(true);
             jMThresholding.setEnabled(true);
             jMPosterize.setEnabled(true);
-            jMRangeStretch.setEnabled(true);
         }
     }
 
@@ -476,9 +550,13 @@ public class MainGUI extends JFrame  {
 
     // Variables declaration - do not modify
     private javax.swing.JMenu jMAbout;
+    private javax.swing.JMenuItem jMBlurGaussian;
+    private javax.swing.JMenuItem jMBlurNorm;
     private javax.swing.JMenuItem jMDuplicate;
+    private javax.swing.JMenuItem jMEDCanny;
+    private javax.swing.JMenuItem jMEDLaplace;
+    private javax.swing.JMenuItem jMEDSobel;
     private javax.swing.JMenuItem jMEqual;
-    private javax.swing.JMenuItem jMEqualization;
     private javax.swing.JMenuItem jMExit;
     private javax.swing.JMenu jMFile;
     private javax.swing.JMenuItem jMHistogram;
@@ -488,11 +566,12 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
-    private javax.swing.JMenuItem jMRangeStretch;
     private javax.swing.JMenuItem jMSave;
     private javax.swing.JMenuItem jMSaveAs;
     private javax.swing.JMenuItem jMStreching;
     private javax.swing.JMenuItem jMThresholding;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

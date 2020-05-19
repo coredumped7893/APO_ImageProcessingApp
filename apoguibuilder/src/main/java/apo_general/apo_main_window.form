@@ -92,7 +92,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMLAB1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="LAB1"/>
+            <Property name="text" type="java.lang.String" value="Info"/>
           </Properties>
           <Events>
             <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMLAB1MenuSelected"/>
@@ -114,7 +114,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMLAB2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="LAB2"/>
+            <Property name="text" type="java.lang.String" value="Colors"/>
           </Properties>
           <Events>
             <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMLAB2MenuSelected"/>
@@ -181,9 +181,67 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMLAB3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="LAB3"/>
-            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Filters"/>
           </Properties>
+          <Events>
+            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMLAB3MenuSelected"/>
+          </Events>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="jMenu1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rozmywanie"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMBlurNorm">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Blur"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMBlurNormActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMBlurGaussian">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Gaussian"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMBlurGaussianActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenu2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Wyk. Kraw&#x119;dzi"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMEDSobel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sobel"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMEDSobelActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMEDLaplace">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Laplace"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMEDLaplaceActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMEDCanny">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Canny"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMEDCannyActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMAbout">
           <Properties>

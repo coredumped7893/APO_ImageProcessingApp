@@ -28,16 +28,17 @@ import java.util.logging.Logger;
 public class HistStretch  extends HistogramAction {
 
 
-    private Image img;
-    private Map<Object, Object> options;
-    private JFrame frame = new JFrame();
-    private static final int L_MIN = 0;
-    private static final int L_MAX = 255;
+//    private Image img;
+//    private Map<Object, Object> options;
+//    private JFrame frame = new JFrame();
+//    private static final int L_MIN = 0;
+//    private static final int L_MAX = 255;
+//
+//    private ImageWindow imageEdited;
+//    private ImageWindow imageEditedCopy;
+    private Histogram hist;
     private int V_MIN = 0;
     private int V_MAX = 255;
-    private ImageWindow imageEdited;
-    private ImageWindow imageEditedCopy;
-    private Histogram hist;
 
     private void initComponents() {
 

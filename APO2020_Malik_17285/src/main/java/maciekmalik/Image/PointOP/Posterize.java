@@ -17,11 +17,11 @@ import java.util.Map;
 public class Posterize extends BaseAction {
 
 
-    private Image img;
-    private Map<Object, Object> options;
-    private JFrame frame = new JFrame();
-    private ImageWindow imageEdited;
-    private ImageWindow imageEditedCopy;
+//    private Image img;
+//    private Map<Object, Object> options;
+//    private JFrame frame = new JFrame();
+//    private ImageWindow imageEdited;
+//    private ImageWindow imageEditedCopy;
 
     private void initComponents() {
 

@@ -8,6 +8,11 @@ import maciekmalik.Image.HistogramOP.HistStretch;
 import maciekmalik.Image.PointOP.Negation;
 import maciekmalik.Image.PointOP.Posterize;
 import maciekmalik.Image.PointOP.Thresholding;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +40,6 @@ public class ImageAction {
         return mapList.get(opType).run(image,options);
     }
 
-
-
 }
+
 

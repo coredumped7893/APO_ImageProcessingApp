@@ -52,6 +52,10 @@ public class ImageWindow extends JFrame implements FocusListener {
     private static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
 
 
+    /**
+     * @param fileName
+     * @throws HeadlessException
+     */
     public ImageWindow(String fileName) throws HeadlessException {
 
         // @TODO If the same - append number
@@ -66,6 +70,10 @@ public class ImageWindow extends JFrame implements FocusListener {
 
     }
 
+    /**
+     * @param image
+     * @throws HeadlessException
+     */
     public ImageWindow(Image image) throws HeadlessException {
 
         super(image.toString());

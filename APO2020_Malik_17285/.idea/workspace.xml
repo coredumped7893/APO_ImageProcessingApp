@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/BlurAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/BaseAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/BaseAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Posterize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Posterize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/RangeStretch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/RangeStretch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" afterDir="false" />
     </list>
@@ -23,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -226,7 +240,7 @@
       <workItem from="1589484868564" duration="34289000" />
       <workItem from="1589690863008" duration="1921000" />
       <workItem from="1589743131842" duration="22537000" />
-      <workItem from="1589777883425" duration="10293000" />
+      <workItem from="1589777883425" duration="19123000" />
     </task>
     <servers />
   </component>
@@ -277,42 +291,42 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2716" y="547" width="424" height="491" key="FileChooserDialogImpl/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589395362719" />
-    <state width="2163" height="106" key="GridCell.Tab.0.bottom" timestamp="1589797022730">
+    <state width="2163" height="231" key="GridCell.Tab.0.bottom" timestamp="1589858548099">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="106" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589797022730" />
-    <state width="2163" height="106" key="GridCell.Tab.0.center" timestamp="1589797022730">
+    <state width="2163" height="231" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589858548099" />
+    <state width="2163" height="231" key="GridCell.Tab.0.center" timestamp="1589858548098">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="106" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589797022730" />
-    <state width="2163" height="106" key="GridCell.Tab.0.left" timestamp="1589797022730">
+    <state width="2163" height="231" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589858548098" />
+    <state width="2163" height="231" key="GridCell.Tab.0.left" timestamp="1589858548098">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="106" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589797022730" />
-    <state width="2163" height="106" key="GridCell.Tab.0.right" timestamp="1589797022730">
+    <state width="2163" height="231" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589858548098" />
+    <state width="2163" height="231" key="GridCell.Tab.0.right" timestamp="1589858548099">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="106" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589797022730" />
-    <state width="2163" height="476" key="GridCell.Tab.1.bottom" timestamp="1589796898205">
+    <state width="2163" height="231" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589858548099" />
+    <state width="2163" height="476" key="GridCell.Tab.1.bottom" timestamp="1589851951783">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589796898205" />
-    <state width="2163" height="476" key="GridCell.Tab.1.center" timestamp="1589796898205">
+    <state width="2163" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589851951783" />
+    <state width="2163" height="476" key="GridCell.Tab.1.center" timestamp="1589851951783">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589796898205" />
-    <state width="2163" height="476" key="GridCell.Tab.1.left" timestamp="1589796898205">
+    <state width="2163" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589851951783" />
+    <state width="2163" height="476" key="GridCell.Tab.1.left" timestamp="1589851951783">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589796898205" />
-    <state width="2163" height="476" key="GridCell.Tab.1.right" timestamp="1589796898205">
+    <state width="2163" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589851951783" />
+    <state width="2163" height="476" key="GridCell.Tab.1.right" timestamp="1589851951783">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589796898205" />
+    <state width="2163" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589851951783" />
     <state x="2833" y="394" width="924" height="691" key="Maven.ArtifactSearchDialog" timestamp="1589510919856">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
