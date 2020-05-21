@@ -6,30 +6,21 @@ package maciekmalik.Image.NeighbOP;
 
 import maciekmalik.Image.CVAction;
 import org.opencv.core.Point;
-import org.opencv.core.Size;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-public class Blur  extends BlurAction{
+public class BlurGaussian extends BlurAction{
 
-
-    public Blur(Image imge) {
+    public BlurGaussian(Image imge) {
         super(imge);
-        //Ten blur tego nie używa
-        jSSigX.setEnabled(false);
-        jSSigX.setVisible(false);
-        jSSigY.setEnabled(false);
-        jSSigY.setVisible(false);
-        jLSigX.setVisible(false);
-        jLSigY.setVisible(false);
-        //-----------------------
+        isGaussian = true;
+        jSSize.setValue(5);
+        jSSize.setMinimum(1);
+        jSSize.setMaximum(31);
+        jSSize.setMajorTickSpacing(2);
+        jSSize.setSnapToTicks(true);
     }
 
     /**
@@ -37,12 +28,14 @@ public class Blur  extends BlurAction{
      */
     @Override
     protected void run(Image imge) {
-        LOGGER.warning("Blur:run");
+        LOGGER.warning("BlurGaussian:run");
         imageEditedMatCopy.copyTo(imageEditedMat);//Restore previous data
         int borderType = getBorderTypes().get(getjCBordertype().getSelectedItem().toString());
-        Imgproc.blur(imageEditedMat,imageEditedMat,this.size,new Point(-1,-1),borderType);
+        Imgproc.GaussianBlur(imageEditedMat,imageEditedMat,this.size,jSSigX.getValue()/10.0,jSSigY.getValue()/10.0,borderType);
         this.img = CVAction.mat2BufferedImg(imageEditedMat,imge.getWidth(frame),imge.getHeight(frame));
         imageEdited.setIcon(new ImageIcon(img,imageEditedCopy.getDescription()));
     }
+
+
 
 }

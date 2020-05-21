@@ -4,12 +4,21 @@
 
 package maciekmalik.Image;
 
+import maciekmalik.Image.NeighbOP.BlurAction;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.awt.image.DataBufferInt;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Loader do biblioteki OpenCV
@@ -18,7 +27,13 @@ import java.awt.image.DataBufferInt;
  *
  * @link https://github.com/openpnp/opencv
  */
-public class CVAction extends BaseAction{
+public abstract class CVAction extends BaseAction{
+
+
+    protected Size size = new Size(5,5);
+    protected Mat imageEditedMat = new Mat();
+    protected Mat imageEditedMatCopy = new Mat();
+
 
     static {
         LOGGER.fine("Trying to load OCV lib");
@@ -28,8 +43,11 @@ public class CVAction extends BaseAction{
 
 
     /**
+     * Ładowanie obrazu prze openCV
+     *
      * @see Imgcodecs#imread(String)
      * @see Mat
+     * @see Imgcodecs#imread(java.lang.String)
      * @param filename 
      * @return Mat
      * @link https://docs.opencv.org/3.2.0/d3/d63/classcv_1_1Mat.html#details
@@ -38,6 +56,10 @@ public class CVAction extends BaseAction{
         return Imgcodecs.imread(filename);
     }
 
+    /**
+     * Test działania/wczytania sie OpenCV
+     * @see Mat
+     */
     public static void testOCV(){
         Mat m = new Mat(5, 10, CvType.CV_8UC1, new Scalar(0));
         System.out.println("OpenCV Mat: " + m);
@@ -48,11 +70,37 @@ public class CVAction extends BaseAction{
         System.out.println("OpenCV Mat data:\n" + m.dump());
     }
 
+    /**
+     * @param imge
+     */
+    protected abstract void run(Image imge);
+
+
+    /**
+     * Statyczna mapa predefiniowanych warunków brzegowych pikseli
+     * @see BlurAction#jCBordertype
+     * @see Imgproc#blur(org.opencv.core.Mat, org.opencv.core.Mat, org.opencv.core.Size)
+     * @see Core#BORDER_REPLICATE
+     * @see Core#BORDER_DEFAULT
+     * @see Core#BORDER_REFLECT
+     * @see org.opencv.core.Core#BORDER_ISOLATED
+     */
+    protected static Map<String,Integer> borderTypes = new HashMap<String, Integer>(){
+        {
+            put("BORDER_DEFAULT",Core.BORDER_DEFAULT);
+            put("BORDER_REPLICATE",Core.BORDER_REPLICATE);
+            put("BORDER_REFLECT",Core.BORDER_REFLECT);
+            put("BORDER_ISOLATED",Core.BORDER_ISOLATED);
+        }
+    };
 
     /**
      * @param in
      * @return
      * @deprecated
+     * @see Utils#toBufferedImageType(java.awt.Image, int)
+     * @see BufferedImage
+     * @see DataBufferInt
      */
     public static Mat bufferConvert(Image in){
         BufferedImage buff = Utils.toBufferedImageType(in,BufferedImage.TYPE_INT_ARGB);
@@ -67,7 +115,9 @@ public class CVAction extends BaseAction{
      * @param width
      * @param heigth
      * @deprecated
-     * @return
+     * @return Image
+     * @see Mat
+     * @see Utils#getImageFromArray(int[], int, int)
      */
     public static Image matConvert(Mat in,int width,int heigth){
         int[] data = new int[ (int) (in.total() * in.channels()) ];
@@ -75,6 +125,16 @@ public class CVAction extends BaseAction{
         return Utils.getImageFromArray(data,width,heigth);
     }
 
+    /**
+     * Zamiana z Mat na Bufferedimage
+     *
+     * @see BufferedImage
+     * @see Mat
+     * @param in
+     * @param width
+     * @param heigth
+     * @return
+     */
     public static BufferedImage mat2BufferedImg(Mat in,int width,int heigth) {
         BufferedImage out;
         byte[] data = new byte[width * heigth * (int) in.elemSize()];
@@ -92,8 +152,14 @@ public class CVAction extends BaseAction{
     }
 
 
-
-
+    /**
+     * Zamiana z bufferedImage na Mat
+     *
+     * @see BufferedImage
+     * @see Mat
+     * @param in
+     * @return
+     */
     public static Mat bufferedImg2Mat(BufferedImage in) {
         Mat out;
         byte[] data;
@@ -124,7 +190,31 @@ public class CVAction extends BaseAction{
         return out;
     }
 
-
+//    public static BufferedImage Mat2BufferedImage(Mat mat) throws IOException {
+//        //Encoding the image
+//
+//        MatOfByte matOfByte = new MatOfByte();
+//        Imgcodecs.imencode(".png", mat, matOfByte);
+//        //Storing the encoded Mat in a byte array
+//        byte[] byteArray = matOfByte.toArray();
+//        //Preparing the Buffered Image
+//        InputStream in = new ByteArrayInputStream(byteArray);
+//        BufferedImage bufImage = ImageIO.read(in);
+//        return bufImage;
+//    }
+//    public Image toBufferedImage(Mat matrix){
+//        int type = BufferedImage.TYPE_BYTE_GRAY;
+//        if ( matrix.channels() > 1 ) {
+//            type = BufferedImage.TYPE_3BYTE_BGR;
+//        }
+//        int bufferSize = matrix.channels()*matrix.cols()*matrix.rows();
+//        byte [] buffer = new byte[bufferSize];
+//        matrix.get(0,0,buffer); // get all the pixels
+//        BufferedImage image = new BufferedImage(matrix.cols(),matrix.rows(), type);
+//        final byte[] targetPixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+//        System.arraycopy(buffer, 0, targetPixels, 0, buffer.length);
+//        return image;
+//    }
 
 
 }

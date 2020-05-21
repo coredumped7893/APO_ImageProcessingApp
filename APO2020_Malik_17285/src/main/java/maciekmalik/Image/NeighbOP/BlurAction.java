@@ -12,10 +12,11 @@ import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
-
+import org.opencv.core.Core;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -33,9 +34,7 @@ public abstract class BlurAction extends CVAction {
      *
      * @see Mat
      */
-    protected Size size = new Size(5,5);
-    protected Mat imageEditedMat = new Mat();
-    protected Mat imageEditedMatCopy = new Mat();
+    protected boolean isGaussian = false;
 
 
 
@@ -46,7 +45,7 @@ public abstract class BlurAction extends CVAction {
         jBCancel = new javax.swing.JButton();
         jLSize = new javax.swing.JLabel();
         jSSize = new javax.swing.JSlider();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCBordertype = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLSigX = new javax.swing.JLabel();
         jLSigY = new javax.swing.JLabel();
@@ -89,7 +88,12 @@ public abstract class BlurAction extends CVAction {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BORDER_ISOLATED", "BORDER_REFLECT", "BORDER_REPLICATE" }));
+        jCBordertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BORDER_DEFAULT","BORDER_ISOLATED", "BORDER_REFLECT", "BORDER_REPLICATE" }));
+        jCBordertype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBordertypeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Piksele brzegowe:");
 
@@ -143,7 +147,7 @@ public abstract class BlurAction extends CVAction {
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jLabel1)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jComboBox1, 0, 173, Short.MAX_VALUE))
+                                                                .addComponent(jCBordertype, 0, 173, Short.MAX_VALUE))
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jLSize)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,7 +174,7 @@ public abstract class BlurAction extends CVAction {
                                         .addComponent(jSSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCBordertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,15 +200,6 @@ public abstract class BlurAction extends CVAction {
     public BlurAction(Image imge) {
         initComponents();
 
-        //Ten blur tego nie używa
-        jSSigX.setEnabled(false);
-        jSSigX.setVisible(false);
-        jSSigY.setEnabled(false);
-        jSSigY.setVisible(false);
-        jLSigX.setVisible(false);
-        jLSigY.setVisible(false);
-        //-----------------------
-
         imageEdited = ImageWindow.getLastFocused();
         imageEditedCopy = imageEdited;
         imageEditedMat  = CVAction.bufferedImg2Mat(Utils.toBufferedImage(imageEdited.getIcon().getImage()));
@@ -214,10 +209,7 @@ public abstract class BlurAction extends CVAction {
         frame.setVisible(true);
     }
 
-    /**
-     * @param imge
-     */
-    abstract void run(Image imge);
+
 
     /**
      * Wybrany został nowy rozmiar,
@@ -239,15 +231,26 @@ public abstract class BlurAction extends CVAction {
         jLSize.setText("Size: " + jSSize.getValue() );
     }
 
+    /**
+     * recalculate if gaussian
+     *
+     * @param evt
+     */
     private void jSSigXMouseReleased(java.awt.event.MouseEvent evt) {
-        //recalculate
+        this.run(this.img);
     }
 
     private void jSSigXStateChanged(javax.swing.event.ChangeEvent evt) {
         jLSigX.setText("Sigma X: " + String.format("%03.1f",(jSSigX.getValue()/10.0)) );
     }
 
+    /**
+     * recalculate if gaussian
+     *
+     * @param evt
+     */
     private void jSSigYMouseReleased(java.awt.event.MouseEvent evt) {
+        this.run(this.img);
     }
 
     private void jSSigYStateChanged(javax.swing.event.ChangeEvent evt) {
@@ -263,18 +266,30 @@ public abstract class BlurAction extends CVAction {
         frame.dispose();
     }
 
+    private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {
+        this.run(this.img);
+    }
+
+
+    public static Map<String, Integer> getBorderTypes() {
+        return borderTypes;
+    }
+
+    public JComboBox<String> getjCBordertype() {
+        return jCBordertype;
+    }
 
     // Variables declaration - do not modify
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLSigX;
-    private javax.swing.JLabel jLSigY;
+    protected javax.swing.JComboBox<String> jCBordertype;
+    protected javax.swing.JLabel jLSigX;
+    protected javax.swing.JLabel jLSigY;
     private javax.swing.JLabel jLSize;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JSlider jSSigX;
-    private javax.swing.JSlider jSSigY;
-    private javax.swing.JSlider jSSize;
+    protected javax.swing.JSlider jSSigX;
+    protected javax.swing.JSlider jSSigY;
+    protected javax.swing.JSlider jSSize;
     // End of variables declaration
 
 

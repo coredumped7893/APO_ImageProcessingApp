@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/BlurGaussian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Canny.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Laplacian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Sobel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/minecraft_test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/rect_many_test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/rect_test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Blur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Blur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/BlurAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/BlurAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Negation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Posterize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Posterize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -44,6 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectId" id="1YgVg9qmqZxtKZcL81iiNKKVoOZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -240,6 +243,7 @@
       <workItem from="1589690863008" duration="1921000" />
       <workItem from="1589743131842" duration="22537000" />
       <workItem from="1589777883425" duration="30097000" />
+      <workItem from="1590056390484" duration="17782000" />
     </task>
     <servers />
   </component>
@@ -262,10 +266,10 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2972" y="535" width="492" height="403" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589514489501" />
-    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser" timestamp="1589862088660">
+    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser" timestamp="1590073976848">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589862088660" />
+    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590073976848" />
     <state x="2817" y="640" width="811" height="194" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1583870510627">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
@@ -290,42 +294,42 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2716" y="547" width="424" height="491" key="FileChooserDialogImpl/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589395362719" />
-    <state width="2163" height="231" key="GridCell.Tab.0.bottom" timestamp="1589879865958">
+    <state width="2158" height="231" key="GridCell.Tab.0.bottom" timestamp="1590076432025">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="231" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879865958" />
-    <state width="2163" height="231" key="GridCell.Tab.0.center" timestamp="1589879865958">
+    <state width="2158" height="231" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
+    <state width="2158" height="231" key="GridCell.Tab.0.center" timestamp="1590076432025">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="231" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879865958" />
-    <state width="2163" height="231" key="GridCell.Tab.0.left" timestamp="1589879865958">
+    <state width="2158" height="231" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
+    <state width="2158" height="231" key="GridCell.Tab.0.left" timestamp="1590076432025">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="231" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879865958" />
-    <state width="2163" height="231" key="GridCell.Tab.0.right" timestamp="1589879865958">
+    <state width="2158" height="231" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
+    <state width="2158" height="231" key="GridCell.Tab.0.right" timestamp="1590076432025">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2163" height="231" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879865958" />
-    <state width="2163" height="476" key="GridCell.Tab.1.bottom" timestamp="1589879242244">
+    <state width="2158" height="231" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
+    <state width="2158" height="476" key="GridCell.Tab.1.bottom" timestamp="1590072622743">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879242244" />
-    <state width="2163" height="476" key="GridCell.Tab.1.center" timestamp="1589879242244">
+    <state width="2158" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
+    <state width="2158" height="476" key="GridCell.Tab.1.center" timestamp="1590072622743">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879242244" />
-    <state width="2163" height="476" key="GridCell.Tab.1.left" timestamp="1589879242244">
+    <state width="2158" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
+    <state width="2158" height="476" key="GridCell.Tab.1.left" timestamp="1590072622743">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879242244" />
-    <state width="2163" height="476" key="GridCell.Tab.1.right" timestamp="1589879242244">
+    <state width="2158" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
+    <state width="2158" height="476" key="GridCell.Tab.1.right" timestamp="1590072622743">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2163" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589879242244" />
+    <state width="2158" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
     <state x="2833" y="394" width="924" height="691" key="Maven.ArtifactSearchDialog" timestamp="1589510919856">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
@@ -354,10 +358,10 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2939" y="482" width="558" height="510" key="refactoring.ChangeSignatureDialog/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589420747234" />
-    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup" timestamp="1589757997010">
+    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup" timestamp="1590063686929">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589757997010" />
+    <state x="2886" y="349" width="672" height="678" key="search.everywhere.popup/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590063686929" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

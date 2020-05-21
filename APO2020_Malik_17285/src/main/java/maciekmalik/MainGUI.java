@@ -374,6 +374,8 @@ public class MainGUI extends JFrame  {
         this._checkEnabled();
     }
 
+    private void jMLAB3MenuSelected(javax.swing.event.MenuEvent evt) { this._checkEnabled(); }
+
     private void jMAboutActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
@@ -470,23 +472,19 @@ public class MainGUI extends JFrame  {
     }
 
     private void jMBlurGaussianActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ImageAction.run("BlurGaussian", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     private void jMEDSobelActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ImageAction.run("Sobel", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     private void jMEDLaplaceActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ImageAction.run("Laplacian", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
     private void jMEDCannyActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void jMLAB3MenuSelected(javax.swing.event.MenuEvent evt) {
-        // TODO add your handling code here:
+        ImageAction.run("Canny", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
 

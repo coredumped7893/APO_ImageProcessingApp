@@ -31,7 +31,7 @@ public class blur extends javax.swing.JFrame {
         jBCancel = new javax.swing.JButton();
         jLSize = new javax.swing.JLabel();
         jSSize = new javax.swing.JSlider();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCBordertype = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLSigX = new javax.swing.JLabel();
         jLSigY = new javax.swing.JLabel();
@@ -74,7 +74,12 @@ public class blur extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BORDER_ISOLATED", "BORDER_REFLECT", "BORDER_REPLICATE" }));
+        jCBordertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BORDER_DEFAULT", "BORDER_ISOLATED", "BORDER_REFLECT", "BORDER_REPLICATE" }));
+        jCBordertype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBordertypeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Piksele brzegowe:");
 
@@ -128,7 +133,7 @@ public class blur extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, 0, 173, Short.MAX_VALUE))
+                                .addComponent(jCBordertype, 0, 173, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLSize)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,7 +160,7 @@ public class blur extends javax.swing.JFrame {
                     .addComponent(jSSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBordertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,6 +212,10 @@ public class blur extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBCancelActionPerformed
 
+    private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBordertypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBordertypeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,13 +254,13 @@ public class blur extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLSigX;
-    private javax.swing.JLabel jLSigY;
+    protected javax.swing.JComboBox<String> jCBordertype;
+    protected javax.swing.JLabel jLSigX;
+    protected javax.swing.JLabel jLSigY;
     private javax.swing.JLabel jLSize;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JSlider jSSigX;
-    private javax.swing.JSlider jSSigY;
-    private javax.swing.JSlider jSSize;
+    protected javax.swing.JSlider jSSigX;
+    protected javax.swing.JSlider jSSigY;
+    protected javax.swing.JSlider jSSize;
     // End of variables declaration//GEN-END:variables
 }
