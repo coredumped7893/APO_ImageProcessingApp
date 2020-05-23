@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="APO2020_Malik_17285" />
         <module name="APO" />
+        <module name="APO2020_Malik_17285" />
         <module name="APO_Malik" />
       </profile>
     </annotationProcessing>

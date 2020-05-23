@@ -4,15 +4,14 @@
 
 package maciekmalik;
 
-import maciekmalik.Image.NeighbOP.Blur;
-import maciekmalik.Image.NeighbOP.BlurAction;
 import maciekmalik.Image.Utils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.net.URL;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Map;
 import java.util.logging.Logger;
 

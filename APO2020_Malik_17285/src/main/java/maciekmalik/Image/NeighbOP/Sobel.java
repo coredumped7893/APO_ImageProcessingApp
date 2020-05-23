@@ -8,17 +8,10 @@ import maciekmalik.Image.CVAction;
 import maciekmalik.Image.Utils;
 import maciekmalik.ImageWindow;
 import org.opencv.core.*;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class Sobel extends CVAction {
 
@@ -31,6 +24,8 @@ public class Sobel extends CVAction {
         jBOK = new javax.swing.JButton();
         jCVertical = new javax.swing.JCheckBox();
         jCHorizontal = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jCBordertype = new javax.swing.JComboBox<>();
 
         frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,10 +75,24 @@ public class Sobel extends CVAction {
             }
         });
 
+        jLabel1.setText("Piksele brzegowe:");
+
+        jCBordertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BORDER_DEFAULT", "BORDER_ISOLATED", "BORDER_REFLECT", "BORDER_REPLICATE" }));
+        jCBordertype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBordertypeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(frame.getContentPane());
         frame.getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCVertical)
+                                        .addComponent(jCHorizontal))
+                                .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,13 +104,12 @@ public class Sobel extends CVAction {
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(jBCancel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jBOK)))
+                                                .addComponent(jBOK))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jCBordertype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addContainerGap())
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCVertical)
-                                        .addComponent(jCHorizontal))
-                                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +122,11 @@ public class Sobel extends CVAction {
                                 .addComponent(jCVertical)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCHorizontal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jCBordertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jBOK)
                                         .addComponent(jBCancel))
@@ -161,13 +173,17 @@ public class Sobel extends CVAction {
 
         if(jCHorizontal.isSelected()){
             imageEditedMatCopy.copyTo(horizontalBuff);
-            Imgproc.Sobel(horizontalBuff,horizontalBuff, -1/CvType.CV_64F, 1, 0, jSSize.getValue(), 1, 0);
+            Imgproc.Sobel(horizontalBuff,horizontalBuff,
+                    -1/CvType.CV_64F, 1, 0,
+                    jSSize.getValue(), 1, 0,borderTypes.get(jCBordertype.getSelectedItem()));
         }else{
             horizontalBuff.setTo(new Scalar(0));
         }
         if(jCVertical.isSelected()){
             imageEditedMatCopy.copyTo(verticalBuff);
-            Imgproc.Sobel(verticalBuff,verticalBuff, -1/CvType.CV_64F, 0, 1, jSSize.getValue(), 1, 0);
+            Imgproc.Sobel(verticalBuff,verticalBuff,
+                    -1/CvType.CV_64F, 0, 1,
+                    jSSize.getValue(), 1, 0,borderTypes.get(jCBordertype.getSelectedItem()));
         }else{
             verticalBuff.setTo(new Scalar(0));
         }
@@ -219,12 +235,18 @@ public class Sobel extends CVAction {
         this.run(img);
     }
 
+    private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {
+        this.run(this.img);
+    }
+
     // Variables declaration - do not modify
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
+    protected javax.swing.JComboBox<String> jCBordertype;
     private javax.swing.JCheckBox jCHorizontal;
     private javax.swing.JCheckBox jCVertical;
     private javax.swing.JLabel jLSize;
+    private javax.swing.JLabel jLabel1;
     protected javax.swing.JSlider jSSize;
     // End of variables declaration
 

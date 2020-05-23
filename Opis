@@ -1,0 +1,39 @@
+Wymagania: Java 1.8
+
+
+
+Testowane dla obrazów .jpg i .png
+Obrazy użyte do testów są w APO2020_Malik_17285/src/main/java/maciekmalik/Resources/
+Dokładniejsza instrukcja pojawi się w następnej wersji
+Dokumentacja jest generowana na podstawie komentarzy i JavaDoc
+Kod programu jest w APO2020_Malik_17285/src/main/java/maciekmalik/
+
+
+Uruchomienie: 
+	-> podwójne kliknięcie w run.cmd
+	-> java -jar LABS-1.0-SNAPSHOT-jar-with-dependencies.jar   (jest on w APO2020_Malik_17285/target/)
+	-> mvn clean compile exec:java
+
+Generowanie pliku .jar wraz z potrzebnymi bibliotekami:
+	-> mvn clean compile assembly:single
+		plik pojawi się w APO2020_Malik_17285/target/
+
+
+Instrukcja używania:
+	Pliki otwierane są w File->Otwórz
+	Obecnie wybrana ramka zaznaczona jest zielonym kolorem, po wybraniu operacji właśnie taka będzie w miejscu edytowana
+	większość operacji ma możliwość cofnięcia zmian przez przycisk "Resetuj" lub "Anuluj"
+	Układ menu sugerowany jest z Gimpa i do niego były też porównywane wyniki przy testowaniu
+	
+	
+
+
+
+Znane mi błędy: 
+	-> pliki .bmp są błednie wczytywane
+	-> filtracja medianowa nie pozwala mi ustawić typu brzegowych pixeli 
+	Java ma tylko mapowanie na: "C++:  void medianBlur(Mat src, Mat& dst, int ksize)"
+	-> Sobel nie może używać dtype = CvType.CV_64F, 
+	występuje problem przy konwertowaniu tego na BufferedImage żeby wyświetlić w oknie(wychodzi cały czarny obraz)
+	-> 
+

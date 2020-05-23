@@ -38,7 +38,7 @@ public class apo_about extends javax.swing.JFrame {
         jTAbout.setEditable(false);
         jTAbout.setColumns(10);
         jTAbout.setRows(5);
-        jTAbout.setText("Maciek Malik\nAPO 2020\nv.0.1\n\n* Histogram\n*\n*\n*\n*\n");
+        jTAbout.setText("Maciek Malik\nAPO 2020\nv.0.13.4\n\n* Histogram\n* Rozciąganie hist.\n* Wyrównanie hist.\n* Negacja\n* Progowanie\n* Posteryzacja\n* Rozmywanie\n    * Blur\n    * Gaussian\n    * Median\n* Wykrywanie krawędzi\n    * Sobel\n    * Laplace\n    * Prewitt\n    * Canny\n\n\n\n\n\n\n\n\n\n\n\n");
         jTAbout.setToolTipText("");
         jScrollPane1.setViewportView(jTAbout);
 

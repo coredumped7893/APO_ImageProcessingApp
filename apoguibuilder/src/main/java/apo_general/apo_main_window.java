@@ -56,10 +56,14 @@ public class apo_main_window extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMBlurNorm = new javax.swing.JMenuItem();
         jMBlurGaussian = new javax.swing.JMenuItem();
+        jMMedian = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMShLaplace = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMEDSobel = new javax.swing.JMenuItem();
         jMEDLaplace = new javax.swing.JMenuItem();
         jMEDCanny = new javax.swing.JMenuItem();
+        jMPrewitt = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -242,7 +246,27 @@ public class apo_main_window extends javax.swing.JFrame {
         });
         jMenu1.add(jMBlurGaussian);
 
+        jMMedian.setText("Median");
+        jMMedian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMMedianActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMMedian);
+
         jMLAB3.add(jMenu1);
+
+        jMenu3.setText("Wyostrzanie");
+
+        jMShLaplace.setText("Laplace");
+        jMShLaplace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMShLaplaceActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMShLaplace);
+
+        jMLAB3.add(jMenu3);
 
         jMenu2.setText("Wyk. Krawędzi");
 
@@ -269,6 +293,14 @@ public class apo_main_window extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMEDCanny);
+
+        jMPrewitt.setText("Prewitt");
+        jMPrewitt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMPrewittActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMPrewitt);
 
         jMLAB3.add(jMenu2);
 
@@ -399,6 +431,18 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMLAB3MenuSelected
 
+    private void jMPrewittActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMPrewittActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMPrewittActionPerformed
+
+    private void jMMedianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMMedianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMMedianActionPerformed
+
+    private void jMShLaplaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMShLaplaceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMShLaplaceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -452,15 +496,19 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenu jMLAB1;
     private javax.swing.JMenu jMLAB2;
     private javax.swing.JMenu jMLAB3;
+    private javax.swing.JMenuItem jMMedian;
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
+    private javax.swing.JMenuItem jMPrewitt;
     private javax.swing.JMenuItem jMSave;
     private javax.swing.JMenuItem jMSaveAs;
+    private javax.swing.JMenuItem jMShLaplace;
     private javax.swing.JMenuItem jMStreching;
     private javax.swing.JMenuItem jMThresholding;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

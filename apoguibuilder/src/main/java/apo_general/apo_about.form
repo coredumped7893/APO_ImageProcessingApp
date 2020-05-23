@@ -55,7 +55,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="10"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Maciek Malik&#xa;APO 2020&#xa;v.0.1&#xa;&#xa;* Histogram&#xa;*&#xa;*&#xa;*&#xa;*&#xa;"/>
+            <Property name="text" type="java.lang.String" value="Maciek Malik&#xa;APO 2020&#xa;v.0.13.4&#xa;&#xa;* Histogram&#xa;* Rozci&#x105;ganie hist.&#xa;* Wyr&#xf3;wnanie hist.&#xa;* Negacja&#xa;* Progowanie&#xa;* Posteryzacja&#xa;* Rozmywanie&#xa;    * Blur&#xa;    * Gaussian&#xa;    * Median&#xa;* Wykrywanie kraw&#x119;dzi&#xa;    * Sobel&#xa;    * Laplace&#xa;    * Prewitt&#xa;    * Canny&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>

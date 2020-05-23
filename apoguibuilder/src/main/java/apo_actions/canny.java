@@ -33,6 +33,8 @@ public class canny extends javax.swing.JFrame {
         jSThr2 = new javax.swing.JSlider();
         jBCancel = new javax.swing.JButton();
         jBOK = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jCBordertype = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +84,15 @@ public class canny extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Piksele brzegowe:");
+
+        jCBordertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BORDER_DEFAULT", "BORDER_ISOLATED", "BORDER_REFLECT", "BORDER_REPLICATE" }));
+        jCBordertype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBordertypeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,7 +112,11 @@ public class canny extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jBCancel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBOK)))
+                        .addComponent(jBOK))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCBordertype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -115,7 +130,11 @@ public class canny extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLThr2)
                     .addComponent(jSThr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCBordertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBOK)
                     .addComponent(jBCancel))
@@ -148,6 +167,10 @@ public class canny extends javax.swing.JFrame {
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOKActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBOKActionPerformed
+
+    private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBordertypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBordertypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,8 +210,10 @@ public class canny extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
+    protected javax.swing.JComboBox<String> jCBordertype;
     protected javax.swing.JLabel jLThr1;
     protected javax.swing.JLabel jLThr2;
+    private javax.swing.JLabel jLabel1;
     protected javax.swing.JSlider jSThr1;
     protected javax.swing.JSlider jSThr2;
     // End of variables declaration//GEN-END:variables

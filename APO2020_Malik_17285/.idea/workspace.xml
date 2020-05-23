@@ -5,24 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/BlurGaussian.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Canny.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Laplacian.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Sobel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/minecraft_test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/rect_many_test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/rect_test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Median.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Prewitt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/SharpLaplace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/About.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Blur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Blur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/BlurAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/BlurAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Canny.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Canny.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Sobel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/Sobel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Thresholding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/ImageWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/blur.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/blur.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/blur.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/blur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/canny.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/canny.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/canny.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/canny.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sobel.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sobel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sobel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sobel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_about.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_about.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_about.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_about.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +248,8 @@
       <workItem from="1589690863008" duration="1921000" />
       <workItem from="1589743131842" duration="22537000" />
       <workItem from="1589777883425" duration="30097000" />
-      <workItem from="1590056390484" duration="17782000" />
+      <workItem from="1590056390484" duration="18383000" />
+      <workItem from="1590243714621" duration="14306000" />
     </task>
     <servers />
   </component>
@@ -266,10 +272,10 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2972" y="535" width="492" height="403" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589514489501" />
-    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser" timestamp="1590073976848">
+    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser" timestamp="1590254534440">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590073976848" />
+    <state x="2970" y="402" width="374" height="607" key="#com.intellij.ide.util.MemberChooser/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590254534440" />
     <state x="2817" y="640" width="811" height="194" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1583870510627">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
@@ -294,42 +300,42 @@
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state x="2716" y="547" width="424" height="491" key="FileChooserDialogImpl/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1589395362719" />
-    <state width="2158" height="231" key="GridCell.Tab.0.bottom" timestamp="1590076432025">
+    <state width="2153" height="231" key="GridCell.Tab.0.bottom" timestamp="1590261579420">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2158" height="231" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
-    <state width="2158" height="231" key="GridCell.Tab.0.center" timestamp="1590076432025">
+    <state width="2153" height="231" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590261579420" />
+    <state width="2153" height="231" key="GridCell.Tab.0.center" timestamp="1590261579420">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2158" height="231" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
-    <state width="2158" height="231" key="GridCell.Tab.0.left" timestamp="1590076432025">
+    <state width="2153" height="231" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590261579420" />
+    <state width="2153" height="231" key="GridCell.Tab.0.left" timestamp="1590261579420">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2158" height="231" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
-    <state width="2158" height="231" key="GridCell.Tab.0.right" timestamp="1590076432025">
+    <state width="2153" height="231" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590261579420" />
+    <state width="2153" height="231" key="GridCell.Tab.0.right" timestamp="1590261579420">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
     <state width="1517" height="250" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@0.360.1920.1080" timestamp="1586550331221" />
-    <state width="2158" height="231" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590076432025" />
-    <state width="2158" height="476" key="GridCell.Tab.1.bottom" timestamp="1590072622743">
+    <state width="2153" height="231" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590261579420" />
+    <state width="2153" height="476" key="GridCell.Tab.1.bottom" timestamp="1590260367650">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2158" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
-    <state width="2158" height="476" key="GridCell.Tab.1.center" timestamp="1590072622743">
+    <state width="2153" height="476" key="GridCell.Tab.1.bottom/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590260367650" />
+    <state width="2153" height="476" key="GridCell.Tab.1.center" timestamp="1590260367650">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2158" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
-    <state width="2158" height="476" key="GridCell.Tab.1.left" timestamp="1590072622743">
+    <state width="2153" height="476" key="GridCell.Tab.1.center/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590260367650" />
+    <state width="2153" height="476" key="GridCell.Tab.1.left" timestamp="1590260367650">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2158" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
-    <state width="2158" height="476" key="GridCell.Tab.1.right" timestamp="1590072622743">
+    <state width="2153" height="476" key="GridCell.Tab.1.left/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590260367650" />
+    <state width="2153" height="476" key="GridCell.Tab.1.right" timestamp="1590260367650">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state width="2158" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590072622743" />
+    <state width="2153" height="476" key="GridCell.Tab.1.right/1920.0.2560.1440/4480.360.1920.1080/6400.360.1920.1080/0.360.1920.1080@1920.0.2560.1440" timestamp="1590260367650" />
     <state x="2833" y="394" width="924" height="691" key="Maven.ArtifactSearchDialog" timestamp="1589510919856">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>

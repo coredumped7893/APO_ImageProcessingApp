@@ -39,6 +39,9 @@ public class ImageAction {
             put("Laplacian",(image, options) -> new Laplacian(image));
             put("Sobel",(image, options) -> new Sobel(image));
             put("Canny",(image, options) -> new Canny(image));
+            put("Prewitt",(image, options) -> new Prewitt(image));
+            put("Median",(image, options) -> new Median(image));
+            put("SharpLaplace",(image, options) -> new SharpLaplace(image));
         }
     };
 

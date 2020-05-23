@@ -64,10 +64,14 @@ public class MainGUI extends JFrame  {
         jMenu1 = new javax.swing.JMenu();
         jMBlurNorm = new javax.swing.JMenuItem();
         jMBlurGaussian = new javax.swing.JMenuItem();
+        jMMedian = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMShLaplace = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMEDSobel = new javax.swing.JMenuItem();
         jMEDLaplace = new javax.swing.JMenuItem();
         jMEDCanny = new javax.swing.JMenuItem();
+        jMPrewitt = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -250,7 +254,27 @@ public class MainGUI extends JFrame  {
         });
         jMenu1.add(jMBlurGaussian);
 
+        jMMedian.setText("Median");
+        jMMedian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMMedianActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMMedian);
+
         jMLAB3.add(jMenu1);
+
+        jMenu3.setText("Wyostrzanie");
+
+        jMShLaplace.setText("Laplace");
+        jMShLaplace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMShLaplaceActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMShLaplace);
+
+        jMLAB3.add(jMenu3);
 
         jMenu2.setText("Wyk. Krawędzi");
 
@@ -277,6 +301,14 @@ public class MainGUI extends JFrame  {
             }
         });
         jMenu2.add(jMEDCanny);
+
+        jMPrewitt.setText("Prewitt");
+        jMPrewitt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMPrewittActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMPrewitt);
 
         jMLAB3.add(jMenu2);
 
@@ -437,7 +469,7 @@ public class MainGUI extends JFrame  {
     }
 
     private void jMEqualActionPerformed(java.awt.event.ActionEvent evt) {
-
+        //@TODO
     }
 
     /**
@@ -487,6 +519,17 @@ public class MainGUI extends JFrame  {
         ImageAction.run("Canny", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
+    private void jMPrewittActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("Prewitt", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
+    private void jMMedianActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("Median", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
+    private void jMShLaplaceActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("SharpLaplace", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
 
 
     /**
@@ -511,22 +554,27 @@ public class MainGUI extends JFrame  {
             jMEDCanny.setEnabled(false);
             jMEDLaplace.setEnabled(false);
             jMEDSobel.setEnabled(false);
+            jMPrewitt.setEnabled(false);
+            jMMedian.setEnabled(false);
+            jMShLaplace.setEnabled(false);
         }else{
             jMHistogram.setEnabled(true);
             jMSave.setEnabled(true);
-            jMSaveAs.setEnabled(true);
+            //jMSaveAs.setEnabled(true);//@TODO
             jMDuplicate.setEnabled(true);
             jMStreching.setEnabled(true);
-            jMEqual.setEnabled(true);
+            //jMEqual.setEnabled(true);//@TODO
             jMNegation.setEnabled(true);
             jMThresholding.setEnabled(true);
             jMPosterize.setEnabled(true);
-            jMSave.setEnabled(true);
             jMBlurNorm.setEnabled(true);
             jMBlurGaussian.setEnabled(true);
             jMEDCanny.setEnabled(true);
             jMEDLaplace.setEnabled(true);
             jMEDSobel.setEnabled(true);
+            jMPrewitt.setEnabled(true);
+            jMMedian.setEnabled(true);
+            jMShLaplace.setEnabled(true);
         }
     }
 
@@ -580,15 +628,19 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenu jMLAB1;
     private javax.swing.JMenu jMLAB2;
     private javax.swing.JMenu jMLAB3;
+    private javax.swing.JMenuItem jMMedian;
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
+    private javax.swing.JMenuItem jMPrewitt;
     private javax.swing.JMenuItem jMSave;
     private javax.swing.JMenuItem jMSaveAs;
+    private javax.swing.JMenuItem jMShLaplace;
     private javax.swing.JMenuItem jMStreching;
     private javax.swing.JMenuItem jMThresholding;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

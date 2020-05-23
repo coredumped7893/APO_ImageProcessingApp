@@ -8,18 +8,14 @@ import maciekmalik.Image.Histogram;
 import maciekmalik.Image.HistogramAction;
 import maciekmalik.Image.Utils;
 import maciekmalik.ImageWindow;
-import maciekmalik.MainGUI;
 import org.jfree.chart.ChartPanel;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Rozciąganie histogramu
@@ -28,15 +24,9 @@ import java.util.logging.Logger;
 public class HistStretch  extends HistogramAction {
 
 
-//    private Image img;
-//    private Map<Object, Object> options;
-//    private JFrame frame = new JFrame();
-//    private static final int L_MIN = 0;
-//    private static final int L_MAX = 255;
-//
-//    private ImageWindow imageEdited;
-//    private ImageWindow imageEditedCopy;
     private Histogram hist;
+    private List<ChartPanel> cpLCopy;
+    private ChartPanel chartOrig;
     private int V_MIN = 0;
     private int V_MAX = 255;
 
@@ -115,6 +105,11 @@ public class HistStretch  extends HistogramAction {
         jLabel2.setText("L2:");
 
         jCHistUpdate.setText("Aktualizuj Histogram");
+        jCHistUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCHistUpdateActionPerformed(evt);
+            }
+        });
 
         jBAuto.setText("Auto");
 
@@ -183,6 +178,7 @@ public class HistStretch  extends HistogramAction {
         imageEditedCopy = imageEdited;
         hist = new Histogram(imge);
         List<ChartPanel> cpL =  hist.renderFrame(hist.calculateHist(),"Thresholding: " + ImageWindow.getLastFocused().getIcon().getDescription());
+        chartOrig = cpL.get(3);
         jPanel1.setLayout(new BorderLayout());
         jPanel1.add(cpL.get(3), BorderLayout.NORTH);
         this.img  = imge;
@@ -287,6 +283,11 @@ public class HistStretch  extends HistogramAction {
     private void jSL1StateChanged(javax.swing.event.ChangeEvent evt) {
     }
 
+    private void jCHistUpdateActionPerformed(java.awt.event.ActionEvent evt) {
+        LOGGER.info("Update Hist");
+        _updateHistView(this.img);
+    }
+
     /**
      * Aktualizuje na bieząco widok histogramu,
      * jeżeli zaznaczymy odpowiedni CheckBox
@@ -296,13 +297,18 @@ public class HistStretch  extends HistogramAction {
      * @see JCheckBox
      */
     private void _updateHistView(Image img){
+        List<ChartPanel> cpL;
+        ChartPanel tmpP;
         if(jCHistUpdate.isSelected()){
-            hist = new Histogram(img);
-            List<ChartPanel> cpL =  hist.renderFrame(hist.calculateHist(),"Thresholding: " + ImageWindow.getLastFocused().getIcon().getDescription());
-            jPanel1.removeAll();
-            jPanel1.add(cpL.get(3), BorderLayout.NORTH);
-            jPanel1.revalidate();
+            Histogram hist2 = new Histogram(img);
+             cpL =  hist2.renderFrame(hist2.calculateHist(),"Thresholding: " + ImageWindow.getLastFocused().getIcon().getDescription());
+            tmpP = cpL.get(3);
+        }else{
+            tmpP = chartOrig;
         }
+        jPanel1.removeAll();
+        jPanel1.add(tmpP, BorderLayout.NORTH);
+        jPanel1.revalidate();
     }
 
 
