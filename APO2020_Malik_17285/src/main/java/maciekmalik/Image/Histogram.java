@@ -308,7 +308,7 @@ public class Histogram extends JFrame implements ChangeListener {
     /**
      * Liczy ilość wystąpień jasności każdego z kanałów
      *
-     * @return Map<String, int[]>
+     * @return Map
      * @see Utils#getPixelArray(Image) 
      * @see Utils#pixelValue(int) 
      * @see Histogram#_calculateStats(Map, String)

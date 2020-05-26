@@ -25,7 +25,7 @@ import java.util.Map;
  * Powinien załadować odpowiednią biblioteke na podstawie wykrytego systemu
  * Pododuje tymczasowy jej zapis na dysk
  *
- * @link https://github.com/openpnp/opencv
+ * {@link} https://github.com/openpnp/opencv
  */
 public abstract class CVAction extends BaseAction{
 
@@ -50,7 +50,7 @@ public abstract class CVAction extends BaseAction{
      * @see Imgcodecs#imread(java.lang.String)
      * @param filename 
      * @return Mat
-     * @link https://docs.opencv.org/3.2.0/d3/d63/classcv_1_1Mat.html#details
+     * {@link} https://docs.opencv.org/3.2.0/d3/d63/classcv_1_1Mat.html#details
      */
     public static Mat loadImage(String filename){
         return Imgcodecs.imread(filename);

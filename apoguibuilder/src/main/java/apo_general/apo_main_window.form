@@ -90,12 +90,12 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMLAB1">
+        <Menu class="javax.swing.JMenu" name="jMInfo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Info"/>
           </Properties>
           <Events>
-            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMLAB1MenuSelected"/>
+            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMInfoMenuSelected"/>
           </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMHistogram">
@@ -112,12 +112,12 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMLAB2">
+        <Menu class="javax.swing.JMenu" name="jMColors">
           <Properties>
             <Property name="text" type="java.lang.String" value="Colors"/>
           </Properties>
           <Events>
-            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMLAB2MenuSelected"/>
+            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMColorsMenuSelected"/>
           </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMStreching">
@@ -179,12 +179,12 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMLAB3">
+        <Menu class="javax.swing.JMenu" name="jMFilters">
           <Properties>
             <Property name="text" type="java.lang.String" value="Filters"/>
           </Properties>
           <Events>
-            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMLAB3MenuSelected"/>
+            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMFiltersMenuSelected"/>
           </Events>
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -272,6 +272,14 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="jMUnvLOP">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Uniwersalna Operacja Liniowa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMULOPActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMAbout">

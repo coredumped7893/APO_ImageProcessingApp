@@ -158,6 +158,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Aktualizuj Histogram"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCHistUpdateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBAuto">
       <Properties>

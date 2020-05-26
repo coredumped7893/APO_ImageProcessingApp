@@ -42,6 +42,7 @@ public class ImageAction {
             put("Prewitt",(image, options) -> new Prewitt(image));
             put("Median",(image, options) -> new Median(image));
             put("SharpLaplace",(image, options) -> new SharpLaplace(image));
+            put("UniversalLOP",(image, options) -> new UniversalLOP(image));
         }
     };
 

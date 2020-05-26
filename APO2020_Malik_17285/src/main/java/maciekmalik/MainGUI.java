@@ -51,16 +51,16 @@ public class MainGUI extends JFrame  {
         jMSaveAs = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMExit = new javax.swing.JMenuItem();
-        jMLAB1 = new javax.swing.JMenu();
+        jMInfo = new javax.swing.JMenu();
         jMHistogram = new javax.swing.JMenuItem();
-        jMLAB2 = new javax.swing.JMenu();
+        jMColors = new javax.swing.JMenu();
         jMStreching = new javax.swing.JMenuItem();
         jMEqual = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
         jMPosterize = new javax.swing.JMenuItem();
-        jMLAB3 = new javax.swing.JMenu();
+        jMFilters = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMBlurNorm = new javax.swing.JMenuItem();
         jMBlurGaussian = new javax.swing.JMenuItem();
@@ -72,6 +72,7 @@ public class MainGUI extends JFrame  {
         jMEDLaplace = new javax.swing.JMenuItem();
         jMEDCanny = new javax.swing.JMenuItem();
         jMPrewitt = new javax.swing.JMenuItem();
+        jMUnvLOP = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -143,14 +144,14 @@ public class MainGUI extends JFrame  {
 
         jMenuBar1.add(jMFile);
 
-        jMLAB1.setText("Info");
-        jMLAB1.addMenuListener(new javax.swing.event.MenuListener() {
+        jMInfo.setText("Info");
+        jMInfo.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
             public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMLAB1MenuSelected(evt);
+                jMInfoMenuSelected(evt);
             }
         });
 
@@ -162,18 +163,18 @@ public class MainGUI extends JFrame  {
                 jMHistogramActionPerformed(evt);
             }
         });
-        jMLAB1.add(jMHistogram);
+        jMInfo.add(jMHistogram);
 
-        jMenuBar1.add(jMLAB1);
+        jMenuBar1.add(jMInfo);
 
-        jMLAB2.setText("Colors");
-        jMLAB2.addMenuListener(new javax.swing.event.MenuListener() {
+        jMColors.setText("Colors");
+        jMColors.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
             public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMLAB2MenuSelected(evt);
+                jMColorsMenuSelected(evt);
             }
         });
 
@@ -184,7 +185,7 @@ public class MainGUI extends JFrame  {
                 jMStrechingActionPerformed(evt);
             }
         });
-        jMLAB2.add(jMStreching);
+        jMColors.add(jMStreching);
 
         jMEqual.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         jMEqual.setText("Wyrównanie");
@@ -193,8 +194,8 @@ public class MainGUI extends JFrame  {
                 jMEqualActionPerformed(evt);
             }
         });
-        jMLAB2.add(jMEqual);
-        jMLAB2.add(jSeparator5);
+        jMColors.add(jMEqual);
+        jMColors.add(jSeparator5);
 
         jMNegation.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMNegation.setText("Negacja");
@@ -203,7 +204,7 @@ public class MainGUI extends JFrame  {
                 jMNegationActionPerformed(evt);
             }
         });
-        jMLAB2.add(jMNegation);
+        jMColors.add(jMNegation);
 
         jMThresholding.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMThresholding.setText("Progowanie");
@@ -212,7 +213,7 @@ public class MainGUI extends JFrame  {
                 jMThresholdingActionPerformed(evt);
             }
         });
-        jMLAB2.add(jMThresholding);
+        jMColors.add(jMThresholding);
 
         jMPosterize.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMPosterize.setText("Posteryzacja");
@@ -221,18 +222,18 @@ public class MainGUI extends JFrame  {
                 jMPosterizeActionPerformed(evt);
             }
         });
-        jMLAB2.add(jMPosterize);
+        jMColors.add(jMPosterize);
 
-        jMenuBar1.add(jMLAB2);
+        jMenuBar1.add(jMColors);
 
-        jMLAB3.setText("Filters");
-        jMLAB3.addMenuListener(new javax.swing.event.MenuListener() {
+        jMFilters.setText("Filters");
+        jMFilters.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
             public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMLAB3MenuSelected(evt);
+                jMFiltersMenuSelected(evt);
             }
         });
 
@@ -262,7 +263,7 @@ public class MainGUI extends JFrame  {
         });
         jMenu1.add(jMMedian);
 
-        jMLAB3.add(jMenu1);
+        jMFilters.add(jMenu1);
 
         jMenu3.setText("Wyostrzanie");
 
@@ -274,7 +275,7 @@ public class MainGUI extends JFrame  {
         });
         jMenu3.add(jMShLaplace);
 
-        jMLAB3.add(jMenu3);
+        jMFilters.add(jMenu3);
 
         jMenu2.setText("Wyk. Krawędzi");
 
@@ -310,9 +311,17 @@ public class MainGUI extends JFrame  {
         });
         jMenu2.add(jMPrewitt);
 
-        jMLAB3.add(jMenu2);
+        jMFilters.add(jMenu2);
 
-        jMenuBar1.add(jMLAB3);
+        jMUnvLOP.setText("Uniwersalna Operacja Liniowa");
+        jMUnvLOP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMULOPActionPerformed(evt);
+            }
+        });
+        jMFilters.add(jMUnvLOP);
+
+        jMenuBar1.add(jMFilters);
 
         jMAbout.setText("O Programie");
         jMAbout.addMenuListener(new javax.swing.event.MenuListener() {
@@ -377,7 +386,7 @@ public class MainGUI extends JFrame  {
 
 
     /**
-     * Calculate & Display Histogram for focused frame
+     * Calculate and Display Histogram for focused frame
      *
      * @param evt ActionEvent
      * @see Histogram
@@ -398,15 +407,15 @@ public class MainGUI extends JFrame  {
         this._checkEnabled();
     }
 
-    private void jMLAB2MenuSelected(javax.swing.event.MenuEvent evt) {
+    private void jMColorsMenuSelected(javax.swing.event.MenuEvent evt) {
         this._checkEnabled();
     }
 
-    private void jMLAB1MenuSelected(javax.swing.event.MenuEvent evt) {
+    private void jMInfoMenuSelected(javax.swing.event.MenuEvent evt) {
         this._checkEnabled();
     }
 
-    private void jMLAB3MenuSelected(javax.swing.event.MenuEvent evt) { this._checkEnabled(); }
+    private void jMFiltersMenuSelected(javax.swing.event.MenuEvent evt) { this._checkEnabled(); }
 
     private void jMAboutActionPerformed(java.awt.event.ActionEvent evt) {
     }
@@ -531,6 +540,10 @@ public class MainGUI extends JFrame  {
         ImageAction.run("SharpLaplace", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
+    private void jMULOPActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("UniversalLOP", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
 
     /**
      * Sprawdza czy przyciski na pasku menu mogą być aktywowane
@@ -557,6 +570,7 @@ public class MainGUI extends JFrame  {
             jMPrewitt.setEnabled(false);
             jMMedian.setEnabled(false);
             jMShLaplace.setEnabled(false);
+            jMUnvLOP.setEnabled(false);
         }else{
             jMHistogram.setEnabled(true);
             jMSave.setEnabled(true);
@@ -575,6 +589,7 @@ public class MainGUI extends JFrame  {
             jMPrewitt.setEnabled(true);
             jMMedian.setEnabled(true);
             jMShLaplace.setEnabled(true);
+            jMUnvLOP.setEnabled(true);
         }
     }
 
@@ -617,6 +632,7 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenu jMAbout;
     private javax.swing.JMenuItem jMBlurGaussian;
     private javax.swing.JMenuItem jMBlurNorm;
+    private javax.swing.JMenu jMColors;
     private javax.swing.JMenuItem jMDuplicate;
     private javax.swing.JMenuItem jMEDCanny;
     private javax.swing.JMenuItem jMEDLaplace;
@@ -624,10 +640,9 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenuItem jMEqual;
     private javax.swing.JMenuItem jMExit;
     private javax.swing.JMenu jMFile;
+    private javax.swing.JMenu jMFilters;
     private javax.swing.JMenuItem jMHistogram;
-    private javax.swing.JMenu jMLAB1;
-    private javax.swing.JMenu jMLAB2;
-    private javax.swing.JMenu jMLAB3;
+    private javax.swing.JMenu jMInfo;
     private javax.swing.JMenuItem jMMedian;
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOpenFile;
@@ -638,6 +653,7 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenuItem jMShLaplace;
     private javax.swing.JMenuItem jMStreching;
     private javax.swing.JMenuItem jMThresholding;
+    private javax.swing.JMenuItem jMUnvLOP;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

@@ -4,6 +4,7 @@
 
 package maciekmalik.Image.HistogramOP;
 
+
 import maciekmalik.Image.Histogram;
 import maciekmalik.Image.HistogramAction;
 import maciekmalik.Image.Utils;
@@ -293,7 +294,7 @@ public class HistStretch  extends HistogramAction {
      * jeżeli zaznaczymy odpowiedni CheckBox
      *
      * @param img
-     * @see this#jCHistUpdate
+     * @see HistStretch#jCHistUpdate
      * @see JCheckBox
      */
     private void _updateHistView(Image img){

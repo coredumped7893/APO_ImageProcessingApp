@@ -230,13 +230,29 @@ public class SharpLaplace extends CVAction {
         LOGGER.warning("SharpenLaplace:run");
         imageEditedMatCopy.copyTo(imageEditedMat);//Restore previous data
 
+        selectedMask = new Mat(3,3, CvType.CV_32F){
+            {
+                put(0,0,0);
+                put(0,1,-1);
+                put(0,2,0);
+
+                put(1,0,-1);
+                put(1,1,4);
+                put(1,2,-1);
+
+                put(2,0,0);
+                put(2,1,-1);
+                put(2,2,0);
+            }
+        };
+
+
+
         Imgproc.filter2D(imageEditedMat,imageEditedMat, -1,selectedMask,new Point(-1,-1),0,borderTypes.get(jCBordertype.getSelectedItem()));
 
         this.img = CVAction.mat2BufferedImg(imageEditedMat,img.getWidth(frame),img.getHeight(frame));
         imageEdited.setIcon(new ImageIcon(img,imageEditedCopy.getDescription()));
     }
-
-
 
     private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {
         this.run(this.img);
