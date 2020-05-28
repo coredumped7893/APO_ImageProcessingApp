@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/UniversalLOP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Histogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/Histogram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/HistogramOP/HistStretch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/ImageAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/SharpLaplace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/NeighbOP/SharpLaplace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sharplaplace.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sharplaplace.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sharplaplace.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/sharplaplace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/stretching.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/stretching.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/stretching.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_actions/stretching.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" beforeDir="false" afterPath="$PROJECT_DIR$/../apoguibuilder/src/main/java/apo_general/apo_main_window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,6 +230,8 @@
       <workItem from="1590243714621" duration="17449000" />
       <workItem from="1590336543558" duration="42000" />
       <workItem from="1590491262243" duration="8455000" />
+      <workItem from="1590577410606" duration="4424000" />
+      <workItem from="1590662855112" duration="1628000" />
     </task>
     <servers />
   </component>
