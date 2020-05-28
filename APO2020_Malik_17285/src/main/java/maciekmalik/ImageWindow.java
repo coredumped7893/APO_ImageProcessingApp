@@ -8,9 +8,10 @@ import maciekmalik.Image.Utils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.net.URL;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -52,6 +53,10 @@ public class ImageWindow extends JFrame implements FocusListener {
     private static final Logger LOGGER = Logger.getLogger(MainGUI.class.getName());
 
 
+    /**
+     * @param fileName
+     * @throws HeadlessException
+     */
     public ImageWindow(String fileName) throws HeadlessException {
 
         // @TODO If the same - append number
@@ -66,6 +71,10 @@ public class ImageWindow extends JFrame implements FocusListener {
 
     }
 
+    /**
+     * @param image
+     * @throws HeadlessException
+     */
     public ImageWindow(Image image) throws HeadlessException {
 
         super(image.toString());
@@ -191,11 +200,12 @@ public class ImageWindow extends JFrame implements FocusListener {
      * Invoked when a component gains the keyboard focus.
      *
      * @param e the event to be processed
+     * @see ImageWindow
      */
     @Override
     public void focusGained(FocusEvent e) {
 
-        //Clear border for focus loosing frame
+        //Clear border for frame loosing focus
         if(ImageWindow.lastFocused != null){
             ImageWindow.lastFocused.getRootPane().setBorder(null);
         }

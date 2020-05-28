@@ -100,6 +100,11 @@ public class stretching extends javax.swing.JFrame {
         jLabel2.setText("L2:");
 
         jCHistUpdate.setText("Aktualizuj Histogram");
+        jCHistUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCHistUpdateActionPerformed(evt);
+            }
+        });
 
         jBAuto.setText("Auto");
 
@@ -181,6 +186,10 @@ public class stretching extends javax.swing.JFrame {
     private void jSL2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSL2MouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_jSL2MouseReleased
+
+    private void jCHistUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCHistUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCHistUpdateActionPerformed
 
     /**
      * @param args the command line arguments

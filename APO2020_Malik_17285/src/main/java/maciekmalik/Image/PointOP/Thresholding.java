@@ -20,14 +20,6 @@ import java.util.Map;
 
 public class Thresholding  extends BaseAction implements ChangeListener {
 
-    private Image img;
-    private Map<Object, Object> options;
-    private JFrame frame;
-    private static final int L_MIN = 0;
-    private static final int L_MAX = 255;
-    private ImageWindow imageEdited;
-    private ImageWindow imageEditedCopy;
-
 
     private void initComponents() {
 
@@ -291,7 +283,7 @@ public class Thresholding  extends BaseAction implements ChangeListener {
 
 
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
-        imageEdited.saveIconChange(new ImageIcon(this.img));
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();
     }
 

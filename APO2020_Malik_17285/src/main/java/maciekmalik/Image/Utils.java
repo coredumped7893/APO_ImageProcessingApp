@@ -5,10 +5,7 @@
 package maciekmalik.Image;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.awt.image.DataBufferInt;
-import java.awt.image.WritableRaster;
+import java.awt.image.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,21 +18,22 @@ public class Utils {
         return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
 
+    public static BufferedImage toBufferedImage(Image img) {
+        return Utils.toBufferedImageType(img,BufferedImage.TYPE_INT_RGB);
+    }
+
     /**
      * Converts a given Image into a BufferedImage
      *
      * @param img The Image to be converted
      * @return The converted BufferedImage
      */
-    public static BufferedImage toBufferedImage(Image img) {
-        // Create a buffered image with transparency
-        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
-
+    public static BufferedImage toBufferedImageType(Image img, int type) {
+        BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), type);
         // Draw the image on to the buffered image
         Graphics2D bGr = bimage.createGraphics();
         bGr.drawImage(img, 0, 0, null);
         bGr.dispose();
-
         // Return the buffered image
         return bimage;
     }
@@ -50,6 +48,7 @@ public class Utils {
         BufferedImage buffImg = Utils.toBufferedImage(image);
         return ((DataBufferInt) buffImg.getRaster().getDataBuffer()).getData();
     }
+
 
     /**
      * Maps s from set a1,a2 to set b1,b2
@@ -91,7 +90,7 @@ public class Utils {
         tmpM.put("Red",r);
         tmpM.put("Green",g);
         tmpM.put("Blue",b);
-        tmpM.put("Luminance",Math.round((float)Utils.pixelToGray(r,g,b)));
+        tmpM.put("Luminance",Math.round((float)Utils.pixelToGrey(r,g,b)));
 
         return tmpM;
 
@@ -104,8 +103,6 @@ public class Utils {
     public static Image getImageFromArray(int[] pixels, int width, int height) {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         image.setRGB(0,0,width,height,pixels,0,width);
-        //WritableRaster raster = (WritableRaster) image.getData();
-        //raster.setPixels(0,0,width,height,pixels);
         return image;
     }
 
@@ -114,9 +111,8 @@ public class Utils {
         return image;
     }
 
-    public static double pixelToGray(int r, int g, int b){
+    public static double pixelToGrey(int r, int g, int b){
         return 0.2989 * r + 0.5870 * g + 0.1140 * b;
     }
-
 
 }

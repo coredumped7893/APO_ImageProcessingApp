@@ -16,10 +16,11 @@ import java.util.Map;
 public class Negation  extends BaseAction {
 
 
-    private Image img;
-    private Map<Object, Object> options;
-    private ImageWindow imageEdited;
-    private ImageWindow imageEditedCopy;
+//    private Image img;
+//    private Map<Object, Object> options;
+//    private ImageWindow imageEdited;
+//    private ImageWindow imageEditedCopy;
+
 
     public Negation(Image imge,Map<Object, Object> options) {
         imageEdited  = ImageWindow.getLastFocused();
@@ -48,7 +49,7 @@ public class Negation  extends BaseAction {
         }
         this.img = Utils.getImageFromArray(pixels,inputIMG.getWidth(null),inputIMG.getHeight(null));
         imageEdited.setIcon(new ImageIcon(this.img,imageEditedCopy.getDescription()));
-        imageEdited.saveIconChange(new ImageIcon(this.img));
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
     }
 
 

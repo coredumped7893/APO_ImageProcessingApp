@@ -17,11 +17,11 @@ import java.util.Map;
 public class Posterize extends BaseAction {
 
 
-    private Image img;
-    private Map<Object, Object> options;
-    private JFrame frame = new JFrame();
-    private ImageWindow imageEdited;
-    private ImageWindow imageEditedCopy;
+//    private Image img;
+//    private Map<Object, Object> options;
+//    private JFrame frame = new JFrame();
+//    private ImageWindow imageEdited;
+//    private ImageWindow imageEditedCopy;
 
     private void initComponents() {
 
@@ -109,12 +109,13 @@ public class Posterize extends BaseAction {
         int[] pixels = Utils.getPixelArray(inputIMG);
         int postLevels = Integer.parseInt(jSpinner1.getValue().toString());
 
-        int[] levelValues = new int[postLevels];
+        int[] levelValues = new int[postLevels+1];
         int l;
         for(l = 0;l<postLevels-1;l++){
             levelValues[l] = l * (255/postLevels);
         }
         levelValues[l] = 255;
+        levelValues[++l] = 255;
 
         for(int i=0; i < pixels.length-1; i++){
             Map<String,Integer> pixel = Utils.pixelValue(pixels[i]);
@@ -132,7 +133,7 @@ public class Posterize extends BaseAction {
         frame.dispose();
     }
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
-        imageEdited.saveIconChange(new ImageIcon(this.img));
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();
     }
 
