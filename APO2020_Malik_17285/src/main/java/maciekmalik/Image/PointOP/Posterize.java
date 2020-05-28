@@ -128,6 +128,10 @@ public class Posterize extends BaseAction {
     }
 
 
+    /**
+     * Anuluj zmiany, przywróć początkowy obraz
+     * @param evt
+     */
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.setIcon(imageEditedCopy.getIcon());
         frame.dispose();

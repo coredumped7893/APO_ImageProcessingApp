@@ -2,64 +2,34 @@
  * Copyright (c) 2020. Maciek Malik
  */
 
-package maciekmalik.Image.NeighbOP;
+package maciekmalik.Image.MorphOP;
 
 import maciekmalik.Image.CVAction;
 import maciekmalik.Image.Utils;
 import maciekmalik.ImageWindow;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
+import org.opencv.core.*;
+import org.opencv.core.Point;
 import org.opencv.imgproc.Imgproc;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Canny extends CVAction {
+public class Skeleton extends CVAction {
+
+
 
     private void initComponents() {
 
-        jLThr1 = new javax.swing.JLabel();
-        jSThr1 = new javax.swing.JSlider();
-        jLThr2 = new javax.swing.JLabel();
-        jSThr2 = new javax.swing.JSlider();
         jBCancel = new javax.swing.JButton();
         jBOK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jCBordertype = new javax.swing.JComboBox<>();
+        jLSize = new javax.swing.JLabel();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jCSElement = new javax.swing.JComboBox<>();
 
         frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLThr1.setText("Thr 1: 100");
-
-        jSThr1.setMajorTickSpacing(1);
-        jSThr1.setMaximum(300);
-        jSThr1.setValue(100);
-        jSThr1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSThr1StateChanged(evt);
-            }
-        });
-        jSThr1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jSThr1MouseReleased(evt);
-            }
-        });
-
-        jLThr2.setText("Thr 2: 100");
-
-        jSThr2.setMajorTickSpacing(1);
-        jSThr2.setMaximum(300);
-        jSThr2.setValue(100);
-        jSThr2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSThr2StateChanged(evt);
-            }
-        });
-        jSThr2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jSThr2MouseReleased(evt);
-            }
-        });
 
         jBCancel.setText("Anuluj");
         jBCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +54,23 @@ public class Canny extends CVAction {
             }
         });
 
+        jLSize.setText("Rozmiar [3x3]:");
+
+        jSlider1.setMajorTickSpacing(1);
+        jSlider1.setMaximum(8);
+        jSlider1.setMinimum(2);
+        jSlider1.setToolTipText("");
+        jSlider1.setValue(3);
+
+        jLabel2.setText("Element Strukturalny:");
+
+        jCSElement.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kwadrat", "Prostokąt(2xROZMIAR)", "Elipsa", "Krzyż" }));
+        jCSElement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCSElementActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(frame.getContentPane());
         frame.getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,14 +78,6 @@ public class Canny extends CVAction {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLThr2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSThr2, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLThr1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSThr1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(jBCancel)
@@ -107,25 +86,33 @@ public class Canny extends CVAction {
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel1)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jCBordertype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addComponent(jCBordertype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLSize)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jCSElement, 0, 1, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLThr1)
-                                        .addComponent(jSThr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLThr2)
-                                        .addComponent(jSThr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jCBordertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLSize)
+                                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jCSElement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jBOK)
                                         .addComponent(jBCancel))
@@ -135,11 +122,12 @@ public class Canny extends CVAction {
         frame.pack();
     }// </editor-fold>
 
-    public Canny(Image imge) {
+    public Skeleton(Image imge) {
         initComponents();
         imageEdited = ImageWindow.getLastFocused();
         imageEditedCopy = imageEdited;
         imageEditedMat  = CVAction.bufferedImg2Mat(Utils.toBufferedImage(imageEdited.getIcon().getImage()));
+        Imgproc.cvtColor(imageEditedMat,imageEditedMat,Imgproc.COLOR_RGB2GRAY);
         imageEditedMat.copyTo(imageEditedMatCopy);
         this.img  = imge;
         frame.setVisible(true);
@@ -149,28 +137,53 @@ public class Canny extends CVAction {
 
     @Override
     protected void run(Image imge) {
-        LOGGER.warning("Canny:run");
+        LOGGER.warning("SharpenLaplace:run");
         imageEditedMatCopy.copyTo(imageEditedMat);//Restore previous data
-        Mat edges = new Mat(imge.getHeight(null),imge.getWidth(null),CvType.CV_8UC3);
-        Imgproc.Canny(imageEditedMat,edges,jSThr1.getValue(),jSThr2.getValue());
-        this.img = CVAction.mat2BufferedImg(edges,img.getWidth(frame),img.getHeight(frame));
+
+        //Tworzenie kernela na podstawie wyboru użytkownika
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_CROSS,new Size(3,3));
+
+        Mat baseSkeleton = new Mat(imge.getHeight(null),imge.getWidth(null), CvType.CV_8UC1,new Scalar(0));
+        Mat tmpCopy = new Mat();
+        Mat imgOpened = new Mat();
+        Mat imgSub = new Mat();
+        imageEditedMat.copyTo(tmpCopy);
+        //imageEditedMat.copyTo(imgOpened);
+        int count = 0;
+        int size = imageEditedMat.rows() * imageEditedMat.cols();
+
+        LOGGER.info("imageEditedMat: " + imageEditedMat.channels());
+        LOGGER.info("baseSkeleton: " + baseSkeleton.channels());
+        LOGGER.info("imageEditedMatCopy: " + imageEditedMatCopy.channels());
+
+        while(true){
+
+            //Otwarcie na obiekcie oryginalnym
+            Imgproc.morphologyEx(tmpCopy,imgOpened,Imgproc.MORPH_OPEN,kernel);
+
+            //Odjęcie powyższego wyniku od obrazu oryginalnego
+            Core.subtract(tmpCopy,imgOpened,imgSub);
+
+            //Erozja
+            Imgproc.erode(tmpCopy,tmpCopy,kernel);
+
+            //Aktualizacja szkieletu
+            Core.bitwise_or(baseSkeleton,imgSub,baseSkeleton);
+
+            //Informacja o postepach
+            if((count % 1000) == 0) LOGGER.warning("Count: " + count + " Size: " + size);
+
+            //Przerwij pętlę jeśli nie ma już obiektów w obrazie lub jeżeli przekroczymy max liczbe wykonań
+            if(Core.countNonZero(tmpCopy) == 0 || count > size){
+                break;
+            }
+            ++count;
+
+        }
+
+        this.img = CVAction.mat2BufferedImg(baseSkeleton,img.getWidth(frame),img.getHeight(frame));
         imageEdited.setIcon(new ImageIcon(img,imageEditedCopy.getDescription()));
-    }
 
-    private void jSThr1StateChanged(javax.swing.event.ChangeEvent evt) {
-        jLThr1.setText("Thr 2: " + jSThr1.getValue() );
-    }
-
-    private void jSThr1MouseReleased(java.awt.event.MouseEvent evt) {
-        this.run(this.img);
-    }
-
-    private void jSThr2StateChanged(javax.swing.event.ChangeEvent evt) {
-        jLThr2.setText("Thr 2: " + jSThr2.getValue() );
-    }
-
-    private void jSThr2MouseReleased(java.awt.event.MouseEvent evt) {
-        this.run(this.img);
     }
 
     /**
@@ -199,16 +212,23 @@ public class Canny extends CVAction {
         this.run(this.img);
     }
 
+    /**
+     * Wybór elementu strukturalnego
+     * @param evt
+     */
+    private void jCSElementActionPerformed(java.awt.event.ActionEvent evt) {
+        this.run(this.img);
+    }
 
     // Variables declaration - do not modify
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
     protected javax.swing.JComboBox<String> jCBordertype;
-    protected javax.swing.JLabel jLThr1;
-    protected javax.swing.JLabel jLThr2;
+    private javax.swing.JComboBox<String> jCSElement;
+    private javax.swing.JLabel jLSize;
     private javax.swing.JLabel jLabel1;
-    protected javax.swing.JSlider jSThr1;
-    protected javax.swing.JSlider jSThr2;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JSlider jSlider1;
     // End of variables declaration
 
 }

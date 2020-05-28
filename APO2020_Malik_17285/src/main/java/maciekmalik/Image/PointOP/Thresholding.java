@@ -282,14 +282,17 @@ public class Thresholding  extends BaseAction implements ChangeListener {
     }
 
 
+    /**
+     * Zatwierdzenie zmian
+     * @param evt
+     */
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();
     }
 
     /**
-     * Cancells edits and closes window
-     *
+     * Anuluj zmiany, przywróć początkowy obraz
      * @param evt
      */
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
