@@ -13,6 +13,8 @@ import org.opencv.imgproc.Imgproc;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Skeleton extends CVAction {
 
@@ -61,6 +63,16 @@ public class Skeleton extends CVAction {
         jSlider1.setMinimum(2);
         jSlider1.setToolTipText("");
         jSlider1.setValue(3);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+        jSlider1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jSlider1MouseReleased(evt);
+            }
+        });
 
         jLabel2.setText("Element Strukturalny:");
 
@@ -125,6 +137,7 @@ public class Skeleton extends CVAction {
     public Skeleton(Image imge) {
         initComponents();
         imageEdited = ImageWindow.getLastFocused();
+        jCBordertype.setEnabled(false);
         imageEditedCopy = imageEdited;
         imageEditedMat  = CVAction.bufferedImg2Mat(Utils.toBufferedImage(imageEdited.getIcon().getImage()));
         Imgproc.cvtColor(imageEditedMat,imageEditedMat,Imgproc.COLOR_RGB2GRAY);
@@ -141,7 +154,9 @@ public class Skeleton extends CVAction {
         imageEditedMatCopy.copyTo(imageEditedMat);//Restore previous data
 
         //Tworzenie kernela na podstawie wyboru użytkownika
-        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_CROSS,new Size(3,3));
+        Mat kernel = Imgproc.getStructuringElement
+                (shape.get(jCSElement.getSelectedIndex()),new Size(jSlider1.getValue(),jSlider1.getValue()));
+
 
         Mat baseSkeleton = new Mat(imge.getHeight(null),imge.getWidth(null), CvType.CV_8UC1,new Scalar(0));
         Mat tmpCopy = new Mat();
@@ -158,7 +173,12 @@ public class Skeleton extends CVAction {
 
         while(true){
 
-            //Otwarcie na obiekcie oryginalnym
+            /**
+             * morphologyEx(Mat src, Mat dst, int op, Mat kernel, Point anchor, int iterations, int borderType, Scalar borderValue)
+             * nie można podać Bordertype bo potrzeba też BorderValue, morphologyDefaultBorderValue() nie jest mapowane do javy
+             *
+             * Otwarcie na obiekcie oryginalnym
+             */
             Imgproc.morphologyEx(tmpCopy,imgOpened,Imgproc.MORPH_OPEN,kernel);
 
             //Odjęcie powyższego wyniku od obrazu oryginalnego
@@ -219,6 +239,16 @@ public class Skeleton extends CVAction {
     private void jCSElementActionPerformed(java.awt.event.ActionEvent evt) {
         this.run(this.img);
     }
+
+    private static final Map<Integer, Integer> shape = new HashMap<Integer, Integer>(){
+        {
+            put(0,Imgproc.MORPH_RECT);
+            put(1,Imgproc.MORPH_RECT);
+            put(2,Imgproc.MORPH_ELLIPSE);
+            put(3,Imgproc.MORPH_CROSS);
+        }
+    };
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton jBCancel;

@@ -68,6 +68,16 @@ public class skeleton extends javax.swing.JFrame {
         jSlider1.setMinimum(2);
         jSlider1.setToolTipText("");
         jSlider1.setValue(3);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+        jSlider1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jSlider1MouseReleased(evt);
+            }
+        });
 
         jLabel2.setText("Element Strukturalny:");
 
@@ -144,6 +154,14 @@ public class skeleton extends javax.swing.JFrame {
     private void jCSElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCSElementActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCSElementActionPerformed
+
+    private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSlider1MouseReleased
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSlider1StateChanged
 
     /**
      * @param args the command line arguments
