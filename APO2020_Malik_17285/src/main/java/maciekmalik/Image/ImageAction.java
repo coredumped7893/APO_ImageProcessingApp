@@ -5,10 +5,13 @@
 package maciekmalik.Image;
 
 import maciekmalik.Image.HistogramOP.HistStretch;
+import maciekmalik.Image.MorphOP.BasicMorph;
+import maciekmalik.Image.MorphOP.Skeleton;
 import maciekmalik.Image.NeighbOP.*;
 import maciekmalik.Image.PointOP.Negation;
 import maciekmalik.Image.PointOP.Posterize;
 import maciekmalik.Image.PointOP.Thresholding;
+import maciekmalik.Image.PointOP.ToGrey;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -43,6 +46,10 @@ public class ImageAction {
             put("Median",(image, options) -> new Median(image));
             put("SharpLaplace",(image, options) -> new SharpLaplace(image));
             put("UniversalLOP",(image, options) -> new UniversalLOP(image));
+            put("DualAction",(image, options) -> new DualAction(image));
+            put("Skeleton",(image, options) -> new Skeleton(image));
+            put("ToGrey",(image, options) -> new ToGrey());
+            put("BasicMorph",(image, options) -> new BasicMorph(image));
         }
     };
 

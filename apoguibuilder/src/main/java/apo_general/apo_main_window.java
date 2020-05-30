@@ -52,6 +52,8 @@ public class apo_main_window extends javax.swing.JFrame {
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
         jMPosterize = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        jMToGrey = new javax.swing.JMenuItem();
         jMFilters = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMBlurNorm = new javax.swing.JMenuItem();
@@ -65,6 +67,9 @@ public class apo_main_window extends javax.swing.JFrame {
         jMEDCanny = new javax.swing.JMenuItem();
         jMPrewitt = new javax.swing.JMenuItem();
         jMUnvLOP = new javax.swing.JMenuItem();
+        jMFDual = new javax.swing.JMenuItem();
+        jMSkelet = new javax.swing.JMenuItem();
+        jMOMorph = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -215,6 +220,15 @@ public class apo_main_window extends javax.swing.JFrame {
             }
         });
         jMColors.add(jMPosterize);
+        jMColors.add(jSeparator6);
+
+        jMToGrey.setText("Do skali szarości");
+        jMToGrey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMToGreyActionPerformed(evt);
+            }
+        });
+        jMColors.add(jMToGrey);
 
         jMenuBar1.add(jMColors);
 
@@ -312,6 +326,30 @@ public class apo_main_window extends javax.swing.JFrame {
             }
         });
         jMFilters.add(jMUnvLOP);
+
+        jMFDual.setText("Filtracja dwu etapowa");
+        jMFDual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFDualActionPerformed(evt);
+            }
+        });
+        jMFilters.add(jMFDual);
+
+        jMSkelet.setText("Szkieletyzacja");
+        jMSkelet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMSkeletActionPerformed(evt);
+            }
+        });
+        jMFilters.add(jMSkelet);
+
+        jMOMorph.setText("O. Morfologiczne");
+        jMOMorph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMOMorphActionPerformed(evt);
+            }
+        });
+        jMFilters.add(jMOMorph);
 
         jMenuBar1.add(jMFilters);
 
@@ -456,6 +494,22 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMFiltersMenuSelected
 
+    private void jMFDualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFDualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMFDualActionPerformed
+
+    private void jMSkeletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSkeletActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMSkeletActionPerformed
+
+    private void jMToGreyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMToGreyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMToGreyActionPerformed
+
+    private void jMOMorphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMOMorphActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMOMorphActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -505,20 +559,24 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMEDSobel;
     private javax.swing.JMenuItem jMEqual;
     private javax.swing.JMenuItem jMExit;
+    private javax.swing.JMenuItem jMFDual;
     private javax.swing.JMenu jMFile;
     private javax.swing.JMenu jMFilters;
     private javax.swing.JMenuItem jMHistogram;
     private javax.swing.JMenu jMInfo;
     private javax.swing.JMenuItem jMMedian;
     private javax.swing.JMenuItem jMNegation;
+    private javax.swing.JMenuItem jMOMorph;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
     private javax.swing.JMenuItem jMPrewitt;
     private javax.swing.JMenuItem jMSave;
     private javax.swing.JMenuItem jMSaveAs;
     private javax.swing.JMenuItem jMShLaplace;
+    private javax.swing.JMenuItem jMSkelet;
     private javax.swing.JMenuItem jMStreching;
     private javax.swing.JMenuItem jMThresholding;
+    private javax.swing.JMenuItem jMToGrey;
     private javax.swing.JMenuItem jMUnvLOP;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -532,5 +590,6 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }

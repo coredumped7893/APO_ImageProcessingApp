@@ -129,6 +129,10 @@ public class Laplacian extends CVAction {
         this.run(this.img);
     }
 
+    /**
+     * Anuluj zmiany, przywróć początkowy obraz
+     * @param evt
+     */
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.setIcon(imageEditedCopy.getIcon());
         frame.dispose();

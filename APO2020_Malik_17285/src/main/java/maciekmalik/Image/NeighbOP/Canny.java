@@ -173,16 +173,28 @@ public class Canny extends CVAction {
         this.run(this.img);
     }
 
+    /**
+     * Anuluj zmiany, przywróć początkowy obraz
+     * @param evt
+     */
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.setIcon(imageEditedCopy.getIcon());
         frame.dispose();
     }
 
+    /**
+     * Zatwierdzenie zmian
+     * @param evt
+     */
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();
     }
 
+    /**
+     * Zmiana warunku brzegowego pikseli
+     * @param evt
+     */
     private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {
         this.run(this.img);
     }
