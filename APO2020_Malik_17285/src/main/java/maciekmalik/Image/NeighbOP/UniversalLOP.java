@@ -167,6 +167,7 @@ public class UniversalLOP extends CVAction {
     }
 
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
+        this.enableEdit = false;
         imageEdited.setIcon(imageEditedCopy.getIcon());
         frame.dispose();
     }

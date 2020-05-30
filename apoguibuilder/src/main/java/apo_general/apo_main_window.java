@@ -69,6 +69,7 @@ public class apo_main_window extends javax.swing.JFrame {
         jMUnvLOP = new javax.swing.JMenuItem();
         jMFDual = new javax.swing.JMenuItem();
         jMSkelet = new javax.swing.JMenuItem();
+        jMOMorph = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -342,6 +343,14 @@ public class apo_main_window extends javax.swing.JFrame {
         });
         jMFilters.add(jMSkelet);
 
+        jMOMorph.setText("O. Morfologiczne");
+        jMOMorph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMOMorphActionPerformed(evt);
+            }
+        });
+        jMFilters.add(jMOMorph);
+
         jMenuBar1.add(jMFilters);
 
         jMAbout.setText("O Programie");
@@ -497,6 +506,10 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMToGreyActionPerformed
 
+    private void jMOMorphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMOMorphActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMOMorphActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -553,6 +566,7 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenu jMInfo;
     private javax.swing.JMenuItem jMMedian;
     private javax.swing.JMenuItem jMNegation;
+    private javax.swing.JMenuItem jMOMorph;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
     private javax.swing.JMenuItem jMPrewitt;

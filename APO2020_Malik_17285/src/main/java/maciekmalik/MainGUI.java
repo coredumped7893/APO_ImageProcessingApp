@@ -77,6 +77,7 @@ public class MainGUI extends JFrame  {
         jMUnvLOP = new javax.swing.JMenuItem();
         jMFDual = new javax.swing.JMenuItem();
         jMSkelet = new javax.swing.JMenuItem();
+        jMOMorph = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -350,6 +351,14 @@ public class MainGUI extends JFrame  {
         });
         jMFilters.add(jMSkelet);
 
+        jMOMorph.setText("O. Morfologiczne");
+        jMOMorph.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMOMorphActionPerformed(evt);
+            }
+        });
+        jMFilters.add(jMOMorph);
+
         jMenuBar1.add(jMFilters);
 
         jMAbout.setText("O Programie");
@@ -585,6 +594,9 @@ public class MainGUI extends JFrame  {
         ImageAction.run("ToGrey", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
+    private void jMOMorphActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("BasicMorph", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
 
     /**
      * Sprawdza czy przyciski na pasku menu mogą być aktywowane
@@ -615,6 +627,7 @@ public class MainGUI extends JFrame  {
             jMFDual.setEnabled(false);
             jMSkelet.setEnabled(false);
             jMToGrey.setEnabled(false);
+            jMOMorph.setEnabled(false);
         }else{
             jMHistogram.setEnabled(true);
             jMSave.setEnabled(true);
@@ -637,6 +650,7 @@ public class MainGUI extends JFrame  {
             jMFDual.setEnabled(true);
             jMSkelet.setEnabled(true);
             jMToGrey.setEnabled(true);
+            jMOMorph.setEnabled(true);
         }
     }
 
@@ -693,6 +707,7 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenu jMInfo;
     private javax.swing.JMenuItem jMMedian;
     private javax.swing.JMenuItem jMNegation;
+    private javax.swing.JMenuItem jMOMorph;
     private javax.swing.JMenuItem jMOpenFile;
     private javax.swing.JMenuItem jMPosterize;
     private javax.swing.JMenuItem jMPrewitt;

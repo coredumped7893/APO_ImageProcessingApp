@@ -5,6 +5,7 @@
 package maciekmalik.Image;
 
 import maciekmalik.Image.HistogramOP.HistStretch;
+import maciekmalik.Image.MorphOP.BasicMorph;
 import maciekmalik.Image.MorphOP.Skeleton;
 import maciekmalik.Image.NeighbOP.*;
 import maciekmalik.Image.PointOP.Negation;
@@ -48,6 +49,7 @@ public class ImageAction {
             put("DualAction",(image, options) -> new DualAction(image));
             put("Skeleton",(image, options) -> new Skeleton(image));
             put("ToGrey",(image, options) -> new ToGrey());
+            put("BasicMorph",(image, options) -> new BasicMorph(image));
         }
     };
 

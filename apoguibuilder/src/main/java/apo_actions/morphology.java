@@ -9,12 +9,12 @@ package apo_actions;
  *
  * @author Maciek Malik
  */
-public class skeleton extends javax.swing.JFrame {
+public class morphology extends javax.swing.JFrame {
 
     /**
-     * Creates new form skeleton
+     * Creates new form morphology
      */
-    public skeleton() {
+    public morphology() {
         initComponents();
     }
 
@@ -27,33 +27,20 @@ public class skeleton extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jBCancel = new javax.swing.JButton();
-        jBOK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jCBordertype = new javax.swing.JComboBox<>();
         jLSize = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
         jCSElement = new javax.swing.JComboBox<>();
-        jLProgress = new javax.swing.JLabel();
-        jPProgress = new javax.swing.JProgressBar();
+        jBCancel = new javax.swing.JButton();
+        jBOK = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jCOperationType = new javax.swing.JComboBox<>();
+        jLIterations = new javax.swing.JLabel();
+        jSIterations = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jBCancel.setText("Anuluj");
-        jBCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelActionPerformed(evt);
-            }
-        });
-
-        jBOK.setText("OK");
-        jBOK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBOKActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Piksele brzegowe:");
 
@@ -66,9 +53,11 @@ public class skeleton extends javax.swing.JFrame {
 
         jLSize.setText("Rozmiar [3x3]:");
 
-        jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(11);
-        jSlider1.setMinimum(2);
+        jSlider1.setMajorTickSpacing(2);
+        jSlider1.setMaximum(21);
+        jSlider1.setMinimum(3);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setSnapToTicks(true);
         jSlider1.setToolTipText("");
         jSlider1.setValue(3);
         jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -84,14 +73,53 @@ public class skeleton extends javax.swing.JFrame {
 
         jLabel2.setText("Element Strukturalny:");
 
-        jCSElement.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kwadrat", "Prostokąt(2xROZMIAR)", "Elipsa", "Krzyż" }));
+        jCSElement.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kwadrat", "Romb" }));
         jCSElement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCSElementActionPerformed(evt);
             }
         });
 
-        jLProgress.setText("Postępy [0/000000]:");
+        jBCancel.setText("Anuluj");
+        jBCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelActionPerformed(evt);
+            }
+        });
+
+        jBOK.setText("OK");
+        jBOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBOKActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Typ Operacji:");
+
+        jCOperationType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Erozja", "Dylatacja", "Otwarcie", "Zamknięcie" }));
+        jCOperationType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCOperationTypeActionPerformed(evt);
+            }
+        });
+
+        jLIterations.setText("Iteracje [1]:");
+
+        jSIterations.setMajorTickSpacing(1);
+        jSIterations.setMaximum(20);
+        jSIterations.setPaintTicks(true);
+        jSIterations.setSnapToTicks(true);
+        jSIterations.setValue(1);
+        jSIterations.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSIterationsStateChanged(evt);
+            }
+        });
+        jSIterations.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jSIterationsMouseReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,49 +128,57 @@ public class skeleton extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLSize)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCBordertype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jBCancel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBOK))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLIterations)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCBordertype, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLSize)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
+                        .addComponent(jSIterations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCSElement, 0, 1, Short.MAX_VALUE))
+                        .addComponent(jCSElement, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLProgress)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPProgress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCOperationType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCBordertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLSize)
                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLIterations)
+                    .addComponent(jSIterations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jCSElement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLProgress)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jCOperationType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBOK)
                     .addComponent(jBCancel))
@@ -152,6 +188,22 @@ public class skeleton extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBordertypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBordertypeActionPerformed
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSlider1StateChanged
+
+    private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSlider1MouseReleased
+
+    private void jCSElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCSElementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCSElementActionPerformed
+
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBCancelActionPerformed
@@ -160,21 +212,17 @@ public class skeleton extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBOKActionPerformed
 
-    private void jCBordertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBordertypeActionPerformed
+    private void jCOperationTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCOperationTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCBordertypeActionPerformed
+    }//GEN-LAST:event_jCOperationTypeActionPerformed
 
-    private void jCSElementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCSElementActionPerformed
+    private void jSIterationsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSIterationsMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCSElementActionPerformed
+    }//GEN-LAST:event_jSIterationsMouseReleased
 
-    private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
+    private void jSIterationsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSIterationsStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider1MouseReleased
-
-    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider1StateChanged
+    }//GEN-LAST:event_jSIterationsStateChanged
 
     /**
      * @param args the command line arguments
@@ -193,20 +241,20 @@ public class skeleton extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(skeleton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(morphology.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(skeleton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(morphology.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(skeleton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(morphology.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(skeleton.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(morphology.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new skeleton().setVisible(true);
+                new morphology().setVisible(true);
             }
         });
     }
@@ -215,13 +263,14 @@ public class skeleton extends javax.swing.JFrame {
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
     protected javax.swing.JComboBox<String> jCBordertype;
+    private javax.swing.JComboBox<String> jCOperationType;
     private javax.swing.JComboBox<String> jCSElement;
-    private javax.swing.JLabel jLProgress;
+    private javax.swing.JLabel jLIterations;
     private javax.swing.JLabel jLSize;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JProgressBar jPProgress;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSlider jSIterations;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
 }

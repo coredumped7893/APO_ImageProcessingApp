@@ -22,6 +22,7 @@ public class Skeleton extends CVAction {
 
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         jBCancel = new javax.swing.JButton();
         jBOK = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -30,6 +31,8 @@ public class Skeleton extends CVAction {
         jSlider1 = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
         jCSElement = new javax.swing.JComboBox<>();
+        jLProgress = new javax.swing.JLabel();
+        jPProgress = new javax.swing.JProgressBar();
 
         frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +62,7 @@ public class Skeleton extends CVAction {
         jLSize.setText("Rozmiar [3x3]:");
 
         jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(8);
+        jSlider1.setMaximum(11);
         jSlider1.setMinimum(2);
         jSlider1.setToolTipText("");
         jSlider1.setValue(3);
@@ -82,6 +85,8 @@ public class Skeleton extends CVAction {
                 jCSElementActionPerformed(evt);
             }
         });
+
+        jLProgress.setText("Postępy [0/000000]:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(frame.getContentPane());
         frame.getContentPane().setLayout(layout);
@@ -106,7 +111,11 @@ public class Skeleton extends CVAction {
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel2)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jCSElement, 0, 1, Short.MAX_VALUE)))
+                                                .addComponent(jCSElement, 0, 1, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLProgress)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jPProgress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -124,7 +133,11 @@ public class Skeleton extends CVAction {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel2)
                                         .addComponent(jCSElement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLProgress)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPProgress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jBOK)
                                         .addComponent(jBCancel))
@@ -140,6 +153,11 @@ public class Skeleton extends CVAction {
         jCBordertype.setEnabled(false);
         imageEditedCopy = imageEdited;
         imageEditedMat  = CVAction.bufferedImg2Mat(Utils.toBufferedImage(imageEdited.getIcon().getImage()));
+
+        /*
+         * Konwertowanie na obraz szaroodcieniowy, 1 kanałowy
+         * Domyślnie przy ładowaniu obraz wczytywany jest jako RGB 3 kanałowy
+         */
         Imgproc.cvtColor(imageEditedMat,imageEditedMat,Imgproc.COLOR_RGB2GRAY);
         imageEditedMat.copyTo(imageEditedMatCopy);
         this.img  = imge;
@@ -153,7 +171,6 @@ public class Skeleton extends CVAction {
         LOGGER.warning("SharpenLaplace:run");
         imageEditedMatCopy.copyTo(imageEditedMat);//Restore previous data
 
-        //Tworzenie kernela na podstawie wyboru użytkownika
         Mat kernel = Imgproc.getStructuringElement
                 (shape.get(jCSElement.getSelectedIndex()),new Size(jSlider1.getValue(),jSlider1.getValue()));
 
@@ -166,6 +183,7 @@ public class Skeleton extends CVAction {
         //imageEditedMat.copyTo(imgOpened);
         int count = 0;
         int size = imageEditedMat.rows() * imageEditedMat.cols();
+        jPProgress.setMaximum(size);
 
         LOGGER.info("imageEditedMat: " + imageEditedMat.channels());
         LOGGER.info("baseSkeleton: " + baseSkeleton.channels());
@@ -173,7 +191,7 @@ public class Skeleton extends CVAction {
 
         while(true){
 
-            /**
+            /*
              * morphologyEx(Mat src, Mat dst, int op, Mat kernel, Point anchor, int iterations, int borderType, Scalar borderValue)
              * nie można podać Bordertype bo potrzeba też BorderValue, morphologyDefaultBorderValue() nie jest mapowane do javy
              *
@@ -191,7 +209,11 @@ public class Skeleton extends CVAction {
             Core.bitwise_or(baseSkeleton,imgSub,baseSkeleton);
 
             //Informacja o postepach
-            if((count % 1000) == 0) LOGGER.warning("Count: " + count + " Size: " + size);
+            if((count % 1000) == 0){
+                LOGGER.warning("Count: " + count + " Size: " + size);
+                jLProgress.setText("Postępy ["+count+"/"+size+"]:");
+                jPProgress.setValue(count);
+            }
 
             //Przerwij pętlę jeśli nie ma już obiektów w obrazie lub jeżeli przekroczymy max liczbe wykonań
             if(Core.countNonZero(tmpCopy) == 0 || count > size){
@@ -240,6 +262,15 @@ public class Skeleton extends CVAction {
         this.run(this.img);
     }
 
+    private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {
+        this.run(this.img);
+    }
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {
+        jLSize.setText("Rozmiar ["+ jSlider1.getValue() +"x"+ jSlider1.getValue() +"]:");
+    }
+
+
     private static final Map<Integer, Integer> shape = new HashMap<Integer, Integer>(){
         {
             put(0,Imgproc.MORPH_RECT);
@@ -255,9 +286,12 @@ public class Skeleton extends CVAction {
     private javax.swing.JButton jBOK;
     protected javax.swing.JComboBox<String> jCBordertype;
     private javax.swing.JComboBox<String> jCSElement;
+    private javax.swing.JLabel jLProgress;
     private javax.swing.JLabel jLSize;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JProgressBar jPProgress;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration
 
