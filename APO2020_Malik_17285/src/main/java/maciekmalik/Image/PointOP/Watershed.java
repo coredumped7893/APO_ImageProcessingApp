@@ -25,6 +25,7 @@ public class Watershed extends CVAction {
         jBCancel = new javax.swing.JButton();
         jBOK = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jLObjectNumber = new javax.swing.JLabel();
 
         frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,27 +50,35 @@ public class Watershed extends CVAction {
             }
         });
 
+        jLObjectNumber.setText("Liczba obiektów: 000");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(frame.getContentPane());
         frame.getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBCancel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBOK)
-                                .addContainerGap())
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jCheckBox1)
-                                .addContainerGap(153, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(jBCancel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jBOK))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jCheckBox1)
+                                                        .addComponent(jLObjectNumber))
+                                                .addGap(0, 137, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(39, Short.MAX_VALUE)
+                                .addContainerGap()
                                 .addComponent(jCheckBox1)
                                 .addGap(18, 18, 18)
+                                .addComponent(jLObjectNumber)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jBOK)
                                         .addComponent(jBCancel))
@@ -94,7 +103,7 @@ public class Watershed extends CVAction {
 
     @Override
     protected void run(Image imge) {
-        LOGGER.warning("Canny:run");
+        LOGGER.warning("Watershed:run");
         imageEditedMatCopy.copyTo(imageEditedMat);//Restore previous data
 
         this._watershedVer2();
@@ -138,7 +147,8 @@ public class Watershed extends CVAction {
 
         Mat markers = new Mat();
         int objects = Imgproc.connectedComponents(sure_fg,markers);
-        LOGGER.info("Objects: " + objects);
+        LOGGER.info("Objects: " + (objects-1)+ " + 1 (tło)");
+        jLObjectNumber.setText("Liczba obiektów: "+ (objects-1) + " + 1 (tło)");
 
         markers.convertTo(markers,CvType.CV_32SC1);
 
@@ -180,22 +190,26 @@ public class Watershed extends CVAction {
         unknown.get(0, 0, unknownData);
         for (int row=0;row<markers.rows();row++){
             for(int col=0;col<markers.cols();col++){
-                System.out.print(" "+markersData[row * markers.cols() + col]);
+                //System.out.print(" "+markersData[row * markers.cols() + col]);
                 int index = markersData[row * markers.cols() + col];
                 if(markersData[row * markers.cols() + col] == -1){
+                    //Granice obiektów jako biała linia
                     dstData[(row * markers.cols() + col) * 3 + 2] = (byte) ((255));
-                }
-                if(index > 1){
+                    dstData[(row * markers.cols() + col) * 3 + 1] = (byte) ((255));
+                    dstData[(row * markers.cols() + col) * 3 + 0] = (byte) ((255));
+                }else if(index > 1){
+                    //Koloruj środki obiektów
                     dstData[(row * markers.cols() + col) * 3 + 0] = (byte) colors.get(index-1).val[0];
                     dstData[(row * markers.cols() + col) * 3 + 1] = (byte) colors.get(index-1).val[1];
                     dstData[(row * markers.cols() + col) * 3 + 2] = (byte) colors.get(index-1).val[2];
                 }else{
+                    //Inaczej ustaw tło na czarno
                     dstData[(row * markers.cols() + col) * 3 + 0] = (byte) 0;
                     dstData[(row * markers.cols() + col) * 3 + 1] = (byte) 0;
                     dstData[(row * markers.cols() + col) * 3 + 2] = (byte) 0;
                 }
             }
-            System.out.println("");
+            //System.out.println("");
         }
         markers.put(0,0,markersData);
         dst.put(0,0,dstData);
@@ -207,9 +221,26 @@ public class Watershed extends CVAction {
     }
 
 
+
+
+
+    private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
+        imageEdited.setIcon(imageEditedCopy.getIcon());
+        frame.dispose();
+    }
+
+    private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
+        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
+        frame.dispose();
+    }
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
+        this.run(this.img);
+    }
+
     /**
      * Pierwsza wersja
-     * nie używana
+     *
      * @deprecated
      */
     private void _watershedVer1(){
@@ -333,25 +364,11 @@ public class Watershed extends CVAction {
         dst.copyTo(imageEditedMat);
     }
 
-
-    private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
-        imageEdited.setIcon(imageEditedCopy.getIcon());
-        frame.dispose();
-    }
-
-    private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
-        imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
-        frame.dispose();
-    }
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.run(this.img);
-    }
-
     // Variables declaration - do not modify
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLObjectNumber;
     // End of variables declaration
 
 

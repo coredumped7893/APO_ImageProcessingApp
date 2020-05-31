@@ -3,12 +3,15 @@
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/HistogramAction.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/BaseAction.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/UniversalLOP.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Watershed.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Negation.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/MainGUI.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/AdaptiveThresholding.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/DualAction.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Posterize.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/RangeStretch.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/Prewitt.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Otsu.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/MorphOP/Skeleton.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/BlurAction.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/Blur.java
