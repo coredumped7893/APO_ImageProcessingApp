@@ -24,6 +24,7 @@ import java.util.Map;
  * Loader do biblioteki OpenCV
  * Powinien załadować odpowiednią biblioteke na podstawie wykrytego systemu
  * Pododuje tymczasowy jej zapis na dysk
+ * + dodatkowe statyczne mapy z stałymi i funkcje
  *
  * {@link} https://github.com/openpnp/opencv
  */

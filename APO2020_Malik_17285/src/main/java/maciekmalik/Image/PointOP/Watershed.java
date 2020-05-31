@@ -114,6 +114,13 @@ public class Watershed extends CVAction {
 
     /**
      * Metoda z pliku .ipynb
+     * @see Imgproc#threshold(Mat, Mat, double, double, int) 
+     * @see Imgproc#dilate(Mat, Mat, Mat)
+     * @see Imgproc#morphologyEx(Mat, Mat, int, Mat)
+     * @see Imgproc#distanceTransform(Mat, Mat, int, int)
+     * @see Core#normalize(Mat, Mat)
+     * @see Core#multiply(Mat, Mat, Mat)
+     * @see Imgproc#watershed(Mat, Mat)
      */
     private void _watershedVer2(){
         Mat img = imageEditedMat.clone();
@@ -223,17 +230,28 @@ public class Watershed extends CVAction {
 
 
 
-
+    /**
+     * Anuluj zmiany, przywróć początkowy obraz
+     * @param evt
+     */
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.setIcon(imageEditedCopy.getIcon());
         frame.dispose();
     }
 
+    /**
+     * Zatwierdzenie zmian
+     * @param evt
+     */
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();
     }
 
+    /**
+     * Neguj obraz gdy zaznaczone
+     * @param evt
+     */
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
         this.run(this.img);
     }

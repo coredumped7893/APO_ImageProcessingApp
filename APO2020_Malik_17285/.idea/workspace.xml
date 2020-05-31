@@ -5,55 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc8c6beb-c0b9-44ad-b319-98e720c252b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Resources/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/2e9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/A1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/A1_result.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/MM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/c4jt321.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/c4jt321.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/fasola2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/lena_gray.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/minecraft_test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/minecraft_test_grey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/oMOVI0221.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/rect_many_test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/rect_test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/ryz1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/soczewica2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/test1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/test1_noise.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/test_pixels.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/test_pixels_grey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/train_fasola.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/train_ryz.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/train_soczewica.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/water_coins.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/2e9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/A1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/A1_result.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/MM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/c4jt321.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/c4jt321.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/lena_gray.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/minecraft_test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/minecraft_test_grey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/oMOVI0221.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/rect_many_test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/rect_test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/ryz1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/soczewica2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/test_pixels.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/test_pixels_grey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Resources/water_coins.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/CVAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Watershed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/maciekmalik/Image/PointOP/Watershed.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
