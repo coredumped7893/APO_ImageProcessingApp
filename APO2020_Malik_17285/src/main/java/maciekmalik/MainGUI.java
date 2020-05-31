@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -705,7 +706,11 @@ public class MainGUI extends JFrame  {
      * Okno wyboru pliku i utworzenie okna z plikiem po jego otwarciu
      */
     private void _loadImage(){
-        JFileChooser chooser = new JFileChooser(Paths.get(".").toAbsolutePath().normalize().toString()+"/src/main/java/maciekmalik/Resources"){
+        String protocol = this.getClass().getResource("").getProtocol();
+        String path;
+        path = (Paths.get(".").toAbsolutePath().normalize().toString().split("/target$")[0]+"/Resources");
+        String oldPath = Paths.get(".").toAbsolutePath().normalize().toString()+"/src/main/java/maciekmalik/Resources";
+        JFileChooser chooser = new JFileChooser(path){
             @Override
             protected JDialog createDialog(Component parent) throws HeadlessException {
                 // intercept the dialog created by JFileChooser
