@@ -15,6 +15,9 @@ import org.opencv.imgproc.Imgproc;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Uniwersalna operacja punktowa z ręczną edycją kernela
+ */
 public class UniversalLOP extends CVAction {
 
     private Mat kernel;

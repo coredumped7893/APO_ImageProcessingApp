@@ -12,6 +12,9 @@ import org.opencv.imgproc.Imgproc;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Konwertowanie obrazu na pojedyńczy kanał w skali szarości
+ */
 public class ToGrey extends CVAction {
 
     /**

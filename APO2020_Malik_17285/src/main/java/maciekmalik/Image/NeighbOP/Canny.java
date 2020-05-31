@@ -14,6 +14,9 @@ import org.opencv.imgproc.Imgproc;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Wykrywanie krawędzi: Canny
+ */
 public class Canny extends CVAction {
 
     private void initComponents() {

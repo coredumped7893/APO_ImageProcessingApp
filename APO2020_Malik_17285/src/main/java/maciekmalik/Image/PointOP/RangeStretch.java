@@ -7,5 +7,9 @@ package maciekmalik.Image.PointOP;
 import maciekmalik.Image.ImageAction;
 
 
+/**
+ * ------
+ * @deprecated
+ */
 public class RangeStretch extends ImageAction {
 }

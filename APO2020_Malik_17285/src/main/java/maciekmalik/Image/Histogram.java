@@ -26,6 +26,10 @@ import java.util.List;
 import java.util.logging.Logger;
 
 
+/**
+ * Generowanie okna z histogramem na podstawie obecnie aktywnego okna,
+ * Widok rozdzielony jest na każdy kanał osobno, plus jeden łączący wszystkie - Luminancja
+ */
 public class Histogram extends JFrame implements ChangeListener {
 
 

@@ -14,14 +14,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ * Redukcja poziomów szarości
+ */
 public class Posterize extends BaseAction {
 
-
-//    private Image img;
-//    private Map<Object, Object> options;
-//    private JFrame frame = new JFrame();
-//    private ImageWindow imageEdited;
-//    private ImageWindow imageEditedCopy;
 
     private void initComponents() {
 
@@ -136,6 +133,12 @@ public class Posterize extends BaseAction {
         imageEdited.setIcon(imageEditedCopy.getIcon());
         frame.dispose();
     }
+
+    /**
+     * Zatwierdź edycje
+     *
+     * @param evt
+     */
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {
         imageEdited.saveIconChange(new ImageIcon(this.img,ImageWindow.getLastFocused().getDescription()));
         frame.dispose();

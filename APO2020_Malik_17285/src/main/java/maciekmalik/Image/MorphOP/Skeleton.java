@@ -16,6 +16,9 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Wyznaczanie szkieletów obrazów binarnych
+ */
 public class Skeleton extends CVAction {
 
 
@@ -262,6 +265,10 @@ public class Skeleton extends CVAction {
         this.run(this.img);
     }
 
+    /**
+     * Zmiana rozmiaru E.S.
+     * @param evt
+     */
     private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {
         this.run(this.img);
     }
@@ -271,6 +278,9 @@ public class Skeleton extends CVAction {
     }
 
 
+    /**
+     * Statyczna lista dostępnych kształtóœ
+     */
     private static final Map<Integer, Integer> shape = new HashMap<Integer, Integer>(){
         {
             put(0,Imgproc.MORPH_RECT);

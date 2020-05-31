@@ -25,9 +25,9 @@ import java.util.Map;
 public class ImageAction {
 
 
-    //call here action view template and then create ImageWindow from the result
-
-
+    /**
+     * Lista dostępnych operacji
+     */
     private final static HashMap<String, ImageActionMaker> mapList = new HashMap<String, ImageActionMaker>(){
         {
             put("Negation",(image, options) -> new Negation(image, options));
@@ -53,6 +53,9 @@ public class ImageAction {
         }
     };
 
+    /**
+     * Fabryka oeracji na obrazach
+     */
     public static BaseAction run(String opType,Image image, Map<Object, Object> options){
         return mapList.get(opType).run(image,options);
     }

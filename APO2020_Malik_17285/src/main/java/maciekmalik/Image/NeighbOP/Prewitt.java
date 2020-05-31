@@ -19,6 +19,10 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Kierunkowe wykrywanie krawędzi: Prewitt
+ * na podstawie wybranego kierunku
+ */
 public class Prewitt extends CVAction {
 
     private Mat kernel;

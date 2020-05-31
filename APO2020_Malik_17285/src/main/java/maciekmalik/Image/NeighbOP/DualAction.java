@@ -17,6 +17,9 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Filtracja dwu i jedno etapowa
+ */
 public class DualAction extends CVAction {
 
 
@@ -124,7 +127,7 @@ public class DualAction extends CVAction {
 
     public DualAction(Image imge) {
         initComponents();
-        this.jRadioButton1.setSelected(true);//Defaultowo wykonywac się będzie filtracja z maską 5x5
+        this.jRadioButton1.setSelected(true);//Defaultowo wykonywać się będzie filtracja z maską 5x5
         imageEdited = ImageWindow.getLastFocused();
         imageEditedCopy = imageEdited;
         imageEditedMat  = CVAction.bufferedImg2Mat(Utils.toBufferedImage(imageEdited.getIcon().getImage()));
@@ -181,16 +184,28 @@ public class DualAction extends CVAction {
         this.run(this.img);
     }
 
+
+    /**
+     * Wybór filtrowania dwuetapowego 3x3 i 3x3
+     * @param evt
+     */
     private void jRDualActionActionPerformed(java.awt.event.ActionEvent evt) {
         this.dualF = true;
         this.run(this.img);
     }
 
+    /**
+     * Wybór filtrowania z jedną maską 5x5
+     * @param evt
+     */
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dualF = false;
         this.run(this.img);
     }
 
+    /**
+     * Predefiniowane maski
+     */
     private static final Map<String, Mat> masks = new HashMap<String, Mat>(){
         {
             put("3_smooth",new Mat(3,3, CvType.CV_32F){

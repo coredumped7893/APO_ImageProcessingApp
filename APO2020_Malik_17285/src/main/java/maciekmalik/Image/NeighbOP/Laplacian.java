@@ -15,6 +15,9 @@ import org.opencv.imgproc.Imgproc;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Wykrywanie krawędzi: Laplacian
+ */
 public class Laplacian extends CVAction {
 
 

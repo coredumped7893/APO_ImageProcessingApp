@@ -13,6 +13,9 @@ import org.opencv.imgproc.Imgproc;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Wykrywanie krawędzi: Sobel
+ */
 public class Sobel extends CVAction {
 
 

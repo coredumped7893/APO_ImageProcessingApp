@@ -31,8 +31,22 @@ import java.util.Map;
 public abstract class CVAction extends BaseAction{
 
 
+    /**
+     * Domyślny rozmiar kernela
+     */
     protected Size size = new Size(5,5);
+
+    /**
+     * Wartości pikseli obecnie edytowanego obrazu
+     * @see Mat
+     */
     protected Mat imageEditedMat = new Mat();
+
+
+    /**
+     * Kopia macierzy pikseli
+     * @see Mat
+     */
     protected Mat imageEditedMatCopy = new Mat();
 
 
@@ -44,7 +58,7 @@ public abstract class CVAction extends BaseAction{
 
 
     /**
-     * Ładowanie obrazu prze openCV
+     * Ładowanie obrazu przez openCV
      *
      * @see Imgcodecs#imread(String)
      * @see Mat
@@ -120,12 +134,16 @@ public abstract class CVAction extends BaseAction{
 
 
     /**
+     * Konwertowanie obiektu t. Image na t. Mat
+     *
      * @param in
      * @return
      * @deprecated
      * @see Utils#toBufferedImageType(java.awt.Image, int)
      * @see BufferedImage
      * @see DataBufferInt
+     * @see Mat
+     * @see Image
      */
     public static Mat bufferConvert(Image in){
         BufferedImage buff = Utils.toBufferedImageType(in,BufferedImage.TYPE_INT_ARGB);
@@ -136,6 +154,8 @@ public abstract class CVAction extends BaseAction{
     }
 
     /**
+     * Konwertowanie macierzy pikseli na obraz do wyświetlenia
+     *
      * @param in
      * @param width
      * @param heigth
@@ -143,6 +163,7 @@ public abstract class CVAction extends BaseAction{
      * @return Image
      * @see Mat
      * @see Utils#getImageFromArray(int[], int, int)
+     * @see Image
      */
     public static Image matConvert(Mat in,int width,int heigth){
         int[] data = new int[ (int) (in.total() * in.channels()) ];

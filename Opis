@@ -1,7 +1,6 @@
 Wymagania: Java 1.8
 
 
-
 Testowane dla obrazów .jpg i .png
 Obrazy użyte do testów są w APO2020_Malik_17285/src/main/java/maciekmalik/Resources/
 Dokładniejsza instrukcja pojawi się w następnej wersji
@@ -24,9 +23,36 @@ Instrukcja używania:
 	Obecnie wybrana ramka zaznaczona jest zielonym kolorem, po wybraniu operacji właśnie taka będzie w miejscu edytowana
 	większość operacji ma możliwość cofnięcia zmian przez przycisk "Resetuj" lub "Anuluj"
 	Układ menu sugerowany jest z Gimpa i do niego były też porównywane wyniki przy testowaniu
-	
-	
 
+Układ menu:
+	Colors:
+		Rozciąganie histogramu
+		Negacja
+		Progowanie
+		Progowanie Adaptacyjne
+		Progowanie Otsu
+		Segmentacja Watershed
+		Posteryzacja
+		Konwersja do skali szarości
+	Filters:
+		Rozmywanie:
+			Domyślny Blur
+			Gaussowski
+			Medianowy
+		Wyostrzanie:
+			na podstawie masek Laplasjanowych
+		Wykrywanie krawędzi:
+			Sobel
+			Canny
+			Laplace
+			Prewitt
+		Unikwersalna operacja liniowa
+		Filtracja Dwu i jedno etapowa
+		Szkieletyzacja
+		Operacje morfologiczne
+			Możliwe jest wybranie typu kernela, i operacji (otwarcie,zamkniecie,erozaj,dylacja)
+	Info:
+		Histogram
 
 
 Znane mi błędy: 

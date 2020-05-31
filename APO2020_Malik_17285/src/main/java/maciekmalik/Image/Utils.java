@@ -9,6 +9,13 @@ import java.awt.image.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Różne pomocniczne metody do operacaji na pojedynczych pikselach:
+ * zamiana piksela RGB na szaro odcieniowy,
+ * konwertowanie piksela RGB na wartości konkretnych kanałów i w drugą stronę
+ * generowanie obrazu z tablicy wartośći pikseli
+ * generowanie tablicy wartości z obiektu obrazu
+ */
 public class Utils {
 
     public static BufferedImage deepCopy(BufferedImage bi) {
@@ -77,6 +84,11 @@ public class Utils {
         }
     }
 
+    /**
+     * Rozdziela piksel RGB na pojedyńcze kanały, wylicza wartośc luminancji i zwrata to jako mapę
+     * @param pixel
+     * @return Map
+     */
     public static Map<String,Integer> pixelValue(int pixel){
         Map<String,Integer> tmpM = new HashMap<>();
 
@@ -96,10 +108,22 @@ public class Utils {
 
     }
 
+    /**
+     * Konwertuje mapę piksela do pojedyńczej wartości int (4 bajtowej)
+     * @param pixel
+     * @return int
+     */
     public static int pixelToInt(Map<String,Integer> pixel){
         return pixel.get("Blue") + ( pixel.get("Green") << 8 ) + ( pixel.get("Red") << 16 );
     }
 
+    /**
+     * Generuje obraz na podstawie tablicy wartości
+     * @param pixels
+     * @param width
+     * @param height
+     * @return Image
+     */
     public static Image getImageFromArray(int[] pixels, int width, int height) {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         image.setRGB(0,0,width,height,pixels,0,width);
@@ -111,6 +135,13 @@ public class Utils {
         return image;
     }
 
+    /**
+     * Konwersja wartości RGB na pojedyńczy kanał luminancji
+     * @param r
+     * @param g
+     * @param b
+     * @return double
+     */
     public static double pixelToGrey(int r, int g, int b){
         return 0.2989 * r + 0.5870 * g + 0.1140 * b;
     }

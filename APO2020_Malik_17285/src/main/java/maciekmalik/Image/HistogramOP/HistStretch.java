@@ -263,6 +263,10 @@ public class HistStretch  extends HistogramAction {
         frame.dispose();
     }
 
+    /**
+     * Zmiana lewego zakresu
+     * @param evt
+     */
     private void jSL1MouseReleased(java.awt.event.MouseEvent evt) {
         this.V_MIN = jSL1.getValue();
         this.img = this.imageEditedCopy.getIcon().getImage();
@@ -271,6 +275,10 @@ public class HistStretch  extends HistogramAction {
         imageEdited.setIcon(new ImageIcon(this.img,imageEditedCopy.getDescription()));
     }
 
+    /**
+     * Zmiana prawego zakresu
+     * @param evt
+     */
     private void jSL2MouseReleased(java.awt.event.MouseEvent evt) {
         this.V_MAX = jSL2.getValue();
         this.img = this.imageEditedCopy.getIcon().getImage();
@@ -284,6 +292,10 @@ public class HistStretch  extends HistogramAction {
     private void jSL1StateChanged(javax.swing.event.ChangeEvent evt) {
     }
 
+    /**
+     * Gdy zazanaczony, zmiana zakresów aktualizuje widok histogramu
+     * @param evt
+     */
     private void jCHistUpdateActionPerformed(java.awt.event.ActionEvent evt) {
         LOGGER.info("Update Hist");
         _updateHistView(this.img);

@@ -18,6 +18,13 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Podstawowe operacje morfologiczne:
+ * erozja,
+ * dylacja,
+ * otwarcie,
+ * zamknięcie,
+ */
 public class BasicMorph extends CVAction {
 
 

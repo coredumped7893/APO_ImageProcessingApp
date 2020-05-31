@@ -18,6 +18,9 @@ import java.util.List;
 import java.util.Map;
 
 
+/**
+ * Progowanie na podstawie dwóch wartości z możliwościa zachowania poziomów szarości
+ */
 public class Thresholding  extends BaseAction implements ChangeListener {
 
 
@@ -266,6 +269,10 @@ public class Thresholding  extends BaseAction implements ChangeListener {
         jLSelectedValue2.setText(String.valueOf(jSValueSelect2.getValue()));
     }
 
+    /**
+     * Zmiana wartości prawego progu
+     * @param evt
+     */
     private void jSValueSelect2MouseReleased(java.awt.event.MouseEvent evt) {
         LOGGER.info("Mouse released [Q2], new value:" + jSValueSelect2.getValue());
         jLSelectedValue2.setText(String.valueOf(jSValueSelect2.getValue()));
@@ -320,7 +327,7 @@ public class Thresholding  extends BaseAction implements ChangeListener {
 
 
     /**
-     * Change textbox value when slider is changing its value
+     * Zmiana wartosci lewego progu
      *
      * @param evt
      */
