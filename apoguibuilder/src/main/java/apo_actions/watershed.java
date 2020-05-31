@@ -30,6 +30,7 @@ public class watershed extends javax.swing.JFrame {
         jBCancel = new javax.swing.JButton();
         jBOK = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jLObjectNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,27 +50,35 @@ public class watershed extends javax.swing.JFrame {
 
         jCheckBox1.setText("Negatyw przed segmentacja");
 
+        jLObjectNumber.setText("Liczba obiektów: 000");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBCancel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBOK)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox1)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBOK))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox1)
+                            .addComponent(jLObjectNumber))
+                        .addGap(0, 137, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jCheckBox1)
                 .addGap(18, 18, 18)
+                .addComponent(jLObjectNumber)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBOK)
                     .addComponent(jBCancel))
@@ -126,5 +135,6 @@ public class watershed extends javax.swing.JFrame {
     private javax.swing.JButton jBCancel;
     private javax.swing.JButton jBOK;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLObjectNumber;
     // End of variables declaration//GEN-END:variables
 }
