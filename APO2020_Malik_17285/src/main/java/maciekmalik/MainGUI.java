@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.logging.Logger;
 
 
@@ -59,6 +60,9 @@ public class MainGUI extends JFrame  {
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
+        jMAdaptiveThresholding = new javax.swing.JMenuItem();
+        jMOtsuThresholding = new javax.swing.JMenuItem();
+        jMWatershed = new javax.swing.JMenuItem();
         jMPosterize = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jMToGrey = new javax.swing.JMenuItem();
@@ -219,6 +223,30 @@ public class MainGUI extends JFrame  {
             }
         });
         jMColors.add(jMThresholding);
+
+        jMAdaptiveThresholding.setText("Progowanie adaptacyjne");
+        jMAdaptiveThresholding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMAdaptiveThresholdingActionPerformed(evt);
+            }
+        });
+        jMColors.add(jMAdaptiveThresholding);
+
+        jMOtsuThresholding.setText("Progowanie Otsu");
+        jMOtsuThresholding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMOtsuThresholdingActionPerformed(evt);
+            }
+        });
+        jMColors.add(jMOtsuThresholding);
+
+        jMWatershed.setText("Segmentacja Wododziałowa");
+        jMWatershed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMWatershedActionPerformed(evt);
+            }
+        });
+        jMColors.add(jMWatershed);
 
         jMPosterize.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMPosterize.setText("Posteryzacja");
@@ -415,6 +443,7 @@ public class MainGUI extends JFrame  {
     }
 
     /**
+     * Otwieranie obrazu
      * @param evt
      */
     private void jMOpenFileActionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,7 +516,7 @@ public class MainGUI extends JFrame  {
      */
     private void jMDuplicateActionPerformed(java.awt.event.ActionEvent evt) {
         LOGGER.info("Duplicating image");
-        String title = "CopyOf_" + ImageWindow.getLastFocused().getIcon().getDescription();
+        String title = "["+ new Random().nextInt(1000) +"]CopyOf_" + ImageWindow.getLastFocused().getIcon().getDescription();
         java.awt.EventQueue.invokeLater(() ->
                 new ImageWindow(ImageWindow.getLastFocused().getIcon().getImage()).setDescription(title));
         ImageWindow.getLastFocused().getRootPane().setBorder(null);
@@ -598,6 +627,18 @@ public class MainGUI extends JFrame  {
         ImageAction.run("BasicMorph", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
+    private void jMAdaptiveThresholdingActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("AdaptiveThresholding", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
+    private void jMOtsuThresholdingActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("Otsu", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
+    private void jMWatershedActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("Watershed", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
     /**
      * Sprawdza czy przyciski na pasku menu mogą być aktywowane
      *
@@ -628,6 +669,9 @@ public class MainGUI extends JFrame  {
             jMSkelet.setEnabled(false);
             jMToGrey.setEnabled(false);
             jMOMorph.setEnabled(false);
+            jMAdaptiveThresholding.setEnabled(false);
+            jMOtsuThresholding.setEnabled(false);
+            jMWatershed.setEnabled(false);
         }else{
             jMHistogram.setEnabled(true);
             jMSave.setEnabled(true);
@@ -651,6 +695,9 @@ public class MainGUI extends JFrame  {
             jMSkelet.setEnabled(true);
             jMToGrey.setEnabled(true);
             jMOMorph.setEnabled(true);
+            jMAdaptiveThresholding.setEnabled(true);
+            jMOtsuThresholding.setEnabled(true);
+            jMWatershed.setEnabled(true);
         }
     }
 
@@ -691,6 +738,7 @@ public class MainGUI extends JFrame  {
 
     // Variables declaration - do not modify
     private javax.swing.JMenu jMAbout;
+    private javax.swing.JMenuItem jMAdaptiveThresholding;
     private javax.swing.JMenuItem jMBlurGaussian;
     private javax.swing.JMenuItem jMBlurNorm;
     private javax.swing.JMenu jMColors;
@@ -709,6 +757,7 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOMorph;
     private javax.swing.JMenuItem jMOpenFile;
+    private javax.swing.JMenuItem jMOtsuThresholding;
     private javax.swing.JMenuItem jMPosterize;
     private javax.swing.JMenuItem jMPrewitt;
     private javax.swing.JMenuItem jMSave;
@@ -719,6 +768,7 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenuItem jMThresholding;
     private javax.swing.JMenuItem jMToGrey;
     private javax.swing.JMenuItem jMUnvLOP;
+    private javax.swing.JMenuItem jMWatershed;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

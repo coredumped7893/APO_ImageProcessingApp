@@ -8,10 +8,7 @@ import maciekmalik.Image.HistogramOP.HistStretch;
 import maciekmalik.Image.MorphOP.BasicMorph;
 import maciekmalik.Image.MorphOP.Skeleton;
 import maciekmalik.Image.NeighbOP.*;
-import maciekmalik.Image.PointOP.Negation;
-import maciekmalik.Image.PointOP.Posterize;
-import maciekmalik.Image.PointOP.Thresholding;
-import maciekmalik.Image.PointOP.ToGrey;
+import maciekmalik.Image.PointOP.*;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -50,6 +47,9 @@ public class ImageAction {
             put("Skeleton",(image, options) -> new Skeleton(image));
             put("ToGrey",(image, options) -> new ToGrey());
             put("BasicMorph",(image, options) -> new BasicMorph(image));
+            put("AdaptiveThresholding",(image,options) -> new AdaptiveThresholding(image));
+            put("Otsu",(image,options) -> new Otsu(image));
+            put("Watershed",(image,options) -> new Watershed(image));
         }
     };
 

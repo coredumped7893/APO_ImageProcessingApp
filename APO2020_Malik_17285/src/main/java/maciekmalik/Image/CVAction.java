@@ -95,6 +95,30 @@ public abstract class CVAction extends BaseAction{
     };
 
     /**
+     * Statyczna mapa sposobów liczenia progów
+     * @see maciekmalik.Image.PointOP.AdaptiveThresholding
+     */
+    protected static Map<String, Integer> adaptiveMethod = new HashMap<String, Integer>(){
+        {
+            put("ADAPTIVE_THRESH_MEAN_C",Imgproc.ADAPTIVE_THRESH_MEAN_C);
+            put("ADAPTIVE_THRESH_GAUSSIAN_C",Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C);
+        }
+    };
+
+    /**
+     * Statyczna mapa typów progowania
+     * @see maciekmalik.Image.PointOP.AdaptiveThresholding
+     */
+    protected static Map<String, Integer> thresholdingTypes = new HashMap<String, Integer>(){
+        {
+            put("THRESH_BINARY",Imgproc.THRESH_BINARY);
+            put("THRESH_BINARY_INV",Imgproc.THRESH_BINARY_INV);
+        }
+    };
+
+
+
+    /**
      * @param in
      * @return
      * @deprecated
