@@ -27,7 +27,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="188" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="238" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -55,7 +55,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="10"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Maciek Malik&#xa;APO 2020&#xa;v.0.13.4&#xa;&#xa;* Histogram&#xa;* Rozci&#x105;ganie hist.&#xa;* Wyr&#xf3;wnanie hist.&#xa;* Negacja&#xa;* Progowanie&#xa;* Posteryzacja&#xa;* Rozmywanie&#xa;    * Blur&#xa;    * Gaussian&#xa;    * Median&#xa;* Wykrywanie kraw&#x119;dzi&#xa;    * Sobel&#xa;    * Laplace&#xa;    * Prewitt&#xa;    * Canny&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;"/>
+            <Property name="text" type="java.lang.String" value="Maciek Malik&#xa;APO 2020&#xa;v.0.21.8&#xa;&#xa;* Histogram&#xa;* Rozci&#x105;ganie hist.&#xa;* Wyr&#xf3;wnanie hist.&#xa;* Negacja&#xa;* Progowanie&#xa;* Posteryzacja&#xa;* Rozmywanie&#xa;    * Blur&#xa;    * Gaussian&#xa;    * Median&#xa;* Wykrywanie kraw&#x119;dzi&#xa;    * Sobel&#xa;    * Laplace&#xa;    * Prewitt&#xa;    * Canny&#xa;* Uniwersalna operacja punktowa&#xa;* Filtracja dwuetapowa&#xa;* Szkieletyzacja&#xa;* Operacje morfologiczne&#xa;    * Erozja&#xa;    * Dylacja&#xa;    * Otwarcie&#xa;    * Zamkni&#x119;cie&#xa;* Progowanie adaptacyje&#xa;* Segmentacja przez Wododzia&#x142;y&#xa;* Progowanie Otsu&#xa;* Konwersja do skali szaro&#x15b;ci&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>

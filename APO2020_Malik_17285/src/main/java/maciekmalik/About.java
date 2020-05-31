@@ -33,7 +33,7 @@ public class About extends JFrame {
         jTAbout.setEditable(false);
         jTAbout.setColumns(10);
         jTAbout.setRows(5);
-        jTAbout.setText("Maciek Malik\nAPO 2020\nv.0.13.4\n\n* Histogram\n* Rozciąganie hist.\n* Wyrównanie hist.\n* Negacja\n* Progowanie\n* Posteryzacja\n* Rozmywanie\n    * Blur\n    * Gaussian\n    * Median\n* Wykrywanie krawędzi\n    * Sobel\n    * Laplace\n    * Prewitt\n    * Canny\n\n\n\n\n\n\n\n\n\n\n\n");
+        jTAbout.setText("Maciek Malik\nAPO 2020\nv.0.21.8\n\n* Histogram\n* Rozciąganie hist.\n* Wyrównanie hist.\n* Negacja\n* Progowanie\n* Posteryzacja\n* Rozmywanie\n    * Blur\n    * Gaussian\n    * Median\n* Wykrywanie krawędzi\n    * Sobel\n    * Laplace\n    * Prewitt\n    * Canny\n* Uniwersalna operacja punktowa\n* Filtracja dwuetapowa\n* Szkieletyzacja\n* Operacje morfologiczne\n    * Erozja\n    * Dylacja\n    * Otwarcie\n    * Zamknięcie\n* Progowanie adaptacyje\n* Segmentacja przez Wododziały\n* Progowanie Otsu\n* Konwersja do skali szarości\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         jTAbout.setToolTipText("");
         jScrollPane1.setViewportView(jTAbout);
 
@@ -43,7 +43,7 @@ public class About extends JFrame {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
