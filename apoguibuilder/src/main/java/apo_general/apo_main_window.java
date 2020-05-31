@@ -51,6 +51,9 @@ public class apo_main_window extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMNegation = new javax.swing.JMenuItem();
         jMThresholding = new javax.swing.JMenuItem();
+        jMAdaptiveThresholding = new javax.swing.JMenuItem();
+        jMOtsuThresholding = new javax.swing.JMenuItem();
+        jMWatershed = new javax.swing.JMenuItem();
         jMPosterize = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jMToGrey = new javax.swing.JMenuItem();
@@ -211,6 +214,30 @@ public class apo_main_window extends javax.swing.JFrame {
             }
         });
         jMColors.add(jMThresholding);
+
+        jMAdaptiveThresholding.setText("Progowanie adaptacyjne");
+        jMAdaptiveThresholding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMAdaptiveThresholdingActionPerformed(evt);
+            }
+        });
+        jMColors.add(jMAdaptiveThresholding);
+
+        jMOtsuThresholding.setText("Progowanie Otsu");
+        jMOtsuThresholding.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMOtsuThresholdingActionPerformed(evt);
+            }
+        });
+        jMColors.add(jMOtsuThresholding);
+
+        jMWatershed.setText("Segmentacja Wododziałowa");
+        jMWatershed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMWatershedActionPerformed(evt);
+            }
+        });
+        jMColors.add(jMWatershed);
 
         jMPosterize.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMPosterize.setText("Posteryzacja");
@@ -510,6 +537,18 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMOMorphActionPerformed
 
+    private void jMAdaptiveThresholdingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAdaptiveThresholdingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMAdaptiveThresholdingActionPerformed
+
+    private void jMOtsuThresholdingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMOtsuThresholdingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMOtsuThresholdingActionPerformed
+
+    private void jMWatershedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMWatershedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMWatershedActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -550,6 +589,7 @@ public class apo_main_window extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMAbout;
+    private javax.swing.JMenuItem jMAdaptiveThresholding;
     private javax.swing.JMenuItem jMBlurGaussian;
     private javax.swing.JMenuItem jMBlurNorm;
     private javax.swing.JMenu jMColors;
@@ -568,6 +608,7 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMNegation;
     private javax.swing.JMenuItem jMOMorph;
     private javax.swing.JMenuItem jMOpenFile;
+    private javax.swing.JMenuItem jMOtsuThresholding;
     private javax.swing.JMenuItem jMPosterize;
     private javax.swing.JMenuItem jMPrewitt;
     private javax.swing.JMenuItem jMSave;
@@ -578,6 +619,7 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMThresholding;
     private javax.swing.JMenuItem jMToGrey;
     private javax.swing.JMenuItem jMUnvLOP;
+    private javax.swing.JMenuItem jMWatershed;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

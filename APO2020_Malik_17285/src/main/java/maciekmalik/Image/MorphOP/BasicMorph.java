@@ -303,48 +303,48 @@ public class BasicMorph extends CVAction {
             col=0;
             for(spaces=size-i;spaces>0;spaces--) {
                 //System.out.print("{["+row+':'+col+"]0}");
-                System.out.print("0");
+                //System.out.print("0");
                 out.put(row,col,0);
                 col++;
             }
             int jj = i;
             for(j=2*i-1;j>0;j--){
                 //System.out.print("{["+row+':'+col+"]1}");
-                System.out.print("1");
+                //System.out.print("1");
                 out.put(row,col,1);
                 col++;
             }
             for(spaces=size-jj;spaces>0;spaces--) {
                 //System.out.print("{["+row+':'+col+"]0}");
-                System.out.print("0");
+                //System.out.print("0");
                 out.put(row,col,0);
                 col++;
             }
-            System.out.print('\n');
+            //System.out.print('\n');
             row++;
         }
         for(i=size-1;i>0;i--) {
             col=0;
             for(spaces=0;spaces<size-i;spaces++) {
                 //System.out.print("{["+row+':'+col+"]0}");
-                System.out.print("0");
+                //System.out.print("0");
                 out.put(row,col,0);
                 col++;
             }
             int jj = i;
             for(j=0;j<2*i-1;j++){
                 //System.out.print("{["+row+':'+col+"]1}");
-                System.out.print("1");
+                //System.out.print("1");
                 out.put(row,col,1);
                 col++;
             }
             for(spaces=size-jj;spaces>0;spaces--) {
                 //System.out.print("{["+row+':'+col+"]0}");
-                System.out.print("0");
+                //System.out.print("0");
                 out.put(row,col,0);
                 col++;
             }
-            System.out.print('\n');
+            //System.out.print('\n');
             row++;
         }
         return out;
