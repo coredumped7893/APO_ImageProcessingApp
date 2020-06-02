@@ -197,6 +197,7 @@ public class BasicMorph extends CVAction {
         initComponents();
         imageEdited = ImageWindow.getLastFocused();
         jCBordertype.setEnabled(false);
+        this.frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         imageEditedCopy = imageEdited;
         imageEditedMat  = CVAction.bufferedImg2Mat(Utils.toBufferedImage(imageEdited.getIcon().getImage()));
 

@@ -1,0 +1,9 @@
+Używanie:
+	1) Otwieramy dwa dowolne obrazy
+	2) zaznaczamy jeden - klikamy na niego tak żeby dostał zieloną ramkę
+	3) potem wchodzimy w Op. Dwuargumentowe -> Uruchom
+	3A) (Okno wtedy czeka aż klikniemy na kolejny obraz)
+	4) Klikamy na drugi obraz
+	5) jak dostanie zieloną ramkę to z powrotem focusujemy na oknie z wyborem operacji i parametrów
+	6) Wtedy drugie okno (z obrazem) powinno dostać fioletową ramke i ikona obrazu powinna się dodać do głównego okna z opcjami
+	7) Wynik zapisaywany jest na pierwszym argumencie 

@@ -32,6 +32,8 @@ public class apo_main_window extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMFile = new javax.swing.JMenu();
@@ -73,6 +75,8 @@ public class apo_main_window extends javax.swing.JFrame {
         jMFDual = new javax.swing.JMenuItem();
         jMSkelet = new javax.swing.JMenuItem();
         jMOMorph = new javax.swing.JMenuItem();
+        jMTwoArg = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -80,6 +84,10 @@ public class apo_main_window extends javax.swing.JFrame {
         jMenuItem3.setText("jMenuItem3");
 
         jMenuItem4.setText("jMenuItem4");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -380,6 +388,27 @@ public class apo_main_window extends javax.swing.JFrame {
 
         jMenuBar1.add(jMFilters);
 
+        jMTwoArg.setText("Op. Dwuargumentowe");
+        jMTwoArg.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMTwoArgMenuSelected(evt);
+            }
+        });
+
+        jMenuItem6.setText("Uruchom");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMTwoArg.add(jMenuItem6);
+
+        jMenuBar1.add(jMTwoArg);
+
         jMAbout.setText("O Programie");
         jMAbout.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
@@ -549,6 +578,14 @@ public class apo_main_window extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMWatershedActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMTwoArgMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMTwoArgMenuSelected
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMTwoArgMenuSelected
+
     /**
      * @param args the command line arguments
      */
@@ -618,15 +655,19 @@ public class apo_main_window extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMStreching;
     private javax.swing.JMenuItem jMThresholding;
     private javax.swing.JMenuItem jMToGrey;
+    private javax.swing.JMenu jMTwoArg;
     private javax.swing.JMenuItem jMUnvLOP;
     private javax.swing.JMenuItem jMWatershed;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

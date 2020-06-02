@@ -226,10 +226,11 @@ public class Thresholding  extends BaseAction implements ChangeListener {
 
     public Thresholding(Image imge,Map<Object, Object> options) {
 
-        imageEdited  = ImageWindow.getLastFocused();
+        imageEdited  = ImageWindow.getLastFocused();//Zapisz który obraz chcemy przerabiać
         //System.out.println("Last Focused:" + imageEdited.getDescription());
         imageEditedCopy = imageEdited;
         this.frame = new JFrame();
+        this.frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.initComponents();
         Histogram hist = new Histogram(imge);
         List<ChartPanel> cpL =  hist.renderFrame(hist.calculateHist(),"Thresholding: " + ImageWindow.getLastFocused().getIcon().getDescription());
@@ -281,6 +282,8 @@ public class Thresholding  extends BaseAction implements ChangeListener {
     }
 
     private void jCKeepGreyActionPerformed(java.awt.event.ActionEvent evt) {
+        this.run(imageEdited.getIcon().getImage(),options);
+        imageEdited.setIcon(new ImageIcon(this.img,imageEditedCopy.getDescription()));
         if(jCKeepGrey.isSelected()) {
             //jSValueSelect2.setEnabled(true);
         } else{

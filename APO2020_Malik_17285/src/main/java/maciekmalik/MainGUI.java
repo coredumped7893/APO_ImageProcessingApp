@@ -42,6 +42,8 @@ public class MainGUI extends JFrame  {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMFile = new javax.swing.JMenu();
@@ -83,6 +85,8 @@ public class MainGUI extends JFrame  {
         jMFDual = new javax.swing.JMenuItem();
         jMSkelet = new javax.swing.JMenuItem();
         jMOMorph = new javax.swing.JMenuItem();
+        jMTwoArg = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMAbout = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -90,6 +94,10 @@ public class MainGUI extends JFrame  {
         jMenuItem3.setText("jMenuItem3");
 
         jMenuItem4.setText("jMenuItem4");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -390,6 +398,27 @@ public class MainGUI extends JFrame  {
 
         jMenuBar1.add(jMFilters);
 
+        jMTwoArg.setText("Op. Dwuargumentowe");
+
+        jMenuItem6.setText("Uruchom");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMTwoArg.add(jMenuItem6);
+        jMTwoArg.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMTwoArgMenuSelected(evt);
+            }
+        });
+
+        jMenuBar1.add(jMTwoArg);
+
         jMAbout.setText("O Programie");
         jMAbout.addMenuListener(new javax.swing.event.MenuListener() {
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
@@ -486,6 +515,9 @@ public class MainGUI extends JFrame  {
     private void jMFiltersMenuSelected(javax.swing.event.MenuEvent evt) { this._checkEnabled(); }
 
     private void jMAboutActionPerformed(java.awt.event.ActionEvent evt) {
+    }
+    private void jMTwoArgMenuSelected(javax.swing.event.MenuEvent evt) {
+        this._checkEnabled();
     }
 
     private void jMSaveActionPerformed(java.awt.event.ActionEvent evt) {
@@ -640,6 +672,23 @@ public class MainGUI extends JFrame  {
         ImageAction.run("Watershed", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
     }
 
+    private void jMObjPropertiesActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("ObjectProperties", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
+    private void jMSVMActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("SVM", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
+    /**
+     * Operacje dwuargumentowe
+     * @param evt
+     */
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {
+        ImageAction.run("TwoArgument", ImageWindow.getLastFocused().getIcon().getImage(), new HashMap<>());
+    }
+
+
     /**
      * Sprawdza czy przyciski na pasku menu mogą być aktywowane
      *
@@ -673,6 +722,7 @@ public class MainGUI extends JFrame  {
             jMAdaptiveThresholding.setEnabled(false);
             jMOtsuThresholding.setEnabled(false);
             jMWatershed.setEnabled(false);
+            jMenuItem6.setEnabled(false);
         }else{
             jMHistogram.setEnabled(true);
             jMSave.setEnabled(true);
@@ -699,8 +749,16 @@ public class MainGUI extends JFrame  {
             jMAdaptiveThresholding.setEnabled(true);
             jMOtsuThresholding.setEnabled(true);
             jMWatershed.setEnabled(true);
+            jMenuItem6.setEnabled(true);
         }
     }
+
+    private static String OS = System.getProperty("os.name").toLowerCase();
+
+    private static boolean isWindows() {
+        return (OS.indexOf("win") >= 0);
+    }
+
 
     /**
      * Okno wyboru pliku i utworzenie okna z plikiem po jego otwarciu
@@ -708,7 +766,14 @@ public class MainGUI extends JFrame  {
     private void _loadImage(){
         String protocol = this.getClass().getResource("").getProtocol();
         String path;
-        path = (Paths.get(".").toAbsolutePath().normalize().toString().split("/target$")[0]+"/Resources");
+        path = (Paths.get(".").toAbsolutePath().normalize().toString().split("/target$")[0]);
+        if(isWindows()){
+            path += "\\APO2020_Malik_17285\\Resources";
+        }else{
+            path += "";
+        }
+        LOGGER.info("OS: " + OS);
+        LOGGER.info(path);
         String oldPath = Paths.get(".").toAbsolutePath().normalize().toString()+"/src/main/java/maciekmalik/Resources";
         JFileChooser chooser = new JFileChooser(path){
             @Override
@@ -772,15 +837,19 @@ public class MainGUI extends JFrame  {
     private javax.swing.JMenuItem jMStreching;
     private javax.swing.JMenuItem jMThresholding;
     private javax.swing.JMenuItem jMToGrey;
+    private javax.swing.JMenu jMTwoArg;
     private javax.swing.JMenuItem jMUnvLOP;
     private javax.swing.JMenuItem jMWatershed;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

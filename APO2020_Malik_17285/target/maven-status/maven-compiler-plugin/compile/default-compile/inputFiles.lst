@@ -1,4 +1,5 @@
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/package-info.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/ImgAnalysis/package-info.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/ToGrey.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/MorphOP/BasicMorph.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/HistogramAction.java
@@ -12,16 +13,19 @@
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/MorphOP/package-info.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/AdaptiveThresholding.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/DualAction.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/ImgAnalysis/ObjectProperties.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/package-info.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Posterize.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/RangeStretch.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/Prewitt.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/Otsu.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/MorphOP/Skeleton.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/PointOP/TwoArgument.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/BlurAction.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/Blur.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/SharpLaplace.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/NeighbOP/Sobel.java
+/home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/ImgAnalysis/SVM.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/ImageActionMaker.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/About.java
 /home/coredumped7893/Documents/WIT/APO/apo/APO2020_Malik_17285/src/main/java/maciekmalik/Image/package-info.java

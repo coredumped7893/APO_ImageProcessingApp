@@ -5,6 +5,8 @@
 package maciekmalik.Image;
 
 import maciekmalik.Image.HistogramOP.HistStretch;
+import maciekmalik.Image.ImgAnalysis.ObjectProperties;
+import maciekmalik.Image.ImgAnalysis.SVM;
 import maciekmalik.Image.MorphOP.BasicMorph;
 import maciekmalik.Image.MorphOP.Skeleton;
 import maciekmalik.Image.NeighbOP.*;
@@ -50,6 +52,9 @@ public class ImageAction {
             put("AdaptiveThresholding",(image,options) -> new AdaptiveThresholding(image));
             put("Otsu",(image,options) -> new Otsu(image));
             put("Watershed",(image,options) -> new Watershed(image));
+            put("ObjectProperties",(image,options) -> new ObjectProperties(image));
+            put("SVM",(image,options) -> new SVM(image));
+            put("TwoArgument",(image,options) -> new TwoArgument(image));
         }
     };
 

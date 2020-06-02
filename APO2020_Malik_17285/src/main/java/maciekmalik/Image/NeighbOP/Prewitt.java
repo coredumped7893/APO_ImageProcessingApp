@@ -209,6 +209,7 @@ public class Prewitt extends CVAction {
     public Prewitt(Image imge) {
         initComponents();
         jRadioButton3.setSelected(true);//Default for NE direction
+        this.frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         kernel = directionKernels.get("NE");
         imageEdited = ImageWindow.getLastFocused();
         imageEditedCopy = imageEdited;
